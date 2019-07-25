@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="StateMachine_Top_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="StateMachine_Top_TB" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2422963770000001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="144"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/StateMachine_Top_TB/Clk_In" type="logic">
+      <obj_property name="ElementShortName">Clk_In</obj_property>
+      <obj_property name="ObjectShortName">Clk_In</obj_property>
+   </wvobject>
+   <wvobject fp_name="/StateMachine_Top_TB/Schalter" type="array">
+      <obj_property name="ElementShortName">Schalter[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Schalter[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/StateMachine_Top_TB/LED" type="array">
+      <obj_property name="ElementShortName">LED[2:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/StateMachine_Top_TB/Button" type="logic">
+      <obj_property name="ElementShortName">Button</obj_property>
+      <obj_property name="ObjectShortName">Button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/StateMachine_Top_TB/UUT/Taster_Deb" type="logic">
+      <obj_property name="ElementShortName">Taster_Deb</obj_property>
+      <obj_property name="ObjectShortName">Taster_Deb</obj_property>
+   </wvobject>
+</wave_config>

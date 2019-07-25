@@ -1,0 +1,64 @@
+---------------------------------------------------------------
+time         :  .. t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 .. .. .. .. ..
+---------------------------------------------------------------
+sync:
+  hsync  out :  .. h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 .. .. .. .. ..
+  vsync  out :  .. v0 v1 v2 v3 v4 v5 v6 v7 v8 v9 .. .. .. .. ..
+
+pos:
+  x      out :  .. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 .. .. .. .. ..
+  y      out :  .. y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 .. .. .. .. ..
+---------------------------------------------------------------
+delay1:
+  x      in  :  .. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 .. .. .. .. ..
+  y      in  :  .. y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 .. .. .. .. ..
+  x1     out :  .. .. r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 .. .. .. ..
+  y1     out :  .. .. s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 .. .. .. ..
+
+delay2:
+  x      in  :  .. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 .. .. .. .. ..
+  y      in  :  .. y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 .. .. .. .. ..
+  x2     out :  .. .. .. t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 .. .. ..
+  y2     out :  .. .. .. u0 u1 u2 u3 u4 u5 u6 u7 u8 u9 .. .. ..
+
+delay3:
+  x      in  :  .. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 .. .. .. .. ..
+  y      in  :  .. y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 .. .. .. .. ..
+  x3     out :  .. .. .. .. T0 T1 T2 T3 T4 T5 T6 T7 T8 T9 .. .. 
+  y3     out :  .. .. .. .. U0 U1 U2 U3 U4 U5 U6 U7 U8 U9 .. ..
+
+delay4:
+  hsync  in  :  .. h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 .. .. .. .. ..
+  vsync  in  :  .. v0 v1 v2 v3 v4 v5 v6 v7 v8 v9 .. .. .. .. ..
+  hsync4 out :  .. .. .. .. .. i0 i1 i2 i3 i4 i5 i6 i7 i8 i9 ..
+  vsync4 out :  .. .. .. .. .. j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 ..
+---------------------------------------------------------------
+Display_RAM:
+  x      in  :  .. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 .. .. .. .. ..
+  y      in  :  .. y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 .. .. .. .. ..
+  Address out:  .. .. A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 .. .. .. ..
+  ascii  out :  .. .. .. a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 .. .. ..
+
+Font_ROM:
+  Char   in  :  .. .. .. a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 .. .. ..
+  x2     in  :  .. .. .. r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 .. .. ..
+  y2     in  :  .. .. .. s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 .. .. ..
+  ROM_Bit out:  .. .. .. .. q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 .. ..
+---------------------------------------------------------------
+vga_color:
+  x3     in :   .. .. .. .. T0 T1 T2 T3 T4 T5 T6 T7 T8 T9 .. 
+  y3     in :   .. .. .. .. U0 U1 U2 U3 U4 U5 U6 U7 U8 U9 ..
+  ROM_Bit in :  .. .. .. .. q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 ..
+  RGB  out   :  .. .. .. .. .. c0 c1 c2 c3 c4 c5 c6 c7 c8 c9
+
+vga:
+  hsync4 out :  .. .. .. .. .. i0 i1 i2 i3 i4 i5 i6 i7 i8 i9
+  vsync4 out :  .. .. .. .. .. j0 j1 j2 j3 j4 j5 j6 j7 j8 j9
+  RGB  out 	 :  .. .. .. .. .. c0 c1 c2 c3 c4 c5 c6 c7 c8 c9
+  
+vga_sync:
+  hsync4 in  :  .. .. .. .. .. i0 i1 i2 i3 i4 i5 i6 i7 i8 i9
+  vsync4 in  :  .. .. .. .. .. j0 j1 j2 j3 j4 j5 j6 j7 j8 j9
+  hsync4 out :  .. .. .. .. .. i0 i1 i2 i3 i4 i5 i6 i7 i8 i9
+  vsync4 out :  .. .. .. .. .. j0 j1 j2 j3 j4 j5 j6 j7 j8 j9
+-------------------------------------------------------------
