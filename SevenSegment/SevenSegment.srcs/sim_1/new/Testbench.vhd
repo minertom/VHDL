@@ -71,6 +71,7 @@ begin
         Clock <= '0';
     end process;
 
+	-- Stimulus
     process begin
         wait for 100 us;
         Reset <= '0';
