@@ -70,7 +70,7 @@ begin
                                             Clock_Out => Clock_1khz
                                             );
 														  
-    Taster_1 : Debounce generic map (BOUNCETIME => 20)
+    Button_1 : Debounce generic map (BOUNCETIME => 20)
                         port map (  Input => Taster_In,
                                     Reset => Reset,
                                     Output => Taster_Out, 
