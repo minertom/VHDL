@@ -13,13 +13,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="685480900fs"></ZoomEndTime>
-      <Cursor1Time time="251153000fs"></Cursor1Time>
+      <ZoomStartTime time="11001000fs"></ZoomStartTime>
+      <ZoomEndTime time="673501001fs"></ZoomEndTime>
+      <Cursor1Time time="172001000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="150"></ValueColumnWidth>
+      <ValueColumnWidth column_width="146"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject fp_name="/Testbench/SimulationClock" type="logic">
@@ -59,13 +59,13 @@
       <obj_property name="label">AXI4S</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/Testbench/TREADY" type="logic">
-         <obj_property name="ElementShortName">TREADY</obj_property>
-         <obj_property name="ObjectShortName">TREADY</obj_property>
-      </wvobject>
       <wvobject fp_name="/Testbench/TVALID" type="logic">
          <obj_property name="ElementShortName">TVALID</obj_property>
          <obj_property name="ObjectShortName">TVALID</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Testbench/TREADY" type="logic">
+         <obj_property name="ElementShortName">TREADY</obj_property>
+         <obj_property name="ObjectShortName">TREADY</obj_property>
       </wvobject>
       <wvobject fp_name="/Testbench/TLAST" type="logic">
          <obj_property name="ElementShortName">TLAST</obj_property>
