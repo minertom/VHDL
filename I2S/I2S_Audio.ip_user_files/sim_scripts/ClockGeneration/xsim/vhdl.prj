@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../bd/ClockGeneration/sim/ClockGeneration.vhd" \
+
+nosort

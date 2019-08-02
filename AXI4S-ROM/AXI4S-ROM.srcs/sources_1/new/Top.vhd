@@ -67,7 +67,7 @@ begin
                                 TVALID => TVALID,
                                 TLAST => TLAST
                                 );
-                            
+
     Output <= not Resetn;
 
 end Top_Arch;
