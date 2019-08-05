@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x7D31D60711334FDF",
+      "boundary_crc": "0xFCC240F090C0D928",
       "device": "xc7z010clg400-1",
       "name": "Receiver",
       "synth_flow_mode": "Hierarchical",
@@ -69,7 +69,7 @@
       },
       "TDATA": {
         "direction": "I",
-        "left": "15",
+        "left": "31",
         "right": "0"
       },
       "TID": {
@@ -99,10 +99,10 @@
             "value": "1"
           },
           "M_TDATA_NUM_BYTES": {
-            "value": "4"
+            "value": "8"
           },
           "S_TDATA_NUM_BYTES": {
-            "value": "2"
+            "value": "4"
           },
           "TID_WIDTH": {
             "value": "8"
@@ -113,24 +113,24 @@
     "interface_nets": {
       "axis_dwidth_converter_0_M_AXIS": {
         "interface_ports": [
-          "Receiver/S_AXIS",
-          "axis_dwidth_converter_0/M_AXIS"
+          "axis_dwidth_converter_0/M_AXIS",
+          "Receiver/S_AXIS"
         ]
       }
     },
     "nets": {
-      "ACLK_1": {
-        "ports": [
-          "ACLK",
-          "axis_dwidth_converter_0/aclk",
-          "Receiver/aclk"
-        ]
-      },
       "ARESETN_1": {
         "ports": [
           "ARESETN",
-          "axis_dwidth_converter_0/aresetn",
-          "Receiver/aresetn"
+          "Receiver/aresetn",
+          "axis_dwidth_converter_0/aresetn"
+        ]
+      },
+      "ACLK_1": {
+        "ports": [
+          "ACLK",
+          "Receiver/aclk",
+          "axis_dwidth_converter_0/aclk"
         ]
       },
       "TVALID_1": {

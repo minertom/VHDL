@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Mon Aug  5 07:36:34 2019
+--Date        : Mon Aug  5 11:05:02 2019
 --Host        : 40B0341C1F56 running 64-bit major release  (build 9200)
 --Command     : generate_target Receiver.bd
 --Design      : Receiver
@@ -15,7 +15,7 @@ entity Receiver is
   port (
     ACLK : in STD_LOGIC;
     ARESETN : in STD_LOGIC;
-    TDATA : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    TDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
     TID : in STD_LOGIC_VECTOR ( 7 downto 0 );
     TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
     TREADY : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -34,8 +34,8 @@ architecture STRUCTURE of Receiver is
     aresetn : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axis_tready : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axis_tkeep : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    s_axis_tkeep : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axis_tlast : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axis_tid : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
@@ -46,26 +46,26 @@ architecture STRUCTURE of Receiver is
     aresetn : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC;
     s_axis_tready : out STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axis_tlast : in STD_LOGIC;
     s_axis_tid : in STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tready : in STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    m_axis_tkeep : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tlast : out STD_LOGIC;
     m_axis_tid : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component Receiver_axis_dwidth_converter_0_0;
   signal ACLK_1 : STD_LOGIC;
   signal ARESETN_1 : STD_LOGIC;
-  signal TDATA_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal TDATA_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal TID_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal TLAST_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal TVALID_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal axis_dwidth_converter_0_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal axis_dwidth_converter_0_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 63 downto 0 );
   signal axis_dwidth_converter_0_M_AXIS_TID : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal axis_dwidth_converter_0_M_AXIS_TKEEP : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal axis_dwidth_converter_0_M_AXIS_TKEEP : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal axis_dwidth_converter_0_M_AXIS_TLAST : STD_LOGIC;
   signal axis_dwidth_converter_0_M_AXIS_TREADY : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axis_dwidth_converter_0_M_AXIS_TVALID : STD_LOGIC;
@@ -79,7 +79,7 @@ architecture STRUCTURE of Receiver is
 begin
   ACLK_1 <= ACLK;
   ARESETN_1 <= ARESETN;
-  TDATA_1(15 downto 0) <= TDATA(15 downto 0);
+  TDATA_1(31 downto 0) <= TDATA(31 downto 0);
   TID_1(7 downto 0) <= TID(7 downto 0);
   TLAST_1(0) <= TLAST(0);
   TREADY(0) <= axis_dwidth_converter_0_s_axis_tready;
@@ -88,9 +88,9 @@ Receiver: component Receiver_axi4stream_vip_0_0
      port map (
       aclk => ACLK_1,
       aresetn => ARESETN_1,
-      s_axis_tdata(31 downto 0) => axis_dwidth_converter_0_M_AXIS_TDATA(31 downto 0),
+      s_axis_tdata(63 downto 0) => axis_dwidth_converter_0_M_AXIS_TDATA(63 downto 0),
       s_axis_tid(7 downto 0) => axis_dwidth_converter_0_M_AXIS_TID(7 downto 0),
-      s_axis_tkeep(3 downto 0) => axis_dwidth_converter_0_M_AXIS_TKEEP(3 downto 0),
+      s_axis_tkeep(7 downto 0) => axis_dwidth_converter_0_M_AXIS_TKEEP(7 downto 0),
       s_axis_tlast(0) => axis_dwidth_converter_0_M_AXIS_TLAST,
       s_axis_tready(0) => axis_dwidth_converter_0_M_AXIS_TREADY(0),
       s_axis_tvalid(0) => axis_dwidth_converter_0_M_AXIS_TVALID
@@ -99,13 +99,13 @@ axis_dwidth_converter_0: component Receiver_axis_dwidth_converter_0_0
      port map (
       aclk => ACLK_1,
       aresetn => ARESETN_1,
-      m_axis_tdata(31 downto 0) => axis_dwidth_converter_0_M_AXIS_TDATA(31 downto 0),
+      m_axis_tdata(63 downto 0) => axis_dwidth_converter_0_M_AXIS_TDATA(63 downto 0),
       m_axis_tid(7 downto 0) => axis_dwidth_converter_0_M_AXIS_TID(7 downto 0),
-      m_axis_tkeep(3 downto 0) => axis_dwidth_converter_0_M_AXIS_TKEEP(3 downto 0),
+      m_axis_tkeep(7 downto 0) => axis_dwidth_converter_0_M_AXIS_TKEEP(7 downto 0),
       m_axis_tlast => axis_dwidth_converter_0_M_AXIS_TLAST,
       m_axis_tready => axis_dwidth_converter_0_M_AXIS_TREADY(0),
       m_axis_tvalid => axis_dwidth_converter_0_M_AXIS_TVALID,
-      s_axis_tdata(15 downto 0) => TDATA_1(15 downto 0),
+      s_axis_tdata(31 downto 0) => TDATA_1(31 downto 0),
       s_axis_tid(7 downto 0) => TID_1(7 downto 0),
       s_axis_tlast => TLAST_1(0),
       s_axis_tready => axis_dwidth_converter_0_s_axis_tready,

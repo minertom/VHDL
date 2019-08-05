@@ -13,13 +13,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="694005443fs"></ZoomEndTime>
-      <Cursor1Time time="103690000fs"></Cursor1Time>
+      <ZoomStartTime time="58333334fs"></ZoomStartTime>
+      <ZoomEndTime time="740333335fs"></ZoomEndTime>
+      <Cursor1Time time="268833000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+      <ValueColumnWidth column_width="126"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject fp_name="/Testbench/SimulationClock" type="logic">
@@ -49,6 +49,7 @@
       <wvobject fp_name="/Testbench/ROM/ROM_Address" type="array">
          <obj_property name="ElementShortName">ROM_Address[10:0]</obj_property>
          <obj_property name="ObjectShortName">ROM_Address[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/Testbench/ROM/ROM_Data" type="array">
          <obj_property name="ElementShortName">ROM_Data[15:0]</obj_property>
@@ -72,12 +73,14 @@
          <obj_property name="ObjectShortName">TLAST</obj_property>
       </wvobject>
       <wvobject fp_name="/Testbench/TDATA" type="array">
-         <obj_property name="ElementShortName">TDATA[15:0]</obj_property>
-         <obj_property name="ObjectShortName">TDATA[15:0]</obj_property>
+         <obj_property name="ElementShortName">TDATA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDATA[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
       </wvobject>
       <wvobject fp_name="/Testbench/TID" type="array">
          <obj_property name="ElementShortName">TID[7:0]</obj_property>
          <obj_property name="ObjectShortName">TID[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

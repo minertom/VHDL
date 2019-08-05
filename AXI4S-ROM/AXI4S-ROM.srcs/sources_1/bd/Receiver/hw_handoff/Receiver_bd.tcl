@@ -162,7 +162,7 @@ proc create_root_design { parentCell } {
    CONFIG.FREQ_HZ {125000000} \
  ] $ACLK
   set ARESETN [ create_bd_port -dir I -type rst ARESETN ]
-  set TDATA [ create_bd_port -dir I -from 15 -to 0 TDATA ]
+  set TDATA [ create_bd_port -dir I -from 31 -to 0 TDATA ]
   set TID [ create_bd_port -dir I -from 7 -to 0 TID ]
   set TLAST [ create_bd_port -dir I -from 0 -to 0 TLAST ]
   set TREADY [ create_bd_port -dir O -from 0 -to 0 TREADY ]
@@ -179,8 +179,8 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
    CONFIG.HAS_MI_TKEEP {1} \
    CONFIG.HAS_TLAST {1} \
-   CONFIG.M_TDATA_NUM_BYTES {4} \
-   CONFIG.S_TDATA_NUM_BYTES {2} \
+   CONFIG.M_TDATA_NUM_BYTES {8} \
+   CONFIG.S_TDATA_NUM_BYTES {4} \
    CONFIG.TID_WIDTH {8} \
  ] $axis_dwidth_converter_0
 
