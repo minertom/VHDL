@@ -32,15 +32,15 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity AXI4S_ROM is
-    Port ( ACLK     : in STD_LOGIC;
-           ARESETN  : in STD_LOGIC;
+    Port ( ACLK         : in STD_LOGIC;
+           ARESETN      : in STD_LOGIC;
            
            -- AXI4S interface
-           TDATA    : out STD_LOGIC_VECTOR(15 downto 0);
-           TID      : out STD_LOGIC_VECTOR(7 downto 0);
-           TREADY   : in STD_LOGIC;
-           TVALID   : out STD_LOGIC;
-           TLAST    : out STD_LOGIC
+           M_TDATA      : out STD_LOGIC_VECTOR(15 downto 0);
+           M_TID        : out STD_LOGIC_VECTOR(7 downto 0);
+           M_TREADY     : in STD_LOGIC;
+           M_TVALID     : out STD_LOGIC;
+           M_TLAST      : out STD_LOGIC
            );
 end AXI4S_ROM;
 
@@ -74,7 +74,7 @@ begin
                                     Clk => ACLK
                                     );
 
-    process(ACLK, ARESETN, TREADY, DataBuffer, CurrentState, Address)
+    process(ACLK, ARESETN, M_TREADY, DataBuffer, CurrentState, Address)
     begin
         if(rising_edge(ACLK)) then
             case CurrentState is
@@ -98,8 +98,8 @@ begin
                     DataBuffer <= ROM_Data;
 
                     -- Wait until TREADY from the slave
-                    if      TREADY = '1' then CurrentState <= WaitForReady;
-                    else    CurrentState <= SetData;
+                    if      M_TREADY = '1' then CurrentState <= SetData;
+                    else    CurrentState <= WaitForReady;
                     end if;
                     
                 when SetData =>
@@ -119,18 +119,18 @@ begin
                 when WaitForHandShake =>
                     
                     -- Wait until the slave has handshaked the data, signaled by pulling TREADY high
-                    if      TREADY = '1' then CurrentState <= WaitForReady;
-                                              TVALID_Int <= '0';
+                    if      M_TREADY = '1' then CurrentState <= WaitForReady;
+                                                TVALID_Int <= '0';
                     end if;
 
             end case;
         end if;
     end process;
 
-    TDATA <= TDATA_Int;
-    TLAST <= TLAST_Int;
-    TID <= TID_Int;
-    TVALID <= TVALID_Int;
+    M_TDATA <= TDATA_Int;
+    M_TLAST <= TLAST_Int;
+    M_TID <= TID_Int;
+    M_TVALID <= TVALID_Int;
     ROM_Address <= STD_LOGIC_VECTOR(to_unsigned(Address, ROM_Address'length));
 
 end AXI4S_ROM_Arch;

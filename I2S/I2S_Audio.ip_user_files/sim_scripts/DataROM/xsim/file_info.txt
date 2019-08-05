@@ -1,6 +1,5 @@
-ROM_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/DataROM/ip/DataROM_AXI4S_ROM_0_1/src/ROM_blk_mem_gen_0_0/sim/ROM_blk_mem_gen_0_0.v,incdir="$ref_dir/../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"incdir="../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"
-AXI4S_ROM.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/ipshared/738d/src/AXI4S_ROM.vhd,incdir="$ref_dir/../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"incdir="../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"
-DataROM_AXI4S_ROM_0_1.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/ip/DataROM_AXI4S_ROM_0_1/sim/DataROM_AXI4S_ROM_0_1.vhd,incdir="$ref_dir/../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"incdir="../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"
-DataROM.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/sim/DataROM.vhd,incdir="$ref_dir/../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"incdir="../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"
-DataROM_axis_dwidth_converter_0_0.v,verilog,xil_defaultlib,../../../bd/DataROM/ip/DataROM_axis_dwidth_converter_0_0/sim/DataROM_axis_dwidth_converter_0_0.v,incdir="$ref_dir/../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"incdir="../../../../I2S_Audio.srcs/sources_1/bd/DataROM/ipshared/8713/hdl"
+ROM_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/DataROM/ip/DataROM_AXI4S_ROM_0_1/src/ROM_blk_mem_gen_0_0/sim/ROM_blk_mem_gen_0_0.v,
+AXI4S_ROM.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/ipshared/e7ef/src/AXI4S_ROM.vhd,
+DataROM_AXI4S_ROM_0_1.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/ip/DataROM_AXI4S_ROM_0_1/sim/DataROM_AXI4S_ROM_0_1.vhd,
+DataROM.vhd,vhdl,xil_defaultlib,../../../bd/DataROM/sim/DataROM.vhd,
 glbl.v,Verilog,xil_defaultlib,glbl.v

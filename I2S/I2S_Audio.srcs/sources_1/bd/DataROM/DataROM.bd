@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x702C8A56ED4EA65A",
+      "boundary_crc": "0xDE98AD91BCB08C92",
       "device": "xc7z010clg400-1",
       "name": "DataROM",
       "synth_flow_mode": "Hierarchical",
@@ -9,8 +9,7 @@
       "validated": "true"
     },
     "design_tree": {
-      "SineROM": "",
-      "axis_dwidth_converter_0": ""
+      "SineROM": ""
     },
     "ports": {
       "ACLK": {
@@ -55,15 +54,20 @@
       "TREADY": {
         "direction": "I"
       },
-      "TVALID": {
+      "TLAST": {
         "direction": "O"
+      },
+      "TID": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
       },
       "TDATA": {
         "direction": "O",
         "left": "31",
         "right": "0"
       },
-      "TLAST": {
+      "TVALID": {
         "direction": "O"
       }
     },
@@ -71,71 +75,49 @@
       "SineROM": {
         "vlnv": "www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0",
         "xci_name": "DataROM_AXI4S_ROM_0_1"
-      },
-      "axis_dwidth_converter_0": {
-        "vlnv": "xilinx.com:ip:axis_dwidth_converter:1.1",
-        "xci_name": "DataROM_axis_dwidth_converter_0_0",
-        "parameters": {
-          "HAS_MI_TKEEP": {
-            "value": "1"
-          },
-          "HAS_TLAST": {
-            "value": "1"
-          },
-          "M_TDATA_NUM_BYTES": {
-            "value": "4"
-          },
-          "S_TDATA_NUM_BYTES": {
-            "value": "2"
-          }
-        }
-      }
-    },
-    "interface_nets": {
-      "SineROM_M_AXIS": {
-        "interface_ports": [
-          "axis_dwidth_converter_0/S_AXIS",
-          "SineROM/M_AXIS"
-        ]
       }
     },
     "nets": {
       "ACLK_1": {
         "ports": [
           "ACLK",
-          "SineROM/ACLK",
-          "axis_dwidth_converter_0/aclk"
+          "SineROM/ACLK"
         ]
       },
       "Net": {
         "ports": [
           "ARESETN",
-          "SineROM/ARESETN",
-          "axis_dwidth_converter_0/aresetn"
+          "SineROM/ARESETN"
         ]
       },
-      "axis_dwidth_converter_0_m_axis_tvalid": {
+      "SineROM_M_TDATA": {
         "ports": [
-          "axis_dwidth_converter_0/m_axis_tvalid",
+          "SineROM/M_TDATA",
+          "TDATA"
+        ]
+      },
+      "SineROM_M_TLAST": {
+        "ports": [
+          "SineROM/M_TLAST",
+          "TLAST"
+        ]
+      },
+      "SineROM_M_TVALID": {
+        "ports": [
+          "SineROM/M_TVALID",
           "TVALID"
         ]
       },
       "TREADY_1": {
         "ports": [
           "TREADY",
-          "axis_dwidth_converter_0/m_axis_tready"
+          "SineROM/M_TREADY"
         ]
       },
-      "axis_dwidth_converter_0_m_axis_tdata": {
+      "SineROM_M_TID": {
         "ports": [
-          "axis_dwidth_converter_0/m_axis_tdata",
-          "TDATA"
-        ]
-      },
-      "axis_dwidth_converter_0_m_axis_tlast": {
-        "ports": [
-          "axis_dwidth_converter_0/m_axis_tlast",
-          "TLAST"
+          "SineROM/M_TID",
+          "TID"
         ]
       }
     }

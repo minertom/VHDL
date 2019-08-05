@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Thu Jul 18 12:50:19 2019
+--Date        : Mon Aug  5 07:36:34 2019
 --Host        : 40B0341C1F56 running 64-bit major release  (build 9200)
 --Command     : generate_target Receiver_wrapper.bd
 --Design      : Receiver_wrapper

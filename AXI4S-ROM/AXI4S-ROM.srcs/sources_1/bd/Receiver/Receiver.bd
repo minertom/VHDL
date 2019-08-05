@@ -9,7 +9,8 @@
       "validated": "true"
     },
     "design_tree": {
-      "Receiver": ""
+      "Receiver": "",
+      "axis_dwidth_converter_0": ""
     },
     "ports": {
       "TLAST": {
@@ -86,49 +87,80 @@
             "value": "SLAVE"
           }
         }
+      },
+      "axis_dwidth_converter_0": {
+        "vlnv": "xilinx.com:ip:axis_dwidth_converter:1.1",
+        "xci_name": "Receiver_axis_dwidth_converter_0_0",
+        "parameters": {
+          "HAS_MI_TKEEP": {
+            "value": "1"
+          },
+          "HAS_TLAST": {
+            "value": "1"
+          },
+          "M_TDATA_NUM_BYTES": {
+            "value": "4"
+          },
+          "S_TDATA_NUM_BYTES": {
+            "value": "2"
+          },
+          "TID_WIDTH": {
+            "value": "8"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "axis_dwidth_converter_0_M_AXIS": {
+        "interface_ports": [
+          "Receiver/S_AXIS",
+          "axis_dwidth_converter_0/M_AXIS"
+        ]
       }
     },
     "nets": {
-      "s_axis_tlast_0_1": {
-        "ports": [
-          "TLAST",
-          "Receiver/s_axis_tlast"
-        ]
-      },
-      "Receiver_s_axis_tready": {
-        "ports": [
-          "Receiver/s_axis_tready",
-          "TREADY"
-        ]
-      },
-      "aresetn_0_1": {
-        "ports": [
-          "ARESETN",
-          "Receiver/aresetn"
-        ]
-      },
-      "s_axis_tvalid_0_1": {
-        "ports": [
-          "TVALID",
-          "Receiver/s_axis_tvalid"
-        ]
-      },
-      "aclk_0_1": {
+      "ACLK_1": {
         "ports": [
           "ACLK",
+          "axis_dwidth_converter_0/aclk",
           "Receiver/aclk"
         ]
       },
-      "s_axis_tdata_0_1": {
+      "ARESETN_1": {
         "ports": [
-          "TDATA",
-          "Receiver/s_axis_tdata"
+          "ARESETN",
+          "axis_dwidth_converter_0/aresetn",
+          "Receiver/aresetn"
         ]
       },
-      "s_axis_tid_0_1": {
+      "TVALID_1": {
+        "ports": [
+          "TVALID",
+          "axis_dwidth_converter_0/s_axis_tvalid"
+        ]
+      },
+      "axis_dwidth_converter_0_s_axis_tready": {
+        "ports": [
+          "axis_dwidth_converter_0/s_axis_tready",
+          "TREADY"
+        ]
+      },
+      "TDATA_1": {
+        "ports": [
+          "TDATA",
+          "axis_dwidth_converter_0/s_axis_tdata"
+        ]
+      },
+      "TLAST_1": {
+        "ports": [
+          "TLAST",
+          "axis_dwidth_converter_0/s_axis_tlast"
+        ]
+      },
+      "TID_1": {
         "ports": [
           "TID",
-          "Receiver/s_axis_tid"
+          "axis_dwidth_converter_0/s_axis_tid"
         ]
       }
     }

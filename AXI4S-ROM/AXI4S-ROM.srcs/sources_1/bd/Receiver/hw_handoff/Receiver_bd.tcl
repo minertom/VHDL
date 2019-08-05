@@ -174,14 +174,27 @@ proc create_root_design { parentCell } {
    CONFIG.INTERFACE_MODE {SLAVE} \
  ] $Receiver
 
+  # Create instance: axis_dwidth_converter_0, and set properties
+  set axis_dwidth_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_dwidth_converter:1.1 axis_dwidth_converter_0 ]
+  set_property -dict [ list \
+   CONFIG.HAS_MI_TKEEP {1} \
+   CONFIG.HAS_TLAST {1} \
+   CONFIG.M_TDATA_NUM_BYTES {4} \
+   CONFIG.S_TDATA_NUM_BYTES {2} \
+   CONFIG.TID_WIDTH {8} \
+ ] $axis_dwidth_converter_0
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net axis_dwidth_converter_0_M_AXIS [get_bd_intf_pins Receiver/S_AXIS] [get_bd_intf_pins axis_dwidth_converter_0/M_AXIS]
+
   # Create port connections
-  connect_bd_net -net Receiver_s_axis_tready [get_bd_ports TREADY] [get_bd_pins Receiver/s_axis_tready]
-  connect_bd_net -net aclk_0_1 [get_bd_ports ACLK] [get_bd_pins Receiver/aclk]
-  connect_bd_net -net aresetn_0_1 [get_bd_ports ARESETN] [get_bd_pins Receiver/aresetn]
-  connect_bd_net -net s_axis_tdata_0_1 [get_bd_ports TDATA] [get_bd_pins Receiver/s_axis_tdata]
-  connect_bd_net -net s_axis_tid_0_1 [get_bd_ports TID] [get_bd_pins Receiver/s_axis_tid]
-  connect_bd_net -net s_axis_tlast_0_1 [get_bd_ports TLAST] [get_bd_pins Receiver/s_axis_tlast]
-  connect_bd_net -net s_axis_tvalid_0_1 [get_bd_ports TVALID] [get_bd_pins Receiver/s_axis_tvalid]
+  connect_bd_net -net ACLK_1 [get_bd_ports ACLK] [get_bd_pins Receiver/aclk] [get_bd_pins axis_dwidth_converter_0/aclk]
+  connect_bd_net -net ARESETN_1 [get_bd_ports ARESETN] [get_bd_pins Receiver/aresetn] [get_bd_pins axis_dwidth_converter_0/aresetn]
+  connect_bd_net -net TDATA_1 [get_bd_ports TDATA] [get_bd_pins axis_dwidth_converter_0/s_axis_tdata]
+  connect_bd_net -net TID_1 [get_bd_ports TID] [get_bd_pins axis_dwidth_converter_0/s_axis_tid]
+  connect_bd_net -net TLAST_1 [get_bd_ports TLAST] [get_bd_pins axis_dwidth_converter_0/s_axis_tlast]
+  connect_bd_net -net TVALID_1 [get_bd_ports TVALID] [get_bd_pins axis_dwidth_converter_0/s_axis_tvalid]
+  connect_bd_net -net axis_dwidth_converter_0_s_axis_tready [get_bd_ports TREADY] [get_bd_pins axis_dwidth_converter_0/s_axis_tready]
 
   # Create address segments
 

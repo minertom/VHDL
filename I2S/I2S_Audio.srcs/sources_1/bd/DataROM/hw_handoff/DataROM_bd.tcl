@@ -163,6 +163,7 @@ proc create_root_design { parentCell } {
  ] $ACLK
   set ARESETN [ create_bd_port -dir I -type rst ARESETN ]
   set TDATA [ create_bd_port -dir O -from 31 -to 0 TDATA ]
+  set TID [ create_bd_port -dir O -from 7 -to 0 TID ]
   set TLAST [ create_bd_port -dir O TLAST ]
   set TREADY [ create_bd_port -dir I TREADY ]
   set TVALID [ create_bd_port -dir O TVALID ]
@@ -170,25 +171,14 @@ proc create_root_design { parentCell } {
   # Create instance: SineROM, and set properties
   set SineROM [ create_bd_cell -type ip -vlnv www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0 SineROM ]
 
-  # Create instance: axis_dwidth_converter_0, and set properties
-  set axis_dwidth_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_dwidth_converter:1.1 axis_dwidth_converter_0 ]
-  set_property -dict [ list \
-   CONFIG.HAS_MI_TKEEP {1} \
-   CONFIG.HAS_TLAST {1} \
-   CONFIG.M_TDATA_NUM_BYTES {4} \
-   CONFIG.S_TDATA_NUM_BYTES {2} \
- ] $axis_dwidth_converter_0
-
-  # Create interface connections
-  connect_bd_intf_net -intf_net SineROM_M_AXIS [get_bd_intf_pins SineROM/M_AXIS] [get_bd_intf_pins axis_dwidth_converter_0/S_AXIS]
-
   # Create port connections
-  connect_bd_net -net ACLK_1 [get_bd_ports ACLK] [get_bd_pins SineROM/ACLK] [get_bd_pins axis_dwidth_converter_0/aclk]
-  connect_bd_net -net Net [get_bd_ports ARESETN] [get_bd_pins SineROM/ARESETN] [get_bd_pins axis_dwidth_converter_0/aresetn]
-  connect_bd_net -net TREADY_1 [get_bd_ports TREADY] [get_bd_pins axis_dwidth_converter_0/m_axis_tready]
-  connect_bd_net -net axis_dwidth_converter_0_m_axis_tdata [get_bd_ports TDATA] [get_bd_pins axis_dwidth_converter_0/m_axis_tdata]
-  connect_bd_net -net axis_dwidth_converter_0_m_axis_tlast [get_bd_ports TLAST] [get_bd_pins axis_dwidth_converter_0/m_axis_tlast]
-  connect_bd_net -net axis_dwidth_converter_0_m_axis_tvalid [get_bd_ports TVALID] [get_bd_pins axis_dwidth_converter_0/m_axis_tvalid]
+  connect_bd_net -net ACLK_1 [get_bd_ports ACLK] [get_bd_pins SineROM/ACLK]
+  connect_bd_net -net Net [get_bd_ports ARESETN] [get_bd_pins SineROM/ARESETN]
+  connect_bd_net -net SineROM_M_TDATA [get_bd_ports TDATA] [get_bd_pins SineROM/M_TDATA]
+  connect_bd_net -net SineROM_M_TID [get_bd_ports TID] [get_bd_pins SineROM/M_TID]
+  connect_bd_net -net SineROM_M_TLAST [get_bd_ports TLAST] [get_bd_pins SineROM/M_TLAST]
+  connect_bd_net -net SineROM_M_TVALID [get_bd_ports TVALID] [get_bd_pins SineROM/M_TVALID]
+  connect_bd_net -net TREADY_1 [get_bd_ports TREADY] [get_bd_pins SineROM/M_TREADY]
 
   # Create address segments
 
