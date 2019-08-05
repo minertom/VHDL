@@ -65,9 +65,9 @@ architecture Top_Arch of Top is
     signal ROM_Address  : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
 
     component I2S is    
-        Generic ( DEPTH  : INTEGER := 4;
-                  WIDTH  : INTEGER := 16;
-                  RATIO  : INTEGER := 256
+        Generic ( WIDTH  : INTEGER := 16;
+                  RATIO  : INTEGER := 256;
+                  FIFO_WIDTH    : INTEGER := 8
                   );
         Port (  ACLK     : in STD_LOGIC;
                 ARESETn  : in STD_LOGIC;

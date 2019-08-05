@@ -32,9 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity I2S is
-    Generic ( DEPTH  : INTEGER := 4;                                        -- FIFO depth in samples
-              WIDTH  : INTEGER := 16;                                       -- Data width per channel
-              RATIO  : INTEGER := 256                                       -- MCLK / L/R clock split ratio
+    Generic ( WIDTH  : INTEGER := 16;                                       -- Data width per channel
+              RATIO  : INTEGER := 256;                                      -- MCLK / L/R clock split ratio
+              FIFO_WIDTH    : INTEGER := 8                                  -- FIFO depth in samples
               );
     Port (  ACLK     : in STD_LOGIC;                                        -- Logic clock
             ARESETn  : in STD_LOGIC;                                        -- Reset (active low)
@@ -57,15 +57,24 @@ end I2S;
 
 architecture I2S_Arch of I2S is
 
-    type STATE_t is (Reset, WaitForValid, ACKData, StartTransmission, WaitForTransmissionEnd);
+    type FIFO_STATE_t is (Reset, WaitForValid, ACKData, WaitForEmptyFIFO);
+    type I2S_STATE_t is (Reset, WaitForFIFO, LoadData, StartTransmission, WaitForTransmissionEnd);
+    type MEMORY_t is array(0 to ((FIFO_WIDTH / 2) - 1)) of STD_LOGIC_VECTOR(((2 * WIDTH) - 1) downto 0);
 
-    signal CurrentState : STATE_t := Reset;
-
+    signal FIFOState    : FIFO_STATE_t := Reset;
+    signal I2SState     : I2S_STATE_t := Reset;
+    signal FIFO_Ext     : MEMORY_t := (others => (others => '0')); 
+    signal FIFO_Int     : MEMORY_t := (others => (others => '0')); 
+    
     signal MCLK_Cnt     : INTEGER := 0;
     signal BitCounter   : INTEGER := 0;
+    signal WriteCount   : INTEGER := 0;
+    signal ReadCount    : INTEGER := 0;
 
     signal TREADY_Int   : STD_LOGIC := '0';
     signal AudioClock   : STD_LOGIC := '0';
+    signal FIFO_Full    : STD_LOGIC := '0';
+    signal FIFO_Empty   : STD_LOGIC := '0';
     
     signal AudioData    : STD_LOGIC_VECTOR(((2 * WIDTH) - 1) downto 0) := (others => '0');
  
@@ -112,45 +121,88 @@ begin
         end if;
     end process;
 
-    process(ACLK, ARESETn, CurrentState)
+    process(ACLK, ARESETn, I2SState)
     begin
         if(rising_edge(ACLK)) then
-            case CurrentState is
-
+            case I2SState is
                 when Reset =>
                     AudioData <= (others => '0');
-                    TREADY_Int <= '0';
+                    ReadCount <= 0;
+                    FIFO_Empty <= '1';
                     
-                    if      ARESETN = '1' then CurrentState <= WaitForValid;
-                    elsif   ARESETN = '0' then CurrentState <= Reset;
+                    if      ARESETN = '1' then I2SState <= WaitForFIFO;
+                    elsif   ARESETN = '0' then I2SState <= Reset;
+                    end if;
+
+                when WaitForFIFO =>
+                    if      FIFO_Full = '1' then    FIFO_Empty <= '0';
+                                                    FIFO_Int <= FIFO_Ext;
+                    else    I2SState <= WaitForFIFO;
+                    end if;       
+                
+                when LoadData =>
+                    AudioData <= FIFO_Int(ReadCount);
+                    
+                    if      ReadCount < ((FIFO_WIDTH / 2) - 1) then   ReadCount <= ReadCount + 1;
+                    else
+                            ReadCount <= 0;
+                    end if;
+                    
+                    I2SState <= StartTransmission;
+                    
+                when StartTransmission =>                    
+                    if      BitCounter = 0 then I2SState <= WaitForTransmissionEnd;
+                    else    I2SState <= StartTransmission;
+                    end if;
+
+                when WaitForTransmissionEnd =>
+                    if      BitCounter = ((2 * WIDTH) - 3)  then I2SState <= WaitForFIFO;
+                    else    I2SState <= WaitForTransmissionEnd;
+                    end if;
+            end case;
+        end if;
+    end process;
+
+    process(ACLK, ARESETn, FIFOState)
+    begin
+        if(rising_edge(ACLK)) then
+            case FIFOState is
+                when Reset =>
+                    TREADY_Int <= '0';
+                    FIFO_Full <= '0';
+                    WriteCount <= 0;
+                    
+                    if      ARESETN = '1' then FIFOState <= WaitForValid;
+                    elsif   ARESETN = '0' then FIFOState <= Reset;
                     end if;
 
                 when WaitForValid =>
-                
-                    if      TVALID = '1' then CurrentState <= ACKData;
+                    if      TVALID = '1' then FIFOState <= ACKData;
                                               TREADY_Int <= '1';
-                    elsif   TVALID = '0' then CurrentState <= WaitForValid;
+                    elsif   TVALID = '0' then FIFOState <= WaitForValid;
                                               TREADY_Int <= '0';
                     end if;       
                 
                 when ACKData =>
                     TREADY_Int <= '0';
-                    AudioData <= TDATA;
+                    FIFO_Ext(WriteCount) <= TDATA;
+
+                    if      WriteCount < ((FIFO_WIDTH / 2) - 1) then    WriteCount <= WriteCount + 1;
+                    else    WriteCount <= 0;
+                    end if;
                     
-                    CurrentState <= StartTransmission;
-                    
-                when StartTransmission =>
-                    TREADY_Int <= '0';
-                    
-                    if      BitCounter = 0 then CurrentState <= WaitForTransmissionEnd;
-                    else    CurrentState <= StartTransmission;
+                    if      WriteCount = ((FIFO_WIDTH / 2) - 1) then    FIFO_Full <= '1';
                     end if;
 
-                when WaitForTransmissionEnd =>
-                    
-                    if      BitCounter = ((2 * WIDTH) - 3)  then CurrentState <= WaitForValid;
-                    else    CurrentState <= WaitForTransmissionEnd;
+                    FIFOState <= WaitForEmptyFIFO;
+
+                when WaitForEmptyFIFO =>
+                    if      FIFO_Empty <= '0' then FIFOState <= WaitForEmptyFIFO;
+                    else    FIFOState <= WaitForValid;
                     end if;
+
+                when others =>
+                    
             end case;
         end if;
     end process;
