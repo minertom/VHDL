@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="ClockGeneration" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1565000502"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1565000502"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1565000502"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1565000502"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1565078968"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1565078968"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1565078968"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1565078968"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\ClockGeneration_clk_wiz_0_0\ClockGeneration_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="ClockingWIzard"/>

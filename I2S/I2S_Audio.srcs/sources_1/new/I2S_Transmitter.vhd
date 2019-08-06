@@ -46,10 +46,10 @@ end I2S_Transmitter;
 
 architecture I2S_Transmitter_Arch of I2S_Transmitter is
 
-    signal SD_Int       : STD_LOGIC := '0';
-    signal LRCLK_Int    : STD_LOGIC := '1';
-    signal ShiftReg     : STD_LOGIC_VECTOR(((2 * WIDTH) - 1) downto 0) := (others => '0');
-    signal BitCounter_Int : INTEGER := 0;
+    signal SD_Int           : STD_LOGIC := '0';
+    signal LRCLK_Int        : STD_LOGIC := '1';
+    signal ShiftReg         : STD_LOGIC_VECTOR(((2 * WIDTH) - 1) downto 0) := (others => '0');
+    signal BitCounter_Int   : INTEGER := 0;
 
 begin
 
@@ -80,8 +80,9 @@ begin
                     ShiftReg <= Data;
                 else
                     ShiftReg <= ShiftReg(((2 * WIDTH) - 2) downto 0) & "0";
-                    SD_Int <= ShiftReg((2 * WIDTH) - 1);
-                end if;        
+                end if;
+                
+                SD_Int <= ShiftReg((2 * WIDTH) - 1);
             end if;
         end if;
     end process;

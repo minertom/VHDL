@@ -37,7 +37,7 @@ end Testbench;
 
 architecture Testbench_Arch of Testbench is
 
-    constant ClockPeriod    : TIME := 200 ns;
+    constant ClockPeriod    : TIME := 8 ns;
 
     signal SimulationClock  : STD_LOGIC := '0';
     signal SimulationResetn : STD_LOGIC := '0';

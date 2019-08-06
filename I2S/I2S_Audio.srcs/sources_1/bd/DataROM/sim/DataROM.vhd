@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Mon Aug  5 12:21:43 2019
+--Date        : Tue Aug  6 10:09:28 2019
 --Host        : 40B0341C1F56 running 64-bit major release  (build 9200)
 --Command     : generate_target DataROM.bd
 --Design      : DataROM
@@ -21,10 +21,10 @@ entity DataROM is
     TREADY : in STD_LOGIC;
     TVALID : out STD_LOGIC
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of DataROM : entity is "DataROM,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DataROM,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=1,numReposBlks=1,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of DataROM : entity is "DataROM.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of DataROM : entity is "DataROM,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DataROM,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=1,numReposBlks=1,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of DataROM : entity is "DataROM.hwdef";
 end DataROM;
 
 architecture STRUCTURE of DataROM is
@@ -46,12 +46,12 @@ architecture STRUCTURE of DataROM is
   signal SineROM_M_TLAST : STD_LOGIC;
   signal SineROM_M_TVALID : STD_LOGIC;
   signal TREADY_1 : STD_LOGIC;
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of ACLK : signal is "xilinx.com:signal:clock:1.0 CLK.ACLK CLK";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of ACLK : signal is "XIL_INTERFACENAME CLK.ACLK, ASSOCIATED_RESET ARESETN, CLK_DOMAIN DataROM_ACLK_0, FREQ_HZ 125000000, INSERT_VIP 0, PHASE 0.000";
-  attribute X_INTERFACE_INFO of ARESETN : signal is "xilinx.com:signal:reset:1.0 RST.ARESETN RST";
-  attribute X_INTERFACE_PARAMETER of ARESETN : signal is "XIL_INTERFACENAME RST.ARESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info : string;
+  attribute x_interface_info of ACLK : signal is "xilinx.com:signal:clock:1.0 CLK.ACLK CLK";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of ACLK : signal is "XIL_INTERFACENAME CLK.ACLK, ASSOCIATED_RESET ARESETN, CLK_DOMAIN DataROM_ACLK_0, FREQ_HZ 125000000, INSERT_VIP 0, PHASE 0.000";
+  attribute x_interface_info of ARESETN : signal is "xilinx.com:signal:reset:1.0 RST.ARESETN RST";
+  attribute x_interface_parameter of ARESETN : signal is "XIL_INTERFACENAME RST.ARESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   ACLK_1 <= ACLK;
   Net <= ARESETN;

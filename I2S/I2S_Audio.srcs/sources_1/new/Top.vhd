@@ -67,7 +67,7 @@ architecture Top_Arch of Top is
     component I2S is    
         Generic ( WIDTH  : INTEGER := 16;
                   RATIO  : INTEGER := 256;
-                  FIFO_WIDTH    : INTEGER := 8
+                  FIFO_WIDTH    : INTEGER := 4
                   );
         Port (  ACLK     : in STD_LOGIC;
                 ARESETn  : in STD_LOGIC;

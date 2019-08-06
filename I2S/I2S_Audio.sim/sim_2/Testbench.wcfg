@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="3126923076925fs"></ZoomEndTime>
-      <Cursor1Time time="330000000000fs"></Cursor1Time>
+      <ZoomStartTime time="25729000000fs"></ZoomStartTime>
+      <ZoomEndTime time="26416500001fs"></ZoomEndTime>
+      <Cursor1Time time="26228000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="20" />
    <wvobject type="divider" fp_name="divider8">
       <obj_property name="label">Simulation Input</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -72,34 +72,42 @@
       <obj_property name="label">FIFO</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/WriteCount" type="other">
-         <obj_property name="ElementShortName">WriteCount</obj_property>
-         <obj_property name="ObjectShortName">WriteCount</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_1_Full" type="logic">
+         <obj_property name="ElementShortName">FIFO_1_Full</obj_property>
+         <obj_property name="ObjectShortName">FIFO_1_Full</obj_property>
       </wvobject>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/ReadCount" type="other">
-         <obj_property name="ElementShortName">ReadCount</obj_property>
-         <obj_property name="ObjectShortName">ReadCount</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/BytesInFIFO_1" type="other">
+         <obj_property name="ElementShortName">BytesInFIFO_1</obj_property>
+         <obj_property name="ObjectShortName">BytesInFIFO_1</obj_property>
       </wvobject>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_Ext" type="array">
-         <obj_property name="ElementShortName">FIFO_Ext[0:3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">FIFO_Ext[0:3][31:0]</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_1" type="array">
+         <obj_property name="ElementShortName">FIFO_1[0:3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">FIFO_1[0:3][31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_Int" type="array">
-         <obj_property name="ElementShortName">FIFO_Int[0:3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">FIFO_Int[0:3][31:0]</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/ReadCounter" type="other">
+         <obj_property name="ElementShortName">ReadCounter</obj_property>
+         <obj_property name="ObjectShortName">ReadCounter</obj_property>
       </wvobject>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_Full" type="logic">
-         <obj_property name="ElementShortName">FIFO_Full</obj_property>
-         <obj_property name="ObjectShortName">FIFO_Full</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_0_Full" type="logic">
+         <obj_property name="ElementShortName">FIFO_0_Full</obj_property>
+         <obj_property name="ObjectShortName">FIFO_0_Full</obj_property>
       </wvobject>
-      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_Empty" type="logic">
-         <obj_property name="ElementShortName">FIFO_Empty</obj_property>
-         <obj_property name="ObjectShortName">FIFO_Empty</obj_property>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/BytesInFIFO_0" type="other">
+         <obj_property name="ElementShortName">BytesInFIFO_0</obj_property>
+         <obj_property name="ObjectShortName">BytesInFIFO_0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/FIFO_0" type="array">
+         <obj_property name="ElementShortName">FIFO_0[0:3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">FIFO_0[0:3][31:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/BitCounter" type="other">
       <obj_property name="ElementShortName">BitCounter</obj_property>
       <obj_property name="ObjectShortName">BitCounter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench/UUT/I2S_Transmitter/Transmitter/ShiftReg" type="array">
+      <obj_property name="ElementShortName">ShiftReg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ShiftReg[31:0]</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider9">
       <obj_property name="label">I2S</obj_property>

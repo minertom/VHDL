@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu Aug  1 14:06:52 2019
+// Date        : Tue Aug  6 10:10:07 2019
 // Host        : 40B0341C1F56 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top ClockGeneration_clk_wiz_0_0 -prefix
-//               ClockGeneration_clk_wiz_0_0_ ClockGeneration_clk_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               C:/Users/Daniel.Kampert/Desktop/Git/VHDL/I2S/I2S_Audio.srcs/sources_1/bd/ClockGeneration/ip/ClockGeneration_clk_wiz_0_0/ClockGeneration_clk_wiz_0_0_sim_netlist.v
 // Design      : ClockGeneration_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,6 +31,7 @@ module ClockGeneration_clk_wiz_0_0
         .locked(locked));
 endmodule
 
+(* ORIG_REF_NAME = "ClockGeneration_clk_wiz_0_0_clk_wiz" *) 
 module ClockGeneration_clk_wiz_0_0_ClockGeneration_clk_wiz_0_0_clk_wiz
    (clk_out1,
     locked,

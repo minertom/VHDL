@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0
--- IP Revision: 17
+-- IP Revision: 20
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -69,6 +69,9 @@ ARCHITECTURE DataROM_AXI4S_ROM_0_1_arch OF DataROM_AXI4S_ROM_0_1 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF DataROM_AXI4S_ROM_0_1_arch: ARCHITECTURE IS "yes";
   COMPONENT AXI4S_ROM IS
+    GENERIC (
+      DUAL_CHANNEL_DATA : BOOLEAN
+    );
     PORT (
       ACLK : IN STD_LOGIC;
       ARESETN : IN STD_LOGIC;
@@ -99,6 +102,9 @@ ARCHITECTURE DataROM_AXI4S_ROM_0_1_arch OF DataROM_AXI4S_ROM_0_1 IS
   ATTRIBUTE X_INTERFACE_INFO OF ACLK: SIGNAL IS "xilinx.com:signal:clock:1.0 M_ACLK CLK";
 BEGIN
   U0 : AXI4S_ROM
+    GENERIC MAP (
+      DUAL_CHANNEL_DATA => false
+    )
     PORT MAP (
       ACLK => ACLK,
       ARESETN => ARESETN,
