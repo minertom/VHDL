@@ -80,7 +80,7 @@ begin
 
     -- Zustandsübergangsnetzwerk
     process(Taster_Deb, CurrentState, Input)
-        variable NextState : State_Type;
+        variable NextState : State_Type := S0;
     begin
         if(rising_edge(Taster_Deb)) then
             case CurrentState is
@@ -128,7 +128,7 @@ begin
     end process;
 
     -- Ausgangsnetzwerk
-    process (CurrentState) 
+    process(CurrentState) 
     begin
        case CurrentState is
           when S0 =>
