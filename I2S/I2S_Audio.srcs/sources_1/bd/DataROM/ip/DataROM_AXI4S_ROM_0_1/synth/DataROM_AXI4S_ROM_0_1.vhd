@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0
--- IP Revision: 20
+-- IP VLNV: www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:2.0
+-- IP Revision: 2
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

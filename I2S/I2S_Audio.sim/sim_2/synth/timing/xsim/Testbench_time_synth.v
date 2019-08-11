@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Tue Aug  6 13:43:58 2019
-// Host        : 40B0341C1F56 running 64-bit major release  (build 9200)
+// Date        : Fri Aug  9 19:31:30 2019
+// Host        : PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
-//               C:/Users/Daniel.Kampert/Desktop/Git/VHDL/I2S/I2S_Audio.sim/sim_2/synth/timing/xsim/Testbench_time_synth.v
+//               D:/Dropbox/Git/VHDL/I2S/I2S_Audio.sim/sim_2/synth/timing/xsim/Testbench_time_synth.v
 // Design      : Top
 // Purpose     : This verilog netlist is a timing simulation representation of the design and should not be modified or
 //               synthesized. Please ensure that this netlist is used with the corresponding SDF file.
@@ -83,16 +83,16 @@ module ClockGeneration_clk_wiz_0_0_ClockGeneration_clk_wiz_0_0_clk_wiz
   wire NLW_mmcm_adv_inst_PSDONE_UNCONNECTED;
   wire [15:0]NLW_mmcm_adv_inst_DO_UNCONNECTED;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkf_buf
        (.I(clkfbout_ClockGeneration_clk_wiz_0_0),
         .O(clkfbout_buf_ClockGeneration_clk_wiz_0_0));
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout1_buf
        (.I(clk_out1_ClockGeneration_clk_wiz_0_0),
         .O(clk_out1));
+  (* BOX_TYPE = "PRIMITIVE" *) 
   (* OPT_MODIFIED = "MLO " *) 
-  (* box_type = "PRIMITIVE" *) 
   MMCME2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
     .CLKFBOUT_MULT_F(42.750000),
@@ -280,21 +280,22 @@ endmodule
 (* ORIG_REF_NAME = "AXI4S_ROM" *) 
 module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
    (M_TDATA,
-    M_TLAST,
     M_TVALID,
+    M_TLAST,
     ACLK,
-    M_TREADY,
-    ARESETN);
+    ARESETN,
+    M_TREADY);
   output [15:0]M_TDATA;
-  output M_TLAST;
   output M_TVALID;
+  output M_TLAST;
   input ACLK;
-  input M_TREADY;
   input ARESETN;
+  input M_TREADY;
 
   wire ACLK;
   wire ARESETN;
-  wire [0:0]Address;
+  wire [31:0]Address;
+  wire \Address[0]_i_1_n_0 ;
   wire \Address[10]_i_1_n_0 ;
   wire \Address[11]_i_1_n_0 ;
   wire \Address[12]_i_1_n_0 ;
@@ -319,7 +320,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
   wire \Address[2]_i_1_n_0 ;
   wire \Address[30]_i_1_n_0 ;
   wire \Address[31]_i_1_n_0 ;
-  wire \Address[31]_i_2_n_0 ;
+  wire \Address[31]_i_3_n_0 ;
   wire \Address[3]_i_1_n_0 ;
   wire \Address[4]_i_1_n_0 ;
   wire \Address[5]_i_1_n_0 ;
@@ -348,8 +349,8 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
   wire \Address_reg[28]_i_2_n_1 ;
   wire \Address_reg[28]_i_2_n_2 ;
   wire \Address_reg[28]_i_2_n_3 ;
-  wire \Address_reg[31]_i_3_n_2 ;
-  wire \Address_reg[31]_i_3_n_3 ;
+  wire \Address_reg[31]_i_4_n_2 ;
+  wire \Address_reg[31]_i_4_n_3 ;
   wire \Address_reg[4]_i_2_n_0 ;
   wire \Address_reg[4]_i_2_n_1 ;
   wire \Address_reg[4]_i_2_n_2 ;
@@ -358,37 +359,29 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
   wire \Address_reg[8]_i_2_n_1 ;
   wire \Address_reg[8]_i_2_n_2 ;
   wire \Address_reg[8]_i_2_n_3 ;
-  wire \Address_reg_n_0_[11] ;
-  wire \Address_reg_n_0_[12] ;
-  wire \Address_reg_n_0_[13] ;
-  wire \Address_reg_n_0_[14] ;
-  wire \Address_reg_n_0_[15] ;
-  wire \Address_reg_n_0_[16] ;
-  wire \Address_reg_n_0_[17] ;
-  wire \Address_reg_n_0_[18] ;
-  wire \Address_reg_n_0_[19] ;
-  wire \Address_reg_n_0_[20] ;
-  wire \Address_reg_n_0_[21] ;
-  wire \Address_reg_n_0_[22] ;
-  wire \Address_reg_n_0_[23] ;
-  wire \Address_reg_n_0_[24] ;
-  wire \Address_reg_n_0_[25] ;
-  wire \Address_reg_n_0_[26] ;
-  wire \Address_reg_n_0_[27] ;
-  wire \Address_reg_n_0_[28] ;
-  wire \Address_reg_n_0_[29] ;
-  wire \Address_reg_n_0_[30] ;
-  wire \Address_reg_n_0_[31] ;
-  wire [1:0]CurrentState;
-  wire \FSM_sequential_CurrentState[0]_i_1_n_0 ;
-  wire \FSM_sequential_CurrentState[1]_i_1_n_0 ;
+  wire \Address_reg_rep_n_0_[0] ;
+  wire \Address_reg_rep_n_0_[1] ;
+  wire \Address_reg_rep_n_0_[2] ;
+  wire \Address_reg_rep_n_0_[3] ;
+  wire \Address_reg_rep_n_0_[4] ;
+  wire \Address_reg_rep_n_0_[5] ;
+  wire \Address_reg_rep_n_0_[6] ;
+  wire \Address_rep[0]_i_1_n_0 ;
+  wire \FSM_onehot_CurrentState[0]_i_1_n_0 ;
+  wire \FSM_onehot_CurrentState[1]_i_1_n_0 ;
+  wire \FSM_onehot_CurrentState[2]_i_1_n_0 ;
+  wire \FSM_onehot_CurrentState[3]_i_1_n_0 ;
+  wire \FSM_onehot_CurrentState_reg_n_0_[1] ;
+  wire \FSM_onehot_CurrentState_reg_n_0_[3] ;
   wire [15:0]M_TDATA;
   wire M_TLAST;
   wire M_TREADY;
   wire M_TVALID;
-  wire [10:0]ROM_Address;
-  wire TLAST_Int;
+  wire TDATA_Int;
   wire TLAST_Int0;
+  wire TLAST_Int_i_10_n_0;
+  wire TLAST_Int_i_11_n_0;
+  wire TLAST_Int_i_12_n_0;
   wire TLAST_Int_i_1_n_0;
   wire TLAST_Int_i_2_n_0;
   wire TLAST_Int_i_3_n_0;
@@ -400,253 +393,255 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
   wire TLAST_Int_i_9_n_0;
   wire TVALID_Int_i_1_n_0;
   wire [31:1]data0;
-  wire [15:0]douta;
-  wire [3:2]\NLW_Address_reg[31]_i_3_CO_UNCONNECTED ;
-  wire [3:3]\NLW_Address_reg[31]_i_3_O_UNCONNECTED ;
+  wire [3:2]\NLW_Address_reg[31]_i_4_CO_UNCONNECTED ;
+  wire [3:3]\NLW_Address_reg[31]_i_4_O_UNCONNECTED ;
 
-  LUT1 #(
-    .INIT(2'h1)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h1A)) 
     \Address[0]_i_1 
-       (.I0(CurrentState[0]),
-        .O(Address_0));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \Address[0]_i_2 
-       (.I0(CurrentState[1]),
-        .I1(ROM_Address[0]),
-        .O(Address));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+       (.I0(TDATA_Int),
+        .I1(TLAST_Int0),
+        .I2(Address[0]),
+        .O(\Address[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[10]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[10]),
         .O(\Address[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[11]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[11]),
         .O(\Address[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[12]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[12]),
         .O(\Address[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[13]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[13]),
         .O(\Address[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[14]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[14]),
-        .O(\Address[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[15]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[15]),
-        .O(\Address[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[16]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[16]),
-        .O(\Address[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[17]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[17]),
-        .O(\Address[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[18]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[18]),
-        .O(\Address[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[19]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[19]),
-        .O(\Address[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[1]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[1]),
-        .O(\Address[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[20]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[20]),
-        .O(\Address[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[21]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[21]),
-        .O(\Address[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[22]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[22]),
-        .O(\Address[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[23]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[23]),
-        .O(\Address[23]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[24]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[24]),
-        .O(\Address[24]_i_1_n_0 ));
+    \Address[14]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[14]),
+        .O(\Address[14]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[25]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[25]),
-        .O(\Address[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[26]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[26]),
-        .O(\Address[26]_i_1_n_0 ));
+    \Address[15]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[15]),
+        .O(\Address[15]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[27]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[27]),
-        .O(\Address[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[28]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[28]),
-        .O(\Address[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Address[29]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[29]),
-        .O(\Address[29]_i_1_n_0 ));
+    \Address[16]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[16]),
+        .O(\Address[16]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[2]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[2]),
-        .O(\Address[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+    \Address[17]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[17]),
+        .O(\Address[17]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[30]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(data0[30]),
-        .O(\Address[30]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h00000010)) 
-    \Address[31]_i_1 
-       (.I0(TLAST_Int_i_5_n_0),
-        .I1(TLAST_Int_i_4_n_0),
-        .I2(TLAST_Int_i_3_n_0),
-        .I3(TLAST_Int_i_2_n_0),
-        .I4(CurrentState[0]),
-        .O(\Address[31]_i_1_n_0 ));
+    \Address[18]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[18]),
+        .O(\Address[18]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    \Address[31]_i_2 
-       (.I0(CurrentState[1]),
-        .I1(data0[31]),
-        .O(\Address[31]_i_2_n_0 ));
+    \Address[19]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[19]),
+        .O(\Address[19]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[1]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[1]),
+        .O(\Address[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'h8)) 
+    \Address[20]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[20]),
+        .O(\Address[20]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[21]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[21]),
+        .O(\Address[21]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[22]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[22]),
+        .O(\Address[22]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[23]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[23]),
+        .O(\Address[23]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[24]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[24]),
+        .O(\Address[24]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[25]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[25]),
+        .O(\Address[25]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[26]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[26]),
+        .O(\Address[26]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[27]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[27]),
+        .O(\Address[27]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[28]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[28]),
+        .O(\Address[28]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[29]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[29]),
+        .O(\Address[29]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[2]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[2]),
+        .O(\Address[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[30]_i_1 
+       (.I0(TDATA_Int),
+        .I1(data0[30]),
+        .O(\Address[30]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'h00E0)) 
+    \Address[31]_i_1 
+       (.I0(TLAST_Int0),
+        .I1(TDATA_Int),
+        .I2(TLAST_Int_i_2_n_0),
+        .I3(TLAST_Int_i_3_n_0),
+        .O(\Address[31]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \Address[31]_i_2 
+       (.I0(TDATA_Int),
+        .I1(TLAST_Int0),
+        .O(Address_0));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Address[31]_i_3 
+       (.I0(TDATA_Int),
+        .I1(data0[31]),
+        .O(\Address[31]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \Address[3]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[3]),
         .O(\Address[3]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[4]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[4]),
         .O(\Address[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[5]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[5]),
         .O(\Address[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[6]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[6]),
         .O(\Address[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[7]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[7]),
         .O(\Address[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[8]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[8]),
         .O(\Address[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Address[9]_i_1 
-       (.I0(CurrentState[1]),
+       (.I0(TDATA_Int),
         .I1(data0[9]),
         .O(\Address[9]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[0] 
        (.C(ACLK),
-        .CE(Address_0),
-        .D(Address),
-        .Q(ROM_Address[0]),
+        .CE(1'b1),
+        .D(\Address[0]_i_1_n_0 ),
+        .Q(Address[0]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -654,7 +649,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[10]_i_1_n_0 ),
-        .Q(ROM_Address[10]),
+        .Q(Address[10]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -662,7 +657,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[11]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[11] ),
+        .Q(Address[11]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -670,7 +665,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[12]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[12] ),
+        .Q(Address[12]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[12]_i_2 
        (.CI(\Address_reg[8]_i_2_n_0 ),
@@ -678,14 +673,14 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[12:9]),
-        .S({\Address_reg_n_0_[12] ,\Address_reg_n_0_[11] ,ROM_Address[10:9]}));
+        .S(Address[12:9]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[13] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[13]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[13] ),
+        .Q(Address[13]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -693,7 +688,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[14]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[14] ),
+        .Q(Address[14]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -701,7 +696,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[15]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[15] ),
+        .Q(Address[15]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -709,7 +704,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[16]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[16] ),
+        .Q(Address[16]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[16]_i_2 
        (.CI(\Address_reg[12]_i_2_n_0 ),
@@ -717,14 +712,14 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[16:13]),
-        .S({\Address_reg_n_0_[16] ,\Address_reg_n_0_[15] ,\Address_reg_n_0_[14] ,\Address_reg_n_0_[13] }));
+        .S(Address[16:13]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[17] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[17]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[17] ),
+        .Q(Address[17]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -732,7 +727,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[18]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[18] ),
+        .Q(Address[18]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -740,7 +735,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[19]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[19] ),
+        .Q(Address[19]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -748,7 +743,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[1]_i_1_n_0 ),
-        .Q(ROM_Address[1]),
+        .Q(Address[1]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -756,7 +751,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[20]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[20] ),
+        .Q(Address[20]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[20]_i_2 
        (.CI(\Address_reg[16]_i_2_n_0 ),
@@ -764,14 +759,14 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[20:17]),
-        .S({\Address_reg_n_0_[20] ,\Address_reg_n_0_[19] ,\Address_reg_n_0_[18] ,\Address_reg_n_0_[17] }));
+        .S(Address[20:17]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[21] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[21]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[21] ),
+        .Q(Address[21]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -779,7 +774,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[22]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[22] ),
+        .Q(Address[22]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -787,7 +782,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[23]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[23] ),
+        .Q(Address[23]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -795,7 +790,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[24]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[24] ),
+        .Q(Address[24]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[24]_i_2 
        (.CI(\Address_reg[20]_i_2_n_0 ),
@@ -803,14 +798,14 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[24:21]),
-        .S({\Address_reg_n_0_[24] ,\Address_reg_n_0_[23] ,\Address_reg_n_0_[22] ,\Address_reg_n_0_[21] }));
+        .S(Address[24:21]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[25] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[25]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[25] ),
+        .Q(Address[25]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -818,7 +813,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[26]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[26] ),
+        .Q(Address[26]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -826,7 +821,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[27]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[27] ),
+        .Q(Address[27]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -834,7 +829,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[28]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[28] ),
+        .Q(Address[28]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[28]_i_2 
        (.CI(\Address_reg[24]_i_2_n_0 ),
@@ -842,14 +837,14 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[28:25]),
-        .S({\Address_reg_n_0_[28] ,\Address_reg_n_0_[27] ,\Address_reg_n_0_[26] ,\Address_reg_n_0_[25] }));
+        .S(Address[28:25]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[29] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[29]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[29] ),
+        .Q(Address[29]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -857,7 +852,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[2]_i_1_n_0 ),
-        .Q(ROM_Address[2]),
+        .Q(Address[2]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -865,30 +860,30 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[30]_i_1_n_0 ),
-        .Q(\Address_reg_n_0_[30] ),
+        .Q(Address[30]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[31] 
        (.C(ACLK),
         .CE(Address_0),
-        .D(\Address[31]_i_2_n_0 ),
-        .Q(\Address_reg_n_0_[31] ),
+        .D(\Address[31]_i_3_n_0 ),
+        .Q(Address[31]),
         .R(\Address[31]_i_1_n_0 ));
-  CARRY4 \Address_reg[31]_i_3 
+  CARRY4 \Address_reg[31]_i_4 
        (.CI(\Address_reg[28]_i_2_n_0 ),
-        .CO({\NLW_Address_reg[31]_i_3_CO_UNCONNECTED [3:2],\Address_reg[31]_i_3_n_2 ,\Address_reg[31]_i_3_n_3 }),
+        .CO({\NLW_Address_reg[31]_i_4_CO_UNCONNECTED [3:2],\Address_reg[31]_i_4_n_2 ,\Address_reg[31]_i_4_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_Address_reg[31]_i_3_O_UNCONNECTED [3],data0[31:29]}),
-        .S({1'b0,\Address_reg_n_0_[31] ,\Address_reg_n_0_[30] ,\Address_reg_n_0_[29] }));
+        .O({\NLW_Address_reg[31]_i_4_O_UNCONNECTED [3],data0[31:29]}),
+        .S({1'b0,Address[31:29]}));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[3] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[3]_i_1_n_0 ),
-        .Q(ROM_Address[3]),
+        .Q(Address[3]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -896,22 +891,22 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[4]_i_1_n_0 ),
-        .Q(ROM_Address[4]),
+        .Q(Address[4]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[4]_i_2 
        (.CI(1'b0),
         .CO({\Address_reg[4]_i_2_n_0 ,\Address_reg[4]_i_2_n_1 ,\Address_reg[4]_i_2_n_2 ,\Address_reg[4]_i_2_n_3 }),
-        .CYINIT(ROM_Address[0]),
+        .CYINIT(Address[0]),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[4:1]),
-        .S(ROM_Address[4:1]));
+        .S(Address[4:1]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[5] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[5]_i_1_n_0 ),
-        .Q(ROM_Address[5]),
+        .Q(Address[5]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -919,7 +914,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[6]_i_1_n_0 ),
-        .Q(ROM_Address[6]),
+        .Q(Address[6]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -927,7 +922,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[7]_i_1_n_0 ),
-        .Q(ROM_Address[7]),
+        .Q(Address[7]),
         .R(\Address[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -935,7 +930,7 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[8]_i_1_n_0 ),
-        .Q(ROM_Address[8]),
+        .Q(Address[8]),
         .R(\Address[31]_i_1_n_0 ));
   CARRY4 \Address_reg[8]_i_2 
        (.CI(\Address_reg[4]_i_2_n_0 ),
@@ -943,287 +938,272 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(data0[8:5]),
-        .S(ROM_Address[8:5]));
+        .S(Address[8:5]));
   FDRE #(
     .INIT(1'b0)) 
     \Address_reg[9] 
        (.C(ACLK),
         .CE(Address_0),
         .D(\Address[9]_i_1_n_0 ),
-        .Q(ROM_Address[9]),
+        .Q(Address[9]),
         .R(\Address[31]_i_1_n_0 ));
-  (* CHECK_LICENSE_TYPE = "ROM_blk_mem_gen_0_0,blk_mem_gen_v8_4_2,{}" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  (* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
-  DataROM_AXI4S_ROM_0_1__ROM_blk_mem_gen_0_0 DataROM
-       (.addra(ROM_Address),
-        .clka(ACLK),
-        .douta(douta));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h44FC)) 
-    \FSM_sequential_CurrentState[0]_i_1 
-       (.I0(M_TREADY),
-        .I1(CurrentState[1]),
-        .I2(ARESETN),
-        .I3(CurrentState[0]),
-        .O(\FSM_sequential_CurrentState[0]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'hE)) 
-    \FSM_sequential_CurrentState[1]_i_1 
-       (.I0(CurrentState[0]),
-        .I1(CurrentState[1]),
-        .O(\FSM_sequential_CurrentState[1]_i_1_n_0 ));
-  (* FSM_ENCODED_STATES = "reset:00,endofreset:01,waitforready:11,readdata:10" *) 
+  (* equivalent_register_removal = "no" *) 
   FDRE #(
     .INIT(1'b0)) 
-    \FSM_sequential_CurrentState_reg[0] 
+    \Address_reg_rep[0] 
        (.C(ACLK),
-        .CE(1'b1),
-        .D(\FSM_sequential_CurrentState[0]_i_1_n_0 ),
-        .Q(CurrentState[0]),
+        .CE(Address_0),
+        .D(\Address_rep[0]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[0] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:00,endofreset:01,waitforready:11,readdata:10" *) 
+  (* equivalent_register_removal = "no" *) 
   FDRE #(
     .INIT(1'b0)) 
-    \FSM_sequential_CurrentState_reg[1] 
+    \Address_reg_rep[1] 
        (.C(ACLK),
-        .CE(1'b1),
-        .D(\FSM_sequential_CurrentState[1]_i_1_n_0 ),
-        .Q(CurrentState[1]),
-        .R(1'b0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    \TDATA_Int[15]_i_1 
-       (.I0(CurrentState[1]),
-        .I1(CurrentState[0]),
-        .O(TLAST_Int0));
+        .CE(Address_0),
+        .D(\Address[1]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[1] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* equivalent_register_removal = "no" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Address_reg_rep[2] 
+       (.C(ACLK),
+        .CE(Address_0),
+        .D(\Address[2]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[2] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* equivalent_register_removal = "no" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Address_reg_rep[3] 
+       (.C(ACLK),
+        .CE(Address_0),
+        .D(\Address[3]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[3] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* equivalent_register_removal = "no" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Address_reg_rep[4] 
+       (.C(ACLK),
+        .CE(Address_0),
+        .D(\Address[4]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[4] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* equivalent_register_removal = "no" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Address_reg_rep[5] 
+       (.C(ACLK),
+        .CE(Address_0),
+        .D(\Address[5]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[5] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* equivalent_register_removal = "no" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Address_reg_rep[6] 
+       (.C(ACLK),
+        .CE(Address_0),
+        .D(\Address[6]_i_1_n_0 ),
+        .Q(\Address_reg_rep_n_0_[6] ),
+        .R(\Address[31]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h2)) 
-    \TDATA_Int[15]_i_2 
-       (.I0(CurrentState[1]),
-        .I1(CurrentState[0]),
-        .O(TLAST_Int));
+    \Address_rep[0]_i_1 
+       (.I0(TDATA_Int),
+        .I1(Address[0]),
+        .O(\Address_rep[0]_i_1_n_0 ));
+  DataROM_AXI4S_ROM_0_1__ROM DataROM
+       (.ACLK(ACLK),
+        .ADDRARDADDR({\Address_reg_rep_n_0_[6] ,\Address_reg_rep_n_0_[5] ,\Address_reg_rep_n_0_[4] ,\Address_reg_rep_n_0_[3] ,\Address_reg_rep_n_0_[2] ,\Address_reg_rep_n_0_[1] ,\Address_reg_rep_n_0_[0] }),
+        .M_TDATA(M_TDATA),
+        .Q(TDATA_Int),
+        .TLAST_Int0(TLAST_Int0));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT2 #(
+    .INIT(4'h4)) 
+    \FSM_onehot_CurrentState[0]_i_1 
+       (.I0(ARESETN),
+        .I1(TLAST_Int0),
+        .O(\FSM_onehot_CurrentState[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \FSM_onehot_CurrentState[1]_i_1 
+       (.I0(ARESETN),
+        .I1(TLAST_Int0),
+        .O(\FSM_onehot_CurrentState[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT3 #(
+    .INIT(8'hEA)) 
+    \FSM_onehot_CurrentState[2]_i_1 
+       (.I0(\FSM_onehot_CurrentState_reg_n_0_[1] ),
+        .I1(\FSM_onehot_CurrentState_reg_n_0_[3] ),
+        .I2(M_TREADY),
+        .O(\FSM_onehot_CurrentState[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT3 #(
+    .INIT(8'hBA)) 
+    \FSM_onehot_CurrentState[3]_i_1 
+       (.I0(TDATA_Int),
+        .I1(M_TREADY),
+        .I2(\FSM_onehot_CurrentState_reg_n_0_[3] ),
+        .O(\FSM_onehot_CurrentState[3]_i_1_n_0 ));
+  (* FSM_ENCODED_STATES = "reset:0001,endofreset:0010,waitforready:1000,readdata:0100" *) 
+  FDRE #(
+    .INIT(1'b1)) 
+    \FSM_onehot_CurrentState_reg[0] 
+       (.C(ACLK),
+        .CE(1'b1),
+        .D(\FSM_onehot_CurrentState[0]_i_1_n_0 ),
+        .Q(TLAST_Int0),
+        .R(1'b0));
+  (* FSM_ENCODED_STATES = "reset:0001,endofreset:0010,waitforready:1000,readdata:0100" *) 
   FDRE #(
     .INIT(1'b0)) 
-    \TDATA_Int_reg[0] 
+    \FSM_onehot_CurrentState_reg[1] 
        (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[0]),
-        .Q(M_TDATA[0]),
-        .R(TLAST_Int0));
+        .CE(1'b1),
+        .D(\FSM_onehot_CurrentState[1]_i_1_n_0 ),
+        .Q(\FSM_onehot_CurrentState_reg_n_0_[1] ),
+        .R(1'b0));
+  (* FSM_ENCODED_STATES = "reset:0001,endofreset:0010,waitforready:1000,readdata:0100" *) 
   FDRE #(
     .INIT(1'b0)) 
-    \TDATA_Int_reg[10] 
+    \FSM_onehot_CurrentState_reg[2] 
        (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[10]),
-        .Q(M_TDATA[10]),
-        .R(TLAST_Int0));
+        .CE(1'b1),
+        .D(\FSM_onehot_CurrentState[2]_i_1_n_0 ),
+        .Q(TDATA_Int),
+        .R(1'b0));
+  (* FSM_ENCODED_STATES = "reset:0001,endofreset:0010,waitforready:1000,readdata:0100" *) 
   FDRE #(
     .INIT(1'b0)) 
-    \TDATA_Int_reg[11] 
+    \FSM_onehot_CurrentState_reg[3] 
        (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[11]),
-        .Q(M_TDATA[11]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[12] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[12]),
-        .Q(M_TDATA[12]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[13] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[13]),
-        .Q(M_TDATA[13]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[14] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[14]),
-        .Q(M_TDATA[14]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[15] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[15]),
-        .Q(M_TDATA[15]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[1] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[1]),
-        .Q(M_TDATA[1]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[2] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[2]),
-        .Q(M_TDATA[2]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[3] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[3]),
-        .Q(M_TDATA[3]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[4] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[4]),
-        .Q(M_TDATA[4]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[5] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[5]),
-        .Q(M_TDATA[5]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[6] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[6]),
-        .Q(M_TDATA[6]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[7] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[7]),
-        .Q(M_TDATA[7]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[8] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[8]),
-        .Q(M_TDATA[8]),
-        .R(TLAST_Int0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \TDATA_Int_reg[9] 
-       (.C(ACLK),
-        .CE(TLAST_Int),
-        .D(douta[9]),
-        .Q(M_TDATA[9]),
-        .R(TLAST_Int0));
+        .CE(1'b1),
+        .D(\FSM_onehot_CurrentState[3]_i_1_n_0 ),
+        .Q(\FSM_onehot_CurrentState_reg_n_0_[3] ),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'h00000000F0F0AAEA)) 
+    TLAST_Int_i_1
+       (.I0(M_TLAST),
+        .I1(TLAST_Int_i_2_n_0),
+        .I2(TDATA_Int),
+        .I3(TLAST_Int_i_3_n_0),
+        .I4(TLAST_Int_i_4_n_0),
+        .I5(TLAST_Int0),
+        .O(TLAST_Int_i_1_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    TLAST_Int_i_10
+       (.I0(Address[16]),
+        .I1(Address[12]),
+        .I2(Address[20]),
+        .I3(Address[8]),
+        .O(TLAST_Int_i_10_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    TLAST_Int_i_11
+       (.I0(Address[19]),
+        .I1(Address[15]),
+        .I2(Address[23]),
+        .I3(Address[11]),
+        .O(TLAST_Int_i_11_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    TLAST_Int_i_12
+       (.I0(Address[22]),
+        .I1(Address[10]),
+        .I2(Address[18]),
+        .I3(Address[14]),
+        .O(TLAST_Int_i_12_n_0));
   LUT4 #(
     .INIT(16'h0004)) 
-    TLAST_Int_i_1
-       (.I0(TLAST_Int_i_2_n_0),
-        .I1(TLAST_Int_i_3_n_0),
-        .I2(TLAST_Int_i_4_n_0),
-        .I3(TLAST_Int_i_5_n_0),
-        .O(TLAST_Int_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
     TLAST_Int_i_2
-       (.I0(\Address_reg_n_0_[11] ),
-        .I1(\Address_reg_n_0_[23] ),
-        .I2(\Address_reg_n_0_[29] ),
-        .I3(\Address_reg_n_0_[28] ),
-        .I4(TLAST_Int_i_6_n_0),
+       (.I0(TLAST_Int_i_5_n_0),
+        .I1(TLAST_Int_i_6_n_0),
+        .I2(TLAST_Int_i_7_n_0),
+        .I3(TLAST_Int_i_8_n_0),
         .O(TLAST_Int_i_2_n_0));
-  LUT5 #(
-    .INIT(32'h00000010)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     TLAST_Int_i_3
-       (.I0(\Address_reg_n_0_[14] ),
-        .I1(\Address_reg_n_0_[18] ),
-        .I2(ROM_Address[0]),
-        .I3(ROM_Address[3]),
-        .I4(TLAST_Int_i_7_n_0),
+       (.I0(TLAST_Int_i_9_n_0),
+        .I1(TLAST_Int_i_10_n_0),
+        .I2(TLAST_Int_i_11_n_0),
+        .I3(TLAST_Int_i_12_n_0),
         .O(TLAST_Int_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFFEFF)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
     TLAST_Int_i_4
-       (.I0(\Address_reg_n_0_[13] ),
-        .I1(\Address_reg_n_0_[17] ),
-        .I2(\Address_reg_n_0_[24] ),
-        .I3(ROM_Address[6]),
-        .I4(TLAST_Int_i_8_n_0),
+       (.I0(M_TREADY),
+        .I1(\FSM_onehot_CurrentState_reg_n_0_[3] ),
         .O(TLAST_Int_i_4_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
+  LUT4 #(
+    .INIT(16'hFFDF)) 
     TLAST_Int_i_5
-       (.I0(ROM_Address[8]),
-        .I1(\Address_reg_n_0_[20] ),
-        .I2(\Address_reg_n_0_[27] ),
-        .I3(ROM_Address[7]),
-        .I4(TLAST_Int_i_9_n_0),
+       (.I0(Address[5]),
+        .I1(Address[24]),
+        .I2(Address[1]),
+        .I3(Address[3]),
         .O(TLAST_Int_i_5_n_0));
   LUT4 #(
-    .INIT(16'hFFFD)) 
+    .INIT(16'h0001)) 
     TLAST_Int_i_6
-       (.I0(ROM_Address[1]),
-        .I1(ROM_Address[2]),
-        .I2(\Address_reg_n_0_[19] ),
-        .I3(\Address_reg_n_0_[15] ),
+       (.I0(Address[26]),
+        .I1(Address[31]),
+        .I2(Address[27]),
+        .I3(Address[28]),
         .O(TLAST_Int_i_6_n_0));
   LUT4 #(
-    .INIT(16'hFFFE)) 
+    .INIT(16'hFFEF)) 
     TLAST_Int_i_7
-       (.I0(ROM_Address[4]),
-        .I1(\Address_reg_n_0_[31] ),
-        .I2(\Address_reg_n_0_[22] ),
-        .I3(ROM_Address[10]),
+       (.I0(Address[4]),
+        .I1(Address[2]),
+        .I2(Address[6]),
+        .I3(Address[25]),
         .O(TLAST_Int_i_7_n_0));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    TLAST_Int_i_8
-       (.I0(\Address_reg_n_0_[30] ),
-        .I1(\Address_reg_n_0_[26] ),
-        .I2(\Address_reg_n_0_[21] ),
-        .I3(ROM_Address[9]),
-        .O(TLAST_Int_i_8_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hFFFD)) 
+    TLAST_Int_i_8
+       (.I0(Address[0]),
+        .I1(Address[30]),
+        .I2(Address[7]),
+        .I3(Address[29]),
+        .O(TLAST_Int_i_8_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     TLAST_Int_i_9
-       (.I0(ROM_Address[5]),
-        .I1(\Address_reg_n_0_[25] ),
-        .I2(\Address_reg_n_0_[16] ),
-        .I3(\Address_reg_n_0_[12] ),
+       (.I0(Address[21]),
+        .I1(Address[9]),
+        .I2(Address[17]),
+        .I3(Address[13]),
         .O(TLAST_Int_i_9_n_0));
   FDRE #(
     .INIT(1'b0)) 
     TLAST_Int_reg
        (.C(ACLK),
-        .CE(TLAST_Int),
+        .CE(1'b1),
         .D(TLAST_Int_i_1_n_0),
         .Q(M_TLAST),
-        .R(TLAST_Int0));
+        .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h7C0C)) 
+  LUT5 #(
+    .INIT(32'hCDDDCCCC)) 
     TVALID_Int_i_1
-       (.I0(M_TREADY),
-        .I1(CurrentState[1]),
-        .I2(CurrentState[0]),
-        .I3(M_TVALID),
+       (.I0(TLAST_Int0),
+        .I1(TDATA_Int),
+        .I2(\FSM_onehot_CurrentState_reg_n_0_[3] ),
+        .I3(M_TREADY),
+        .I4(M_TVALID),
         .O(TVALID_Int_i_1_n_0));
   FDRE #(
     .INIT(1'b0)) 
@@ -1235,180 +1215,155 @@ module DataROM_AXI4S_ROM_0_1__AXI4S_ROM
         .R(1'b0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "ROM_blk_mem_gen_0_0,blk_mem_gen_v8_4_2,{}" *) (* ORIG_REF_NAME = "ROM_blk_mem_gen_0_0" *) (* downgradeipidentifiedwarnings = "yes" *) 
-(* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
-module DataROM_AXI4S_ROM_0_1__ROM_blk_mem_gen_0_0
-   (clka,
-    addra,
-    douta);
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE READ_ONLY, READ_LATENCY 1" *) input clka;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *) input [10:0]addra;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *) output [15:0]douta;
+(* ORIG_REF_NAME = "ROM" *) 
+module DataROM_AXI4S_ROM_0_1__ROM
+   (M_TDATA,
+    ACLK,
+    Q,
+    TLAST_Int0,
+    ADDRARDADDR);
+  output [15:0]M_TDATA;
+  input ACLK;
+  input [0:0]Q;
+  input TLAST_Int0;
+  input [6:0]ADDRARDADDR;
 
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-  wire NLW_U0_dbiterr_UNCONNECTED;
-  wire NLW_U0_rsta_busy_UNCONNECTED;
-  wire NLW_U0_rstb_busy_UNCONNECTED;
-  wire NLW_U0_s_axi_arready_UNCONNECTED;
-  wire NLW_U0_s_axi_awready_UNCONNECTED;
-  wire NLW_U0_s_axi_bvalid_UNCONNECTED;
-  wire NLW_U0_s_axi_dbiterr_UNCONNECTED;
-  wire NLW_U0_s_axi_rlast_UNCONNECTED;
-  wire NLW_U0_s_axi_rvalid_UNCONNECTED;
-  wire NLW_U0_s_axi_sbiterr_UNCONNECTED;
-  wire NLW_U0_s_axi_wready_UNCONNECTED;
-  wire NLW_U0_sbiterr_UNCONNECTED;
-  wire [15:0]NLW_U0_doutb_UNCONNECTED;
-  wire [10:0]NLW_U0_rdaddrecc_UNCONNECTED;
-  wire [3:0]NLW_U0_s_axi_bid_UNCONNECTED;
-  wire [1:0]NLW_U0_s_axi_bresp_UNCONNECTED;
-  wire [10:0]NLW_U0_s_axi_rdaddrecc_UNCONNECTED;
-  wire [15:0]NLW_U0_s_axi_rdata_UNCONNECTED;
-  wire [3:0]NLW_U0_s_axi_rid_UNCONNECTED;
-  wire [1:0]NLW_U0_s_axi_rresp_UNCONNECTED;
+  wire ACLK;
+  wire [6:0]ADDRARDADDR;
+  wire [15:0]M_TDATA;
+  wire [0:0]Q;
+  wire TLAST_Int0;
+  wire [15:0]NLW_DataOut_reg_DOBDO_UNCONNECTED;
+  wire [1:0]NLW_DataOut_reg_DOPADOP_UNCONNECTED;
+  wire [1:0]NLW_DataOut_reg_DOPBDOP_UNCONNECTED;
 
-  (* C_ADDRA_WIDTH = "11" *) 
-  (* C_ADDRB_WIDTH = "11" *) 
-  (* C_ALGORITHM = "1" *) 
-  (* C_AXI_ID_WIDTH = "4" *) 
-  (* C_AXI_SLAVE_TYPE = "0" *) 
-  (* C_AXI_TYPE = "1" *) 
-  (* C_BYTE_SIZE = "9" *) 
-  (* C_COMMON_CLK = "0" *) 
-  (* C_COUNT_18K_BRAM = "0" *) 
-  (* C_COUNT_36K_BRAM = "1" *) 
-  (* C_CTRL_ECC_ALGO = "NONE" *) 
-  (* C_DEFAULT_DATA = "0" *) 
-  (* C_DISABLE_WARN_BHV_COLL = "0" *) 
-  (* C_DISABLE_WARN_BHV_RANGE = "0" *) 
-  (* C_ELABORATION_DIR = "./" *) 
-  (* C_ENABLE_32BIT_ADDRESS = "0" *) 
-  (* C_EN_DEEPSLEEP_PIN = "0" *) 
-  (* C_EN_ECC_PIPE = "0" *) 
-  (* C_EN_RDADDRA_CHG = "0" *) 
-  (* C_EN_RDADDRB_CHG = "0" *) 
-  (* C_EN_SAFETY_CKT = "0" *) 
-  (* C_EN_SHUTDOWN_PIN = "0" *) 
-  (* C_EN_SLEEP_PIN = "0" *) 
-  (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     2.43555 mW" *) 
-  (* C_FAMILY = "zynq" *) 
-  (* C_HAS_AXI_ID = "0" *) 
-  (* C_HAS_ENA = "0" *) 
-  (* C_HAS_ENB = "0" *) 
-  (* C_HAS_INJECTERR = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
-  (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
-  (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
-  (* C_HAS_REGCEA = "0" *) 
-  (* C_HAS_REGCEB = "0" *) 
-  (* C_HAS_RSTA = "0" *) 
-  (* C_HAS_RSTB = "0" *) 
-  (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) 
-  (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
-  (* C_INITA_VAL = "0" *) 
-  (* C_INITB_VAL = "0" *) 
-  (* C_INIT_FILE = "NONE" *) 
-  (* C_INIT_FILE_NAME = "ROM_blk_mem_gen_0_0.mif" *) 
-  (* C_INTERFACE_TYPE = "0" *) 
-  (* C_LOAD_INIT_FILE = "1" *) 
-  (* C_MEM_TYPE = "3" *) 
-  (* C_MUX_PIPELINE_STAGES = "0" *) 
-  (* C_PRIM_TYPE = "1" *) 
-  (* C_READ_DEPTH_A = "2048" *) 
-  (* C_READ_DEPTH_B = "2048" *) 
-  (* C_READ_LATENCY_A = "1" *) 
-  (* C_READ_LATENCY_B = "1" *) 
-  (* C_READ_WIDTH_A = "16" *) 
-  (* C_READ_WIDTH_B = "16" *) 
-  (* C_RSTRAM_A = "0" *) 
-  (* C_RSTRAM_B = "0" *) 
-  (* C_RST_PRIORITY_A = "CE" *) 
-  (* C_RST_PRIORITY_B = "CE" *) 
-  (* C_SIM_COLLISION_CHECK = "ALL" *) 
-  (* C_USE_BRAM_BLOCK = "0" *) 
-  (* C_USE_BYTE_WEA = "0" *) 
-  (* C_USE_BYTE_WEB = "0" *) 
-  (* C_USE_DEFAULT_DATA = "0" *) 
-  (* C_USE_ECC = "0" *) 
-  (* C_USE_SOFTECC = "0" *) 
-  (* C_USE_URAM = "0" *) 
-  (* C_WEA_WIDTH = "1" *) 
-  (* C_WEB_WIDTH = "1" *) 
-  (* C_WRITE_DEPTH_A = "2048" *) 
-  (* C_WRITE_DEPTH_B = "2048" *) 
-  (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
-  (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
-  (* C_WRITE_WIDTH_A = "16" *) 
-  (* C_WRITE_WIDTH_B = "16" *) 
-  (* C_XDEVICEFAMILY = "zynq" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_v8_4_2 U0
-       (.addra(addra),
-        .addrb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .clka(clka),
-        .clkb(1'b0),
-        .dbiterr(NLW_U0_dbiterr_UNCONNECTED),
-        .deepsleep(1'b0),
-        .dina({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .douta(douta),
-        .doutb(NLW_U0_doutb_UNCONNECTED[15:0]),
-        .eccpipece(1'b0),
-        .ena(1'b0),
-        .enb(1'b0),
-        .injectdbiterr(1'b0),
-        .injectsbiterr(1'b0),
-        .rdaddrecc(NLW_U0_rdaddrecc_UNCONNECTED[10:0]),
-        .regcea(1'b0),
-        .regceb(1'b0),
-        .rsta(1'b0),
-        .rsta_busy(NLW_U0_rsta_busy_UNCONNECTED),
-        .rstb(1'b0),
-        .rstb_busy(NLW_U0_rstb_busy_UNCONNECTED),
-        .s_aclk(1'b0),
-        .s_aresetn(1'b0),
-        .s_axi_araddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_arburst({1'b0,1'b0}),
-        .s_axi_arid({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_arlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_arready(NLW_U0_s_axi_arready_UNCONNECTED),
-        .s_axi_arsize({1'b0,1'b0,1'b0}),
-        .s_axi_arvalid(1'b0),
-        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_awburst({1'b0,1'b0}),
-        .s_axi_awid({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_awlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_awready(NLW_U0_s_axi_awready_UNCONNECTED),
-        .s_axi_awsize({1'b0,1'b0,1'b0}),
-        .s_axi_awvalid(1'b0),
-        .s_axi_bid(NLW_U0_s_axi_bid_UNCONNECTED[3:0]),
-        .s_axi_bready(1'b0),
-        .s_axi_bresp(NLW_U0_s_axi_bresp_UNCONNECTED[1:0]),
-        .s_axi_bvalid(NLW_U0_s_axi_bvalid_UNCONNECTED),
-        .s_axi_dbiterr(NLW_U0_s_axi_dbiterr_UNCONNECTED),
-        .s_axi_injectdbiterr(1'b0),
-        .s_axi_injectsbiterr(1'b0),
-        .s_axi_rdaddrecc(NLW_U0_s_axi_rdaddrecc_UNCONNECTED[10:0]),
-        .s_axi_rdata(NLW_U0_s_axi_rdata_UNCONNECTED[15:0]),
-        .s_axi_rid(NLW_U0_s_axi_rid_UNCONNECTED[3:0]),
-        .s_axi_rlast(NLW_U0_s_axi_rlast_UNCONNECTED),
-        .s_axi_rready(1'b0),
-        .s_axi_rresp(NLW_U0_s_axi_rresp_UNCONNECTED[1:0]),
-        .s_axi_rvalid(NLW_U0_s_axi_rvalid_UNCONNECTED),
-        .s_axi_sbiterr(NLW_U0_s_axi_sbiterr_UNCONNECTED),
-        .s_axi_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_wlast(1'b0),
-        .s_axi_wready(NLW_U0_s_axi_wready_UNCONNECTED),
-        .s_axi_wstrb(1'b0),
-        .s_axi_wvalid(1'b0),
-        .sbiterr(NLW_U0_sbiterr_UNCONNECTED),
-        .shutdown(1'b0),
-        .sleep(1'b0),
-        .wea(1'b0),
-        .web(1'b0));
+  (* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d16" *) 
+  (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
+  (* RTL_RAM_BITS = "2048" *) 
+  (* RTL_RAM_NAME = "U0/DataROM/DataOut" *) 
+  (* bram_addr_begin = "0" *) 
+  (* bram_addr_end = "1023" *) 
+  (* bram_slice_begin = "0" *) 
+  (* bram_slice_end = "15" *) 
+  (* ram_addr_begin = "0" *) 
+  (* ram_addr_end = "1023" *) 
+  (* ram_slice_begin = "0" *) 
+  (* ram_slice_end = "15" *) 
+  RAMB18E1 #(
+    .DOA_REG(1),
+    .DOB_REG(0),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'hE78DE2A0DD4ED79FD197CB3CC495BDAAB67FAF1EA78D9FD597FC900A88098000),
+    .INIT_01(256'hF702F9BCFBFAFDBBFEFDFFBFFFFFFFBFFEFDFDBBFBFAF9BCF702F3D1F02AEC12),
+    .INIT_02(256'h97FC9FD5A78DAF1EB67FBDAAC495CB3CD197D79FDD4EE2A0E78DEC12F02AF3D1),
+    .INIT_03(256'h22B128602E6834C33B6A4255498050E15872602A68036FF577F680008809900A),
+    .INIT_04(256'h040502440102004000000040010202440405064308FD0C2E0FD513ED18721D5F),
+    .INIT_05(256'h587250E1498042553B6A34C32E68286022B11D5F187213ED0FD50C2E08FD0643),
+    .INIT_06(256'h00000000000000000000000000000000000000000000000077F66FF56803602A),
+    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_A(18'h00000),
+    .INIT_B(18'h00000),
+    .INIT_FILE("NONE"),
+    .RAM_MODE("TDP"),
+    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
+    .READ_WIDTH_A(18),
+    .READ_WIDTH_B(0),
+    .RSTREG_PRIORITY_A("RSTREG"),
+    .RSTREG_PRIORITY_B("RSTREG"),
+    .SIM_COLLISION_CHECK("ALL"),
+    .SIM_DEVICE("7SERIES"),
+    .SRVAL_A(18'h00000),
+    .SRVAL_B(18'h00000),
+    .WRITE_MODE_A("WRITE_FIRST"),
+    .WRITE_MODE_B("WRITE_FIRST"),
+    .WRITE_WIDTH_A(18),
+    .WRITE_WIDTH_B(0)) 
+    DataOut_reg
+       (.ADDRARDADDR({1'b0,1'b0,1'b0,ADDRARDADDR,1'b0,1'b0,1'b0,1'b0}),
+        .ADDRBWRADDR({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .CLKARDCLK(ACLK),
+        .CLKBWRCLK(1'b0),
+        .DIADI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .DIBDI({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .DIPADIP({1'b0,1'b0}),
+        .DIPBDIP({1'b1,1'b1}),
+        .DOADO(M_TDATA),
+        .DOBDO(NLW_DataOut_reg_DOBDO_UNCONNECTED[15:0]),
+        .DOPADOP(NLW_DataOut_reg_DOPADOP_UNCONNECTED[1:0]),
+        .DOPBDOP(NLW_DataOut_reg_DOPBDOP_UNCONNECTED[1:0]),
+        .ENARDEN(1'b1),
+        .ENBWREN(1'b0),
+        .REGCEAREGCE(Q),
+        .REGCEB(1'b0),
+        .RSTRAMARSTRAM(1'b0),
+        .RSTRAMB(1'b0),
+        .RSTREGARSTREG(TLAST_Int0),
+        .RSTREGB(1'b0),
+        .WEA({1'b0,1'b0}),
+        .WEBWE({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
 module I2S
@@ -1417,412 +1372,466 @@ module I2S
     AudioClock_reg_0,
     TREADY,
     SCLK_OBUF,
+    ARESETN,
     SD_Int_reg,
-    CLK,
     Clock,
+    CLK,
     Resetn_IBUF,
     Locked,
     TVALID,
-    D);
+    TDATA);
   output LRCLK_OBUF;
   output SD_OBUF;
   output AudioClock_reg_0;
   output TREADY;
   output SCLK_OBUF;
+  output ARESETN;
   input SD_Int_reg;
-  input CLK;
   input Clock;
+  input CLK;
   input Resetn_IBUF;
   input Locked;
   input TVALID;
-  input [31:0]D;
+  input [31:0]TDATA;
 
+  wire ARESETN;
   wire AudioClock_i_1_n_0;
   wire AudioClock_reg_0;
   wire \AudioData[0]_i_1_n_0 ;
-  wire \AudioData[0]_i_2_n_0 ;
   wire \AudioData[10]_i_1_n_0 ;
-  wire \AudioData[10]_i_2_n_0 ;
   wire \AudioData[11]_i_1_n_0 ;
-  wire \AudioData[11]_i_2_n_0 ;
   wire \AudioData[12]_i_1_n_0 ;
-  wire \AudioData[12]_i_2_n_0 ;
   wire \AudioData[13]_i_1_n_0 ;
-  wire \AudioData[13]_i_2_n_0 ;
   wire \AudioData[14]_i_1_n_0 ;
-  wire \AudioData[14]_i_2_n_0 ;
   wire \AudioData[15]_i_1_n_0 ;
-  wire \AudioData[15]_i_2_n_0 ;
   wire \AudioData[16]_i_1_n_0 ;
-  wire \AudioData[16]_i_2_n_0 ;
   wire \AudioData[17]_i_1_n_0 ;
-  wire \AudioData[17]_i_2_n_0 ;
   wire \AudioData[18]_i_1_n_0 ;
-  wire \AudioData[18]_i_2_n_0 ;
   wire \AudioData[19]_i_1_n_0 ;
-  wire \AudioData[19]_i_2_n_0 ;
   wire \AudioData[1]_i_1_n_0 ;
-  wire \AudioData[1]_i_2_n_0 ;
   wire \AudioData[20]_i_1_n_0 ;
-  wire \AudioData[20]_i_2_n_0 ;
   wire \AudioData[21]_i_1_n_0 ;
-  wire \AudioData[21]_i_2_n_0 ;
   wire \AudioData[22]_i_1_n_0 ;
-  wire \AudioData[22]_i_2_n_0 ;
   wire \AudioData[23]_i_1_n_0 ;
-  wire \AudioData[23]_i_2_n_0 ;
   wire \AudioData[24]_i_1_n_0 ;
-  wire \AudioData[24]_i_2_n_0 ;
   wire \AudioData[25]_i_1_n_0 ;
-  wire \AudioData[25]_i_2_n_0 ;
   wire \AudioData[26]_i_1_n_0 ;
-  wire \AudioData[26]_i_2_n_0 ;
   wire \AudioData[27]_i_1_n_0 ;
-  wire \AudioData[27]_i_2_n_0 ;
   wire \AudioData[28]_i_1_n_0 ;
-  wire \AudioData[28]_i_2_n_0 ;
   wire \AudioData[29]_i_1_n_0 ;
-  wire \AudioData[29]_i_2_n_0 ;
   wire \AudioData[2]_i_1_n_0 ;
-  wire \AudioData[2]_i_2_n_0 ;
   wire \AudioData[30]_i_1_n_0 ;
-  wire \AudioData[30]_i_2_n_0 ;
   wire \AudioData[31]_i_1_n_0 ;
   wire \AudioData[31]_i_2_n_0 ;
+  wire \AudioData[31]_i_3_n_0 ;
   wire \AudioData[3]_i_1_n_0 ;
-  wire \AudioData[3]_i_2_n_0 ;
   wire \AudioData[4]_i_1_n_0 ;
-  wire \AudioData[4]_i_2_n_0 ;
   wire \AudioData[5]_i_1_n_0 ;
-  wire \AudioData[5]_i_2_n_0 ;
   wire \AudioData[6]_i_1_n_0 ;
-  wire \AudioData[6]_i_2_n_0 ;
   wire \AudioData[7]_i_1_n_0 ;
-  wire \AudioData[7]_i_2_n_0 ;
   wire \AudioData[8]_i_1_n_0 ;
-  wire \AudioData[8]_i_2_n_0 ;
   wire \AudioData[9]_i_1_n_0 ;
-  wire \AudioData[9]_i_2_n_0 ;
+  wire \BytesInFIFO_0[0]_i_1_n_0 ;
+  wire \BytesInFIFO_0[31]_i_1_n_0 ;
+  wire \BytesInFIFO_0[31]_i_2_n_0 ;
+  wire \BytesInFIFO_0_reg[12]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[12]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[12]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[12]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[16]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[16]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[16]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[16]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[20]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[20]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[20]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[20]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[24]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[24]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[24]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[24]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[28]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[28]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[28]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[28]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[31]_i_3_n_2 ;
+  wire \BytesInFIFO_0_reg[31]_i_3_n_3 ;
+  wire \BytesInFIFO_0_reg[4]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[4]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[4]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[4]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg[8]_i_1_n_0 ;
+  wire \BytesInFIFO_0_reg[8]_i_1_n_1 ;
+  wire \BytesInFIFO_0_reg[8]_i_1_n_2 ;
+  wire \BytesInFIFO_0_reg[8]_i_1_n_3 ;
+  wire \BytesInFIFO_0_reg_n_0_[0] ;
+  wire \BytesInFIFO_0_reg_n_0_[10] ;
+  wire \BytesInFIFO_0_reg_n_0_[11] ;
+  wire \BytesInFIFO_0_reg_n_0_[12] ;
+  wire \BytesInFIFO_0_reg_n_0_[13] ;
+  wire \BytesInFIFO_0_reg_n_0_[14] ;
+  wire \BytesInFIFO_0_reg_n_0_[15] ;
+  wire \BytesInFIFO_0_reg_n_0_[16] ;
+  wire \BytesInFIFO_0_reg_n_0_[17] ;
+  wire \BytesInFIFO_0_reg_n_0_[18] ;
+  wire \BytesInFIFO_0_reg_n_0_[19] ;
+  wire \BytesInFIFO_0_reg_n_0_[1] ;
+  wire \BytesInFIFO_0_reg_n_0_[20] ;
+  wire \BytesInFIFO_0_reg_n_0_[21] ;
+  wire \BytesInFIFO_0_reg_n_0_[22] ;
+  wire \BytesInFIFO_0_reg_n_0_[23] ;
+  wire \BytesInFIFO_0_reg_n_0_[24] ;
+  wire \BytesInFIFO_0_reg_n_0_[25] ;
+  wire \BytesInFIFO_0_reg_n_0_[26] ;
+  wire \BytesInFIFO_0_reg_n_0_[27] ;
+  wire \BytesInFIFO_0_reg_n_0_[28] ;
+  wire \BytesInFIFO_0_reg_n_0_[29] ;
+  wire \BytesInFIFO_0_reg_n_0_[2] ;
+  wire \BytesInFIFO_0_reg_n_0_[30] ;
+  wire \BytesInFIFO_0_reg_n_0_[31] ;
+  wire \BytesInFIFO_0_reg_n_0_[3] ;
+  wire \BytesInFIFO_0_reg_n_0_[4] ;
+  wire \BytesInFIFO_0_reg_n_0_[5] ;
+  wire \BytesInFIFO_0_reg_n_0_[6] ;
+  wire \BytesInFIFO_0_reg_n_0_[7] ;
+  wire \BytesInFIFO_0_reg_n_0_[8] ;
+  wire \BytesInFIFO_0_reg_n_0_[9] ;
+  wire \BytesInFIFO_1[31]_i_1_n_0 ;
+  wire \BytesInFIFO_1[31]_i_2_n_0 ;
+  wire \BytesInFIFO_1_reg_n_0_[0] ;
+  wire \BytesInFIFO_1_reg_n_0_[10] ;
+  wire \BytesInFIFO_1_reg_n_0_[11] ;
+  wire \BytesInFIFO_1_reg_n_0_[12] ;
+  wire \BytesInFIFO_1_reg_n_0_[13] ;
+  wire \BytesInFIFO_1_reg_n_0_[14] ;
+  wire \BytesInFIFO_1_reg_n_0_[15] ;
+  wire \BytesInFIFO_1_reg_n_0_[16] ;
+  wire \BytesInFIFO_1_reg_n_0_[17] ;
+  wire \BytesInFIFO_1_reg_n_0_[18] ;
+  wire \BytesInFIFO_1_reg_n_0_[19] ;
+  wire \BytesInFIFO_1_reg_n_0_[1] ;
+  wire \BytesInFIFO_1_reg_n_0_[20] ;
+  wire \BytesInFIFO_1_reg_n_0_[21] ;
+  wire \BytesInFIFO_1_reg_n_0_[22] ;
+  wire \BytesInFIFO_1_reg_n_0_[23] ;
+  wire \BytesInFIFO_1_reg_n_0_[24] ;
+  wire \BytesInFIFO_1_reg_n_0_[25] ;
+  wire \BytesInFIFO_1_reg_n_0_[26] ;
+  wire \BytesInFIFO_1_reg_n_0_[27] ;
+  wire \BytesInFIFO_1_reg_n_0_[28] ;
+  wire \BytesInFIFO_1_reg_n_0_[29] ;
+  wire \BytesInFIFO_1_reg_n_0_[2] ;
+  wire \BytesInFIFO_1_reg_n_0_[30] ;
+  wire \BytesInFIFO_1_reg_n_0_[31] ;
+  wire \BytesInFIFO_1_reg_n_0_[3] ;
+  wire \BytesInFIFO_1_reg_n_0_[4] ;
+  wire \BytesInFIFO_1_reg_n_0_[5] ;
+  wire \BytesInFIFO_1_reg_n_0_[6] ;
+  wire \BytesInFIFO_1_reg_n_0_[7] ;
+  wire \BytesInFIFO_1_reg_n_0_[8] ;
+  wire \BytesInFIFO_1_reg_n_0_[9] ;
   wire CLK;
   wire Clock;
-  wire [31:0]D;
   wire [31:0]Data;
-  wire [0:0]FIFOState;
-  wire \FIFO_Ext[0]_3 ;
-  wire \FIFO_Ext[1]_4 ;
-  wire \FIFO_Ext[2]_5 ;
-  wire \FIFO_Ext[3][31]_i_10_n_0 ;
-  wire \FIFO_Ext[3][31]_i_11_n_0 ;
-  wire \FIFO_Ext[3][31]_i_3_n_0 ;
-  wire \FIFO_Ext[3][31]_i_4_n_0 ;
-  wire \FIFO_Ext[3][31]_i_5_n_0 ;
-  wire \FIFO_Ext[3][31]_i_6_n_0 ;
-  wire \FIFO_Ext[3][31]_i_7_n_0 ;
-  wire \FIFO_Ext[3][31]_i_8_n_0 ;
-  wire \FIFO_Ext[3]_2 ;
-  wire FIFO_Ext_Full;
-  wire FIFO_Ext_Full_i_1_n_0;
-  wire FIFO_Ext_Full_reg_n_0;
-  wire [31:0]\FIFO_Ext_reg[0] ;
-  wire [31:0]\FIFO_Ext_reg[1] ;
-  wire [31:0]\FIFO_Ext_reg[2] ;
-  wire [31:0]\FIFO_Ext_reg[3] ;
-  wire \FIFO_Int[3][31]_i_1_n_0 ;
-  wire \FIFO_Int[3][31]_i_2_n_0 ;
-  wire FIFO_Int_Full;
-  wire FIFO_Int_Full_reg_n_0;
-  wire [31:0]\FIFO_Int_reg[0] ;
-  wire [31:0]\FIFO_Int_reg[1] ;
-  wire [31:0]\FIFO_Int_reg[2] ;
-  wire [31:0]\FIFO_Int_reg[3] ;
-  wire \FSM_onehot_I2SState[0]_i_1_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_1_n_0 ;
-  wire \FSM_onehot_I2SState_reg_n_0_[0] ;
-  wire \FSM_onehot_I2SState_reg_n_0_[1] ;
-  wire \FSM_onehot_I2SState_reg_n_0_[2] ;
-  wire \FSM_onehot_I2SState_reg_n_0_[3] ;
-  wire \FSM_onehot_I2SState_reg_n_0_[4] ;
-  wire \FSM_onehot_I2SState_reg_n_0_[5] ;
+  wire [2:0]FIFOState;
+  wire \FIFO_0[0][31]_i_1_n_0 ;
+  wire \FIFO_0[1]_3 ;
+  wire \FIFO_0[2]_2 ;
+  wire \FIFO_0[3][31]_i_10_n_0 ;
+  wire \FIFO_0[3][31]_i_1_n_0 ;
+  wire \FIFO_0[3][31]_i_3_n_0 ;
+  wire \FIFO_0[3][31]_i_4_n_0 ;
+  wire \FIFO_0[3][31]_i_5_n_0 ;
+  wire \FIFO_0[3][31]_i_6_n_0 ;
+  wire \FIFO_0[3][31]_i_7_n_0 ;
+  wire \FIFO_0[3][31]_i_8_n_0 ;
+  wire \FIFO_0[3][31]_i_9_n_0 ;
+  wire \FIFO_0[3]_1 ;
+  wire FIFO_0_Full1_carry__0_i_1_n_0;
+  wire FIFO_0_Full1_carry__0_i_2_n_0;
+  wire FIFO_0_Full1_carry__0_i_3_n_0;
+  wire FIFO_0_Full1_carry__0_i_4_n_0;
+  wire FIFO_0_Full1_carry__0_n_0;
+  wire FIFO_0_Full1_carry__0_n_1;
+  wire FIFO_0_Full1_carry__0_n_2;
+  wire FIFO_0_Full1_carry__0_n_3;
+  wire FIFO_0_Full1_carry__1_i_1_n_0;
+  wire FIFO_0_Full1_carry__1_i_2_n_0;
+  wire FIFO_0_Full1_carry__1_i_3_n_0;
+  wire FIFO_0_Full1_carry__1_i_4_n_0;
+  wire FIFO_0_Full1_carry__1_n_0;
+  wire FIFO_0_Full1_carry__1_n_1;
+  wire FIFO_0_Full1_carry__1_n_2;
+  wire FIFO_0_Full1_carry__1_n_3;
+  wire FIFO_0_Full1_carry__2_i_1_n_0;
+  wire FIFO_0_Full1_carry__2_i_2_n_0;
+  wire FIFO_0_Full1_carry__2_i_3_n_0;
+  wire FIFO_0_Full1_carry__2_i_4_n_0;
+  wire FIFO_0_Full1_carry__2_n_0;
+  wire FIFO_0_Full1_carry__2_n_1;
+  wire FIFO_0_Full1_carry__2_n_2;
+  wire FIFO_0_Full1_carry__2_n_3;
+  wire FIFO_0_Full1_carry_i_1_n_0;
+  wire FIFO_0_Full1_carry_i_2_n_0;
+  wire FIFO_0_Full1_carry_i_3_n_0;
+  wire FIFO_0_Full1_carry_i_4_n_0;
+  wire FIFO_0_Full1_carry_i_5_n_0;
+  wire FIFO_0_Full1_carry_n_0;
+  wire FIFO_0_Full1_carry_n_1;
+  wire FIFO_0_Full1_carry_n_2;
+  wire FIFO_0_Full1_carry_n_3;
+  wire FIFO_0_Full_i_1_n_0;
+  wire FIFO_0_Full_reg_n_0;
+  wire [31:0]\FIFO_0_reg[0] ;
+  wire [31:0]\FIFO_0_reg[1] ;
+  wire [31:0]\FIFO_0_reg[2] ;
+  wire [31:0]\FIFO_0_reg[3] ;
+  wire FIFO_1_Full1_carry__0_i_1_n_0;
+  wire FIFO_1_Full1_carry__0_i_2_n_0;
+  wire FIFO_1_Full1_carry__0_i_3_n_0;
+  wire FIFO_1_Full1_carry__0_i_4_n_0;
+  wire FIFO_1_Full1_carry__0_i_5_n_0;
+  wire FIFO_1_Full1_carry__0_i_6_n_0;
+  wire FIFO_1_Full1_carry__0_i_7_n_0;
+  wire FIFO_1_Full1_carry__0_i_8_n_0;
+  wire FIFO_1_Full1_carry__0_n_0;
+  wire FIFO_1_Full1_carry__0_n_1;
+  wire FIFO_1_Full1_carry__0_n_2;
+  wire FIFO_1_Full1_carry__0_n_3;
+  wire FIFO_1_Full1_carry__1_i_1_n_0;
+  wire FIFO_1_Full1_carry__1_i_2_n_0;
+  wire FIFO_1_Full1_carry__1_i_3_n_0;
+  wire FIFO_1_Full1_carry__1_i_4_n_0;
+  wire FIFO_1_Full1_carry__1_i_5_n_0;
+  wire FIFO_1_Full1_carry__1_i_6_n_0;
+  wire FIFO_1_Full1_carry__1_i_7_n_0;
+  wire FIFO_1_Full1_carry__1_i_8_n_0;
+  wire FIFO_1_Full1_carry__1_n_0;
+  wire FIFO_1_Full1_carry__1_n_1;
+  wire FIFO_1_Full1_carry__1_n_2;
+  wire FIFO_1_Full1_carry__1_n_3;
+  wire FIFO_1_Full1_carry__2_i_1_n_0;
+  wire FIFO_1_Full1_carry__2_i_2_n_0;
+  wire FIFO_1_Full1_carry__2_i_3_n_0;
+  wire FIFO_1_Full1_carry__2_i_4_n_0;
+  wire FIFO_1_Full1_carry__2_i_5_n_0;
+  wire FIFO_1_Full1_carry__2_i_6_n_0;
+  wire FIFO_1_Full1_carry__2_i_7_n_0;
+  wire FIFO_1_Full1_carry__2_i_8_n_0;
+  wire FIFO_1_Full1_carry__2_n_1;
+  wire FIFO_1_Full1_carry__2_n_2;
+  wire FIFO_1_Full1_carry__2_n_3;
+  wire FIFO_1_Full1_carry_i_1_n_0;
+  wire FIFO_1_Full1_carry_i_2_n_0;
+  wire FIFO_1_Full1_carry_i_3_n_0;
+  wire FIFO_1_Full1_carry_i_4_n_0;
+  wire FIFO_1_Full1_carry_i_5_n_0;
+  wire FIFO_1_Full1_carry_i_6_n_0;
+  wire FIFO_1_Full1_carry_i_7_n_0;
+  wire FIFO_1_Full1_carry_i_8_n_0;
+  wire FIFO_1_Full1_carry_n_0;
+  wire FIFO_1_Full1_carry_n_1;
+  wire FIFO_1_Full1_carry_n_2;
+  wire FIFO_1_Full1_carry_n_3;
+  wire FIFO_1_Full_i_1_n_0;
+  wire FIFO_1_Full_i_2_n_0;
+  wire FIFO_1_Full_reg_n_0;
+  wire [31:0]\FIFO_1_reg[0] ;
+  wire [31:0]\FIFO_1_reg[1] ;
+  wire [31:0]\FIFO_1_reg[2] ;
+  wire [31:0]\FIFO_1_reg[3] ;
   wire \FSM_sequential_FIFOState[0]_i_1_n_0 ;
+  wire \FSM_sequential_FIFOState[0]_i_2_n_0 ;
+  wire \FSM_sequential_FIFOState[0]_i_3_n_0 ;
   wire \FSM_sequential_FIFOState[1]_i_1_n_0 ;
-  wire \FSM_sequential_FIFOState_reg_n_0_[1] ;
+  wire \FSM_sequential_FIFOState[1]_i_2_n_0 ;
+  wire \FSM_sequential_FIFOState[1]_i_3_n_0 ;
+  wire \FSM_sequential_FIFOState[2]_i_1_n_0 ;
+  wire \FSM_sequential_I2SState[0]_i_3_n_0 ;
+  wire \FSM_sequential_I2SState[0]_i_4_n_0 ;
+  wire [2:0]I2SState;
   wire LRCLK_OBUF;
   wire Locked;
   wire [31:0]MCLK_Cnt;
   wire \MCLK_Cnt[31]_i_10_n_0 ;
   wire \MCLK_Cnt[31]_i_11_n_0 ;
-  wire \MCLK_Cnt[31]_i_2_n_0 ;
+  wire \MCLK_Cnt[31]_i_3_n_0 ;
   wire \MCLK_Cnt[31]_i_4_n_0 ;
   wire \MCLK_Cnt[31]_i_5_n_0 ;
   wire \MCLK_Cnt[31]_i_6_n_0 ;
   wire \MCLK_Cnt[31]_i_7_n_0 ;
   wire \MCLK_Cnt[31]_i_8_n_0 ;
   wire \MCLK_Cnt[31]_i_9_n_0 ;
-  wire [31:0]MCLK_Cnt_1;
+  wire [31:0]MCLK_Cnt_0;
   wire \MCLK_Cnt_reg[12]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[12]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[12]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[12]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[12]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[12]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[12]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[12]_i_2_n_7 ;
   wire \MCLK_Cnt_reg[16]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[16]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[16]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[16]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[16]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[16]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[16]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[16]_i_2_n_7 ;
   wire \MCLK_Cnt_reg[20]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[20]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[20]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[20]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[20]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[20]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[20]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[20]_i_2_n_7 ;
   wire \MCLK_Cnt_reg[24]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[24]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[24]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[24]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[24]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[24]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[24]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[24]_i_2_n_7 ;
   wire \MCLK_Cnt_reg[28]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[28]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[28]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[28]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[28]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[28]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[28]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[28]_i_2_n_7 ;
-  wire \MCLK_Cnt_reg[31]_i_3_n_2 ;
-  wire \MCLK_Cnt_reg[31]_i_3_n_3 ;
-  wire \MCLK_Cnt_reg[31]_i_3_n_5 ;
-  wire \MCLK_Cnt_reg[31]_i_3_n_6 ;
-  wire \MCLK_Cnt_reg[31]_i_3_n_7 ;
+  wire \MCLK_Cnt_reg[31]_i_2_n_2 ;
+  wire \MCLK_Cnt_reg[31]_i_2_n_3 ;
   wire \MCLK_Cnt_reg[4]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[4]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[4]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[4]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[4]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[4]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[4]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[4]_i_2_n_7 ;
   wire \MCLK_Cnt_reg[8]_i_2_n_0 ;
   wire \MCLK_Cnt_reg[8]_i_2_n_1 ;
   wire \MCLK_Cnt_reg[8]_i_2_n_2 ;
   wire \MCLK_Cnt_reg[8]_i_2_n_3 ;
-  wire \MCLK_Cnt_reg[8]_i_2_n_4 ;
-  wire \MCLK_Cnt_reg[8]_i_2_n_5 ;
-  wire \MCLK_Cnt_reg[8]_i_2_n_6 ;
-  wire \MCLK_Cnt_reg[8]_i_2_n_7 ;
-  wire [31:0]ReadCount;
-  wire [31:1]ReadCount0;
-  wire ReadCount1_carry__0_i_1_n_0;
-  wire ReadCount1_carry__0_i_2_n_0;
-  wire ReadCount1_carry__0_i_3_n_0;
-  wire ReadCount1_carry__0_i_4_n_0;
-  wire ReadCount1_carry__0_n_0;
-  wire ReadCount1_carry__0_n_1;
-  wire ReadCount1_carry__0_n_2;
-  wire ReadCount1_carry__0_n_3;
-  wire ReadCount1_carry__1_i_1_n_0;
-  wire ReadCount1_carry__1_i_2_n_0;
-  wire ReadCount1_carry__1_i_3_n_0;
-  wire ReadCount1_carry__1_i_4_n_0;
-  wire ReadCount1_carry__1_n_0;
-  wire ReadCount1_carry__1_n_1;
-  wire ReadCount1_carry__1_n_2;
-  wire ReadCount1_carry__1_n_3;
-  wire ReadCount1_carry__2_i_1_n_0;
-  wire ReadCount1_carry__2_i_2_n_0;
-  wire ReadCount1_carry__2_i_3_n_0;
-  wire ReadCount1_carry__2_i_4_n_0;
-  wire ReadCount1_carry__2_n_1;
-  wire ReadCount1_carry__2_n_2;
-  wire ReadCount1_carry__2_n_3;
-  wire ReadCount1_carry_i_1_n_0;
-  wire ReadCount1_carry_i_2_n_0;
-  wire ReadCount1_carry_i_3_n_0;
-  wire ReadCount1_carry_i_4_n_0;
-  wire ReadCount1_carry_i_5_n_0;
-  wire ReadCount1_carry_n_0;
-  wire ReadCount1_carry_n_1;
-  wire ReadCount1_carry_n_2;
-  wire ReadCount1_carry_n_3;
-  wire \ReadCount[0]_i_1_n_0 ;
-  wire \ReadCount[0]_i_2_n_0 ;
-  wire \ReadCount[31]_i_1_n_0 ;
-  wire \ReadCount_reg[12]_i_1_n_0 ;
-  wire \ReadCount_reg[12]_i_1_n_1 ;
-  wire \ReadCount_reg[12]_i_1_n_2 ;
-  wire \ReadCount_reg[12]_i_1_n_3 ;
-  wire \ReadCount_reg[16]_i_1_n_0 ;
-  wire \ReadCount_reg[16]_i_1_n_1 ;
-  wire \ReadCount_reg[16]_i_1_n_2 ;
-  wire \ReadCount_reg[16]_i_1_n_3 ;
-  wire \ReadCount_reg[20]_i_1_n_0 ;
-  wire \ReadCount_reg[20]_i_1_n_1 ;
-  wire \ReadCount_reg[20]_i_1_n_2 ;
-  wire \ReadCount_reg[20]_i_1_n_3 ;
-  wire \ReadCount_reg[24]_i_1_n_0 ;
-  wire \ReadCount_reg[24]_i_1_n_1 ;
-  wire \ReadCount_reg[24]_i_1_n_2 ;
-  wire \ReadCount_reg[24]_i_1_n_3 ;
-  wire \ReadCount_reg[28]_i_1_n_0 ;
-  wire \ReadCount_reg[28]_i_1_n_1 ;
-  wire \ReadCount_reg[28]_i_1_n_2 ;
-  wire \ReadCount_reg[28]_i_1_n_3 ;
-  wire \ReadCount_reg[31]_i_2_n_2 ;
-  wire \ReadCount_reg[31]_i_2_n_3 ;
-  wire \ReadCount_reg[4]_i_1_n_0 ;
-  wire \ReadCount_reg[4]_i_1_n_1 ;
-  wire \ReadCount_reg[4]_i_1_n_2 ;
-  wire \ReadCount_reg[4]_i_1_n_3 ;
-  wire \ReadCount_reg[8]_i_1_n_0 ;
-  wire \ReadCount_reg[8]_i_1_n_1 ;
-  wire \ReadCount_reg[8]_i_1_n_2 ;
-  wire \ReadCount_reg[8]_i_1_n_3 ;
+  wire \ReadCounter[0]_i_1_n_0 ;
+  wire \ReadCounter[0]_i_3_n_0 ;
+  wire \ReadCounter[0]_i_4_n_0 ;
+  wire \ReadCounter[0]_i_5_n_0 ;
+  wire \ReadCounter[0]_i_6_n_0 ;
+  wire \ReadCounter[12]_i_2_n_0 ;
+  wire \ReadCounter[12]_i_3_n_0 ;
+  wire \ReadCounter[12]_i_4_n_0 ;
+  wire \ReadCounter[12]_i_5_n_0 ;
+  wire \ReadCounter[16]_i_2_n_0 ;
+  wire \ReadCounter[16]_i_3_n_0 ;
+  wire \ReadCounter[16]_i_4_n_0 ;
+  wire \ReadCounter[16]_i_5_n_0 ;
+  wire \ReadCounter[20]_i_2_n_0 ;
+  wire \ReadCounter[20]_i_3_n_0 ;
+  wire \ReadCounter[20]_i_4_n_0 ;
+  wire \ReadCounter[20]_i_5_n_0 ;
+  wire \ReadCounter[24]_i_2_n_0 ;
+  wire \ReadCounter[24]_i_3_n_0 ;
+  wire \ReadCounter[24]_i_4_n_0 ;
+  wire \ReadCounter[24]_i_5_n_0 ;
+  wire \ReadCounter[28]_i_2_n_0 ;
+  wire \ReadCounter[28]_i_3_n_0 ;
+  wire \ReadCounter[28]_i_4_n_0 ;
+  wire \ReadCounter[28]_i_5_n_0 ;
+  wire \ReadCounter[4]_i_2_n_0 ;
+  wire \ReadCounter[4]_i_3_n_0 ;
+  wire \ReadCounter[4]_i_4_n_0 ;
+  wire \ReadCounter[4]_i_5_n_0 ;
+  wire \ReadCounter[8]_i_2_n_0 ;
+  wire \ReadCounter[8]_i_3_n_0 ;
+  wire \ReadCounter[8]_i_4_n_0 ;
+  wire \ReadCounter[8]_i_5_n_0 ;
+  wire [31:0]ReadCounter_reg;
+  wire \ReadCounter_reg[0]_i_2_n_0 ;
+  wire \ReadCounter_reg[0]_i_2_n_1 ;
+  wire \ReadCounter_reg[0]_i_2_n_2 ;
+  wire \ReadCounter_reg[0]_i_2_n_3 ;
+  wire \ReadCounter_reg[0]_i_2_n_4 ;
+  wire \ReadCounter_reg[0]_i_2_n_5 ;
+  wire \ReadCounter_reg[0]_i_2_n_6 ;
+  wire \ReadCounter_reg[0]_i_2_n_7 ;
+  wire \ReadCounter_reg[12]_i_1_n_0 ;
+  wire \ReadCounter_reg[12]_i_1_n_1 ;
+  wire \ReadCounter_reg[12]_i_1_n_2 ;
+  wire \ReadCounter_reg[12]_i_1_n_3 ;
+  wire \ReadCounter_reg[12]_i_1_n_4 ;
+  wire \ReadCounter_reg[12]_i_1_n_5 ;
+  wire \ReadCounter_reg[12]_i_1_n_6 ;
+  wire \ReadCounter_reg[12]_i_1_n_7 ;
+  wire \ReadCounter_reg[16]_i_1_n_0 ;
+  wire \ReadCounter_reg[16]_i_1_n_1 ;
+  wire \ReadCounter_reg[16]_i_1_n_2 ;
+  wire \ReadCounter_reg[16]_i_1_n_3 ;
+  wire \ReadCounter_reg[16]_i_1_n_4 ;
+  wire \ReadCounter_reg[16]_i_1_n_5 ;
+  wire \ReadCounter_reg[16]_i_1_n_6 ;
+  wire \ReadCounter_reg[16]_i_1_n_7 ;
+  wire \ReadCounter_reg[20]_i_1_n_0 ;
+  wire \ReadCounter_reg[20]_i_1_n_1 ;
+  wire \ReadCounter_reg[20]_i_1_n_2 ;
+  wire \ReadCounter_reg[20]_i_1_n_3 ;
+  wire \ReadCounter_reg[20]_i_1_n_4 ;
+  wire \ReadCounter_reg[20]_i_1_n_5 ;
+  wire \ReadCounter_reg[20]_i_1_n_6 ;
+  wire \ReadCounter_reg[20]_i_1_n_7 ;
+  wire \ReadCounter_reg[24]_i_1_n_0 ;
+  wire \ReadCounter_reg[24]_i_1_n_1 ;
+  wire \ReadCounter_reg[24]_i_1_n_2 ;
+  wire \ReadCounter_reg[24]_i_1_n_3 ;
+  wire \ReadCounter_reg[24]_i_1_n_4 ;
+  wire \ReadCounter_reg[24]_i_1_n_5 ;
+  wire \ReadCounter_reg[24]_i_1_n_6 ;
+  wire \ReadCounter_reg[24]_i_1_n_7 ;
+  wire \ReadCounter_reg[28]_i_1_n_1 ;
+  wire \ReadCounter_reg[28]_i_1_n_2 ;
+  wire \ReadCounter_reg[28]_i_1_n_3 ;
+  wire \ReadCounter_reg[28]_i_1_n_4 ;
+  wire \ReadCounter_reg[28]_i_1_n_5 ;
+  wire \ReadCounter_reg[28]_i_1_n_6 ;
+  wire \ReadCounter_reg[28]_i_1_n_7 ;
+  wire \ReadCounter_reg[4]_i_1_n_0 ;
+  wire \ReadCounter_reg[4]_i_1_n_1 ;
+  wire \ReadCounter_reg[4]_i_1_n_2 ;
+  wire \ReadCounter_reg[4]_i_1_n_3 ;
+  wire \ReadCounter_reg[4]_i_1_n_4 ;
+  wire \ReadCounter_reg[4]_i_1_n_5 ;
+  wire \ReadCounter_reg[4]_i_1_n_6 ;
+  wire \ReadCounter_reg[4]_i_1_n_7 ;
+  wire \ReadCounter_reg[8]_i_1_n_0 ;
+  wire \ReadCounter_reg[8]_i_1_n_1 ;
+  wire \ReadCounter_reg[8]_i_1_n_2 ;
+  wire \ReadCounter_reg[8]_i_1_n_3 ;
+  wire \ReadCounter_reg[8]_i_1_n_4 ;
+  wire \ReadCounter_reg[8]_i_1_n_5 ;
+  wire \ReadCounter_reg[8]_i_1_n_6 ;
+  wire \ReadCounter_reg[8]_i_1_n_7 ;
   wire Resetn_IBUF;
   wire SCLK_OBUF;
   wire SD_Int_reg;
   wire SD_OBUF;
+  wire [31:0]TDATA;
   wire TREADY;
   wire TREADY_Int_i_1_n_0;
   wire TVALID;
+  wire Transmitter_n_1;
   wire Transmitter_n_3;
   wire Transmitter_n_4;
   wire Transmitter_n_5;
-  wire Transmitter_n_6;
-  wire Transmitter_n_7;
-  wire Transmitter_n_8;
-  wire [31:0]WriteCount;
-  wire WriteCount0;
-  wire \WriteCount0_inferred__0/i__carry__0_n_0 ;
-  wire \WriteCount0_inferred__0/i__carry__0_n_1 ;
-  wire \WriteCount0_inferred__0/i__carry__0_n_2 ;
-  wire \WriteCount0_inferred__0/i__carry__0_n_3 ;
-  wire \WriteCount0_inferred__0/i__carry__1_n_0 ;
-  wire \WriteCount0_inferred__0/i__carry__1_n_1 ;
-  wire \WriteCount0_inferred__0/i__carry__1_n_2 ;
-  wire \WriteCount0_inferred__0/i__carry__1_n_3 ;
-  wire \WriteCount0_inferred__0/i__carry__2_n_0 ;
-  wire \WriteCount0_inferred__0/i__carry__2_n_1 ;
-  wire \WriteCount0_inferred__0/i__carry__2_n_2 ;
-  wire \WriteCount0_inferred__0/i__carry__2_n_3 ;
-  wire \WriteCount0_inferred__0/i__carry_n_0 ;
-  wire \WriteCount0_inferred__0/i__carry_n_1 ;
-  wire \WriteCount0_inferred__0/i__carry_n_2 ;
-  wire \WriteCount0_inferred__0/i__carry_n_3 ;
-  wire WriteCount_0;
-  wire \WriteCount_reg[12]_i_2_n_0 ;
-  wire \WriteCount_reg[12]_i_2_n_1 ;
-  wire \WriteCount_reg[12]_i_2_n_2 ;
-  wire \WriteCount_reg[12]_i_2_n_3 ;
-  wire \WriteCount_reg[16]_i_2_n_0 ;
-  wire \WriteCount_reg[16]_i_2_n_1 ;
-  wire \WriteCount_reg[16]_i_2_n_2 ;
-  wire \WriteCount_reg[16]_i_2_n_3 ;
-  wire \WriteCount_reg[20]_i_2_n_0 ;
-  wire \WriteCount_reg[20]_i_2_n_1 ;
-  wire \WriteCount_reg[20]_i_2_n_2 ;
-  wire \WriteCount_reg[20]_i_2_n_3 ;
-  wire \WriteCount_reg[24]_i_2_n_0 ;
-  wire \WriteCount_reg[24]_i_2_n_1 ;
-  wire \WriteCount_reg[24]_i_2_n_2 ;
-  wire \WriteCount_reg[24]_i_2_n_3 ;
-  wire \WriteCount_reg[28]_i_2_n_0 ;
-  wire \WriteCount_reg[28]_i_2_n_1 ;
-  wire \WriteCount_reg[28]_i_2_n_2 ;
-  wire \WriteCount_reg[28]_i_2_n_3 ;
-  wire \WriteCount_reg[31]_i_3_n_2 ;
-  wire \WriteCount_reg[31]_i_3_n_3 ;
-  wire \WriteCount_reg[4]_i_2_n_0 ;
-  wire \WriteCount_reg[4]_i_2_n_1 ;
-  wire \WriteCount_reg[4]_i_2_n_2 ;
-  wire \WriteCount_reg[4]_i_2_n_3 ;
-  wire \WriteCount_reg[8]_i_2_n_0 ;
-  wire \WriteCount_reg[8]_i_2_n_1 ;
-  wire \WriteCount_reg[8]_i_2_n_2 ;
-  wire \WriteCount_reg[8]_i_2_n_3 ;
-  wire \WriteCount_reg_n_0_[0] ;
-  wire \WriteCount_reg_n_0_[10] ;
-  wire \WriteCount_reg_n_0_[11] ;
-  wire \WriteCount_reg_n_0_[12] ;
-  wire \WriteCount_reg_n_0_[13] ;
-  wire \WriteCount_reg_n_0_[14] ;
-  wire \WriteCount_reg_n_0_[15] ;
-  wire \WriteCount_reg_n_0_[16] ;
-  wire \WriteCount_reg_n_0_[17] ;
-  wire \WriteCount_reg_n_0_[18] ;
-  wire \WriteCount_reg_n_0_[19] ;
-  wire \WriteCount_reg_n_0_[1] ;
-  wire \WriteCount_reg_n_0_[20] ;
-  wire \WriteCount_reg_n_0_[21] ;
-  wire \WriteCount_reg_n_0_[22] ;
-  wire \WriteCount_reg_n_0_[23] ;
-  wire \WriteCount_reg_n_0_[24] ;
-  wire \WriteCount_reg_n_0_[25] ;
-  wire \WriteCount_reg_n_0_[26] ;
-  wire \WriteCount_reg_n_0_[27] ;
-  wire \WriteCount_reg_n_0_[28] ;
-  wire \WriteCount_reg_n_0_[29] ;
-  wire \WriteCount_reg_n_0_[2] ;
-  wire \WriteCount_reg_n_0_[30] ;
-  wire \WriteCount_reg_n_0_[31] ;
-  wire \WriteCount_reg_n_0_[3] ;
-  wire \WriteCount_reg_n_0_[4] ;
-  wire \WriteCount_reg_n_0_[5] ;
-  wire \WriteCount_reg_n_0_[6] ;
-  wire \WriteCount_reg_n_0_[7] ;
-  wire \WriteCount_reg_n_0_[8] ;
-  wire \WriteCount_reg_n_0_[9] ;
-  wire i__carry__0_i_1_n_0;
-  wire i__carry__0_i_2_n_0;
-  wire i__carry__0_i_3_n_0;
-  wire i__carry__0_i_4_n_0;
-  wire i__carry__1_i_1_n_0;
-  wire i__carry__1_i_2_n_0;
-  wire i__carry__1_i_3_n_0;
-  wire i__carry__1_i_4_n_0;
-  wire i__carry__2_i_1_n_0;
-  wire i__carry__2_i_2_n_0;
-  wire i__carry__2_i_3_n_0;
-  wire i__carry__2_i_4_n_0;
-  wire i__carry_i_1_n_0;
-  wire i__carry_i_2_n_0;
-  wire i__carry_i_3_n_0;
-  wire i__carry_i_4_n_0;
-  wire i__carry_i_5_n_0;
-  wire in4;
-  wire [31:1]in7;
+  wire [31:1]data0;
+  wire [31:1]in11;
   wire p_0_in;
-  wire [3:2]\NLW_MCLK_Cnt_reg[31]_i_3_CO_UNCONNECTED ;
-  wire [3:3]\NLW_MCLK_Cnt_reg[31]_i_3_O_UNCONNECTED ;
-  wire [3:0]NLW_ReadCount1_carry_O_UNCONNECTED;
-  wire [3:0]NLW_ReadCount1_carry__0_O_UNCONNECTED;
-  wire [3:0]NLW_ReadCount1_carry__1_O_UNCONNECTED;
-  wire [3:0]NLW_ReadCount1_carry__2_O_UNCONNECTED;
-  wire [3:2]\NLW_ReadCount_reg[31]_i_2_CO_UNCONNECTED ;
-  wire [3:3]\NLW_ReadCount_reg[31]_i_2_O_UNCONNECTED ;
-  wire [3:0]\NLW_WriteCount0_inferred__0/i__carry_O_UNCONNECTED ;
-  wire [3:0]\NLW_WriteCount0_inferred__0/i__carry__0_O_UNCONNECTED ;
-  wire [3:0]\NLW_WriteCount0_inferred__0/i__carry__1_O_UNCONNECTED ;
-  wire [3:0]\NLW_WriteCount0_inferred__0/i__carry__2_O_UNCONNECTED ;
-  wire [3:2]\NLW_WriteCount_reg[31]_i_3_CO_UNCONNECTED ;
-  wire [3:3]\NLW_WriteCount_reg[31]_i_3_O_UNCONNECTED ;
+  wire [3:2]\NLW_BytesInFIFO_0_reg[31]_i_3_CO_UNCONNECTED ;
+  wire [3:3]\NLW_BytesInFIFO_0_reg[31]_i_3_O_UNCONNECTED ;
+  wire [3:0]NLW_FIFO_0_Full1_carry_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_0_Full1_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_0_Full1_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_0_Full1_carry__2_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_1_Full1_carry_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_1_Full1_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_1_Full1_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_FIFO_1_Full1_carry__2_O_UNCONNECTED;
+  wire [3:2]\NLW_MCLK_Cnt_reg[31]_i_2_CO_UNCONNECTED ;
+  wire [3:3]\NLW_MCLK_Cnt_reg[31]_i_2_O_UNCONNECTED ;
+  wire [3:3]\NLW_ReadCounter_reg[28]_i_1_CO_UNCONNECTED ;
 
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    Active_OBUF_inst_i_1
+       (.I0(Locked),
+        .I1(Resetn_IBUF),
+        .O(ARESETN));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
-    .INIT(16'hBF40)) 
+    .INIT(16'h7F80)) 
     AudioClock_i_1
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(Locked),
-        .I2(Resetn_IBUF),
+       (.I0(Locked),
+        .I1(Resetn_IBUF),
+        .I2(\MCLK_Cnt[31]_i_3_n_0 ),
         .I3(AudioClock_reg_0),
         .O(AudioClock_i_1_n_0));
   FDRE #(
@@ -1833,4262 +1842,5082 @@ module I2S
         .D(AudioClock_i_1_n_0),
         .Q(AudioClock_reg_0),
         .R(1'b0));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+  LUT6 #(
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[0]_i_1 
-       (.I0(\FIFO_Int_reg[3] [0]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[0]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [0]),
+        .I1(\FIFO_1_reg[2] [0]),
+        .I2(\FIFO_1_reg[1] [0]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [0]),
         .O(\AudioData[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[0]_i_2 
-       (.I0(\FIFO_Int_reg[0] [0]),
-        .I1(\FIFO_Int_reg[1] [0]),
-        .I2(\FIFO_Int_reg[2] [0]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[0]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[10]_i_1 
-       (.I0(\FIFO_Int_reg[3] [10]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[10]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [10]),
+        .I1(\FIFO_1_reg[2] [10]),
+        .I2(\FIFO_1_reg[1] [10]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [10]),
         .O(\AudioData[10]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[10]_i_2 
-       (.I0(\FIFO_Int_reg[0] [10]),
-        .I1(\FIFO_Int_reg[1] [10]),
-        .I2(\FIFO_Int_reg[2] [10]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[10]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[11]_i_1 
-       (.I0(\FIFO_Int_reg[3] [11]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[11]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [11]),
+        .I1(\FIFO_1_reg[2] [11]),
+        .I2(\FIFO_1_reg[1] [11]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [11]),
         .O(\AudioData[11]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[11]_i_2 
-       (.I0(\FIFO_Int_reg[0] [11]),
-        .I1(\FIFO_Int_reg[1] [11]),
-        .I2(\FIFO_Int_reg[2] [11]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[11]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[12]_i_1 
-       (.I0(\FIFO_Int_reg[3] [12]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[12]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [12]),
+        .I1(\FIFO_1_reg[2] [12]),
+        .I2(\FIFO_1_reg[1] [12]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [12]),
         .O(\AudioData[12]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[12]_i_2 
-       (.I0(\FIFO_Int_reg[0] [12]),
-        .I1(\FIFO_Int_reg[1] [12]),
-        .I2(\FIFO_Int_reg[2] [12]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[12]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[13]_i_1 
-       (.I0(\FIFO_Int_reg[3] [13]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[13]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [13]),
+        .I1(\FIFO_1_reg[2] [13]),
+        .I2(\FIFO_1_reg[1] [13]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [13]),
         .O(\AudioData[13]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[13]_i_2 
-       (.I0(\FIFO_Int_reg[0] [13]),
-        .I1(\FIFO_Int_reg[1] [13]),
-        .I2(\FIFO_Int_reg[2] [13]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[13]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[14]_i_1 
-       (.I0(\FIFO_Int_reg[3] [14]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[14]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [14]),
+        .I1(\FIFO_1_reg[2] [14]),
+        .I2(\FIFO_1_reg[1] [14]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [14]),
         .O(\AudioData[14]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[14]_i_2 
-       (.I0(\FIFO_Int_reg[0] [14]),
-        .I1(\FIFO_Int_reg[1] [14]),
-        .I2(\FIFO_Int_reg[2] [14]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[14]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[15]_i_1 
-       (.I0(\FIFO_Int_reg[3] [15]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[15]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [15]),
+        .I1(\FIFO_1_reg[2] [15]),
+        .I2(\FIFO_1_reg[1] [15]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [15]),
         .O(\AudioData[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[15]_i_2 
-       (.I0(\FIFO_Int_reg[0] [15]),
-        .I1(\FIFO_Int_reg[1] [15]),
-        .I2(\FIFO_Int_reg[2] [15]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[15]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[16]_i_1 
-       (.I0(\FIFO_Int_reg[3] [16]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[16]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [16]),
+        .I1(\FIFO_1_reg[2] [16]),
+        .I2(\FIFO_1_reg[1] [16]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [16]),
         .O(\AudioData[16]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[16]_i_2 
-       (.I0(\FIFO_Int_reg[0] [16]),
-        .I1(\FIFO_Int_reg[1] [16]),
-        .I2(\FIFO_Int_reg[2] [16]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[16]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[17]_i_1 
-       (.I0(\FIFO_Int_reg[3] [17]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[17]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [17]),
+        .I1(\FIFO_1_reg[2] [17]),
+        .I2(\FIFO_1_reg[1] [17]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [17]),
         .O(\AudioData[17]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[17]_i_2 
-       (.I0(\FIFO_Int_reg[0] [17]),
-        .I1(\FIFO_Int_reg[1] [17]),
-        .I2(\FIFO_Int_reg[2] [17]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[17]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[18]_i_1 
-       (.I0(\FIFO_Int_reg[3] [18]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[18]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [18]),
+        .I1(\FIFO_1_reg[2] [18]),
+        .I2(\FIFO_1_reg[1] [18]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [18]),
         .O(\AudioData[18]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[18]_i_2 
-       (.I0(\FIFO_Int_reg[0] [18]),
-        .I1(\FIFO_Int_reg[1] [18]),
-        .I2(\FIFO_Int_reg[2] [18]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[18]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[19]_i_1 
-       (.I0(\FIFO_Int_reg[3] [19]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[19]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [19]),
+        .I1(\FIFO_1_reg[2] [19]),
+        .I2(\FIFO_1_reg[1] [19]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [19]),
         .O(\AudioData[19]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[19]_i_2 
-       (.I0(\FIFO_Int_reg[0] [19]),
-        .I1(\FIFO_Int_reg[1] [19]),
-        .I2(\FIFO_Int_reg[2] [19]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[19]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[1]_i_1 
-       (.I0(\FIFO_Int_reg[3] [1]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[1]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [1]),
+        .I1(\FIFO_1_reg[2] [1]),
+        .I2(\FIFO_1_reg[1] [1]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [1]),
         .O(\AudioData[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[1]_i_2 
-       (.I0(\FIFO_Int_reg[0] [1]),
-        .I1(\FIFO_Int_reg[1] [1]),
-        .I2(\FIFO_Int_reg[2] [1]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[1]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[20]_i_1 
-       (.I0(\FIFO_Int_reg[3] [20]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[20]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [20]),
+        .I1(\FIFO_1_reg[2] [20]),
+        .I2(\FIFO_1_reg[1] [20]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [20]),
         .O(\AudioData[20]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[20]_i_2 
-       (.I0(\FIFO_Int_reg[0] [20]),
-        .I1(\FIFO_Int_reg[1] [20]),
-        .I2(\FIFO_Int_reg[2] [20]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[20]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[21]_i_1 
-       (.I0(\FIFO_Int_reg[3] [21]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[21]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [21]),
+        .I1(\FIFO_1_reg[2] [21]),
+        .I2(\FIFO_1_reg[1] [21]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [21]),
         .O(\AudioData[21]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[21]_i_2 
-       (.I0(\FIFO_Int_reg[0] [21]),
-        .I1(\FIFO_Int_reg[1] [21]),
-        .I2(\FIFO_Int_reg[2] [21]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[21]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[22]_i_1 
-       (.I0(\FIFO_Int_reg[3] [22]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[22]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [22]),
+        .I1(\FIFO_1_reg[2] [22]),
+        .I2(\FIFO_1_reg[1] [22]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [22]),
         .O(\AudioData[22]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[22]_i_2 
-       (.I0(\FIFO_Int_reg[0] [22]),
-        .I1(\FIFO_Int_reg[1] [22]),
-        .I2(\FIFO_Int_reg[2] [22]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[22]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[23]_i_1 
-       (.I0(\FIFO_Int_reg[3] [23]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[23]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [23]),
+        .I1(\FIFO_1_reg[2] [23]),
+        .I2(\FIFO_1_reg[1] [23]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [23]),
         .O(\AudioData[23]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[23]_i_2 
-       (.I0(\FIFO_Int_reg[0] [23]),
-        .I1(\FIFO_Int_reg[1] [23]),
-        .I2(\FIFO_Int_reg[2] [23]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[23]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[24]_i_1 
-       (.I0(\FIFO_Int_reg[3] [24]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[24]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [24]),
+        .I1(\FIFO_1_reg[2] [24]),
+        .I2(\FIFO_1_reg[1] [24]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [24]),
         .O(\AudioData[24]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[24]_i_2 
-       (.I0(\FIFO_Int_reg[0] [24]),
-        .I1(\FIFO_Int_reg[1] [24]),
-        .I2(\FIFO_Int_reg[2] [24]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[24]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[25]_i_1 
-       (.I0(\FIFO_Int_reg[3] [25]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[25]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [25]),
+        .I1(\FIFO_1_reg[2] [25]),
+        .I2(\FIFO_1_reg[1] [25]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [25]),
         .O(\AudioData[25]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[25]_i_2 
-       (.I0(\FIFO_Int_reg[0] [25]),
-        .I1(\FIFO_Int_reg[1] [25]),
-        .I2(\FIFO_Int_reg[2] [25]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[25]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[26]_i_1 
-       (.I0(\FIFO_Int_reg[3] [26]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[26]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [26]),
+        .I1(\FIFO_1_reg[2] [26]),
+        .I2(\FIFO_1_reg[1] [26]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [26]),
         .O(\AudioData[26]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[26]_i_2 
-       (.I0(\FIFO_Int_reg[0] [26]),
-        .I1(\FIFO_Int_reg[1] [26]),
-        .I2(\FIFO_Int_reg[2] [26]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[26]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[27]_i_1 
-       (.I0(\FIFO_Int_reg[3] [27]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[27]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [27]),
+        .I1(\FIFO_1_reg[2] [27]),
+        .I2(\FIFO_1_reg[1] [27]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [27]),
         .O(\AudioData[27]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[27]_i_2 
-       (.I0(\FIFO_Int_reg[0] [27]),
-        .I1(\FIFO_Int_reg[1] [27]),
-        .I2(\FIFO_Int_reg[2] [27]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[27]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[28]_i_1 
-       (.I0(\FIFO_Int_reg[3] [28]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[28]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [28]),
+        .I1(\FIFO_1_reg[2] [28]),
+        .I2(\FIFO_1_reg[1] [28]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [28]),
         .O(\AudioData[28]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[28]_i_2 
-       (.I0(\FIFO_Int_reg[0] [28]),
-        .I1(\FIFO_Int_reg[1] [28]),
-        .I2(\FIFO_Int_reg[2] [28]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[28]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[29]_i_1 
-       (.I0(\FIFO_Int_reg[3] [29]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[29]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [29]),
+        .I1(\FIFO_1_reg[2] [29]),
+        .I2(\FIFO_1_reg[1] [29]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [29]),
         .O(\AudioData[29]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[29]_i_2 
-       (.I0(\FIFO_Int_reg[0] [29]),
-        .I1(\FIFO_Int_reg[1] [29]),
-        .I2(\FIFO_Int_reg[2] [29]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[29]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[2]_i_1 
-       (.I0(\FIFO_Int_reg[3] [2]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[2]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [2]),
+        .I1(\FIFO_1_reg[2] [2]),
+        .I2(\FIFO_1_reg[1] [2]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [2]),
         .O(\AudioData[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[2]_i_2 
-       (.I0(\FIFO_Int_reg[0] [2]),
-        .I1(\FIFO_Int_reg[1] [2]),
-        .I2(\FIFO_Int_reg[2] [2]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[2]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[30]_i_1 
-       (.I0(\FIFO_Int_reg[3] [30]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[30]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [30]),
+        .I1(\FIFO_1_reg[2] [30]),
+        .I2(\FIFO_1_reg[1] [30]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [30]),
         .O(\AudioData[30]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[30]_i_2 
-       (.I0(\FIFO_Int_reg[0] [30]),
-        .I1(\FIFO_Int_reg[1] [30]),
-        .I2(\FIFO_Int_reg[2] [30]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[30]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+  LUT3 #(
+    .INIT(8'h01)) 
     \AudioData[31]_i_1 
-       (.I0(\FIFO_Int_reg[3] [31]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[31]_i_2_n_0 ),
+       (.I0(I2SState[0]),
+        .I1(I2SState[1]),
+        .I2(I2SState[2]),
         .O(\AudioData[31]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
+  LUT3 #(
+    .INIT(8'h41)) 
     \AudioData[31]_i_2 
-       (.I0(\FIFO_Int_reg[0] [31]),
-        .I1(\FIFO_Int_reg[1] [31]),
-        .I2(\FIFO_Int_reg[2] [31]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
+       (.I0(I2SState[2]),
+        .I1(I2SState[1]),
+        .I2(I2SState[0]),
         .O(\AudioData[31]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+  LUT6 #(
+    .INIT(64'hAACCF0FFAACCF000)) 
+    \AudioData[31]_i_3 
+       (.I0(\FIFO_1_reg[3] [31]),
+        .I1(\FIFO_1_reg[2] [31]),
+        .I2(\FIFO_1_reg[1] [31]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [31]),
+        .O(\AudioData[31]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[3]_i_1 
-       (.I0(\FIFO_Int_reg[3] [3]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[3]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [3]),
+        .I1(\FIFO_1_reg[2] [3]),
+        .I2(\FIFO_1_reg[1] [3]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [3]),
         .O(\AudioData[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[3]_i_2 
-       (.I0(\FIFO_Int_reg[0] [3]),
-        .I1(\FIFO_Int_reg[1] [3]),
-        .I2(\FIFO_Int_reg[2] [3]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[3]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[4]_i_1 
-       (.I0(\FIFO_Int_reg[3] [4]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[4]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [4]),
+        .I1(\FIFO_1_reg[2] [4]),
+        .I2(\FIFO_1_reg[1] [4]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [4]),
         .O(\AudioData[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[4]_i_2 
-       (.I0(\FIFO_Int_reg[0] [4]),
-        .I1(\FIFO_Int_reg[1] [4]),
-        .I2(\FIFO_Int_reg[2] [4]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[4]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[5]_i_1 
-       (.I0(\FIFO_Int_reg[3] [5]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[5]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [5]),
+        .I1(\FIFO_1_reg[2] [5]),
+        .I2(\FIFO_1_reg[1] [5]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [5]),
         .O(\AudioData[5]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[5]_i_2 
-       (.I0(\FIFO_Int_reg[0] [5]),
-        .I1(\FIFO_Int_reg[1] [5]),
-        .I2(\FIFO_Int_reg[2] [5]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[5]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[6]_i_1 
-       (.I0(\FIFO_Int_reg[3] [6]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[6]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [6]),
+        .I1(\FIFO_1_reg[2] [6]),
+        .I2(\FIFO_1_reg[1] [6]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [6]),
         .O(\AudioData[6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[6]_i_2 
-       (.I0(\FIFO_Int_reg[0] [6]),
-        .I1(\FIFO_Int_reg[1] [6]),
-        .I2(\FIFO_Int_reg[2] [6]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[6]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[7]_i_1 
-       (.I0(\FIFO_Int_reg[3] [7]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[7]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [7]),
+        .I1(\FIFO_1_reg[2] [7]),
+        .I2(\FIFO_1_reg[1] [7]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [7]),
         .O(\AudioData[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[7]_i_2 
-       (.I0(\FIFO_Int_reg[0] [7]),
-        .I1(\FIFO_Int_reg[1] [7]),
-        .I2(\FIFO_Int_reg[2] [7]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[7]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[8]_i_1 
-       (.I0(\FIFO_Int_reg[3] [8]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[8]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [8]),
+        .I1(\FIFO_1_reg[2] [8]),
+        .I2(\FIFO_1_reg[1] [8]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [8]),
         .O(\AudioData[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[8]_i_2 
-       (.I0(\FIFO_Int_reg[0] [8]),
-        .I1(\FIFO_Int_reg[1] [8]),
-        .I2(\FIFO_Int_reg[2] [8]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[8]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF8000)) 
+    .INIT(64'hAACCF0FFAACCF000)) 
     \AudioData[9]_i_1 
-       (.I0(\FIFO_Int_reg[3] [9]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(ReadCount[0]),
-        .I3(ReadCount[1]),
-        .I4(\AudioData[9]_i_2_n_0 ),
+       (.I0(\FIFO_1_reg[3] [9]),
+        .I1(\FIFO_1_reg[2] [9]),
+        .I2(\FIFO_1_reg[1] [9]),
+        .I3(ReadCounter_reg[0]),
+        .I4(ReadCounter_reg[1]),
+        .I5(\FIFO_1_reg[0] [9]),
         .O(\AudioData[9]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00F00000CCAA0000)) 
-    \AudioData[9]_i_2 
-       (.I0(\FIFO_Int_reg[0] [9]),
-        .I1(\FIFO_Int_reg[1] [9]),
-        .I2(\FIFO_Int_reg[2] [9]),
-        .I3(ReadCount[0]),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I5(ReadCount[1]),
-        .O(\AudioData[9]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[0] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[0]_i_1_n_0 ),
         .Q(Data[0]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[10] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[10]_i_1_n_0 ),
         .Q(Data[10]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[11] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[11]_i_1_n_0 ),
         .Q(Data[11]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[12] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[12]_i_1_n_0 ),
         .Q(Data[12]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[13] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[13]_i_1_n_0 ),
         .Q(Data[13]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[14] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[14]_i_1_n_0 ),
         .Q(Data[14]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[15] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[15]_i_1_n_0 ),
         .Q(Data[15]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[16] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[16]_i_1_n_0 ),
         .Q(Data[16]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[17] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[17]_i_1_n_0 ),
         .Q(Data[17]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[18] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[18]_i_1_n_0 ),
         .Q(Data[18]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[19] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[19]_i_1_n_0 ),
         .Q(Data[19]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[1] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[1]_i_1_n_0 ),
         .Q(Data[1]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[20] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[20]_i_1_n_0 ),
         .Q(Data[20]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[21] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[21]_i_1_n_0 ),
         .Q(Data[21]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[22] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[22]_i_1_n_0 ),
         .Q(Data[22]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[23] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[23]_i_1_n_0 ),
         .Q(Data[23]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[24] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[24]_i_1_n_0 ),
         .Q(Data[24]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[25] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[25]_i_1_n_0 ),
         .Q(Data[25]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[26] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[26]_i_1_n_0 ),
         .Q(Data[26]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[27] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[27]_i_1_n_0 ),
         .Q(Data[27]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[28] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[28]_i_1_n_0 ),
         .Q(Data[28]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[29] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[29]_i_1_n_0 ),
         .Q(Data[29]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[2] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[2]_i_1_n_0 ),
         .Q(Data[2]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[30] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[30]_i_1_n_0 ),
         .Q(Data[30]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[31] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(\AudioData[31]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
+        .D(\AudioData[31]_i_3_n_0 ),
         .Q(Data[31]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[3] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[3]_i_1_n_0 ),
         .Q(Data[3]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[4] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[4]_i_1_n_0 ),
         .Q(Data[4]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[5] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[5]_i_1_n_0 ),
         .Q(Data[5]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[6] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[6]_i_1_n_0 ),
         .Q(Data[6]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[7] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[7]_i_1_n_0 ),
         .Q(Data[7]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[8] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[8]_i_1_n_0 ),
         .Q(Data[8]),
-        .R(1'b0));
+        .R(\AudioData[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \AudioData_reg[9] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
+        .CE(\AudioData[31]_i_2_n_0 ),
         .D(\AudioData[9]_i_1_n_0 ),
         .Q(Data[9]),
-        .R(1'b0));
-  LUT6 #(
-    .INIT(64'h1000000000000000)) 
-    \FIFO_Ext[0][31]_i_1 
-       (.I0(\WriteCount_reg_n_0_[1] ),
-        .I1(\WriteCount_reg_n_0_[0] ),
-        .I2(\FIFO_Ext[3][31]_i_3_n_0 ),
-        .I3(\FIFO_Ext[3][31]_i_4_n_0 ),
-        .I4(\FIFO_Ext[3][31]_i_5_n_0 ),
-        .I5(\FIFO_Ext[3][31]_i_6_n_0 ),
-        .O(\FIFO_Ext[0]_3 ));
-  LUT6 #(
-    .INIT(64'h4000000000000000)) 
-    \FIFO_Ext[1][31]_i_1 
-       (.I0(\WriteCount_reg_n_0_[1] ),
-        .I1(\WriteCount_reg_n_0_[0] ),
-        .I2(\FIFO_Ext[3][31]_i_3_n_0 ),
-        .I3(\FIFO_Ext[3][31]_i_4_n_0 ),
-        .I4(\FIFO_Ext[3][31]_i_5_n_0 ),
-        .I5(\FIFO_Ext[3][31]_i_6_n_0 ),
-        .O(\FIFO_Ext[1]_4 ));
-  LUT6 #(
-    .INIT(64'h4000000000000000)) 
-    \FIFO_Ext[2][31]_i_1 
-       (.I0(\WriteCount_reg_n_0_[0] ),
-        .I1(\WriteCount_reg_n_0_[1] ),
-        .I2(\FIFO_Ext[3][31]_i_3_n_0 ),
-        .I3(\FIFO_Ext[3][31]_i_4_n_0 ),
-        .I4(\FIFO_Ext[3][31]_i_5_n_0 ),
-        .I5(\FIFO_Ext[3][31]_i_6_n_0 ),
-        .O(\FIFO_Ext[2]_5 ));
-  LUT2 #(
-    .INIT(4'h1)) 
-    \FIFO_Ext[3][31]_i_1 
-       (.I0(FIFOState),
-        .I1(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .O(WriteCount0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    \FIFO_Ext[3][31]_i_10 
-       (.I0(\WriteCount_reg_n_0_[28] ),
-        .I1(\WriteCount_reg_n_0_[29] ),
-        .O(\FIFO_Ext[3][31]_i_10_n_0 ));
+        .R(\AudioData[31]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \BytesInFIFO_0[0]_i_1 
+       (.I0(\BytesInFIFO_0_reg_n_0_[0] ),
+        .O(\BytesInFIFO_0[0]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h0001)) 
-    \FIFO_Ext[3][31]_i_11 
-       (.I0(\WriteCount_reg_n_0_[11] ),
-        .I1(\WriteCount_reg_n_0_[10] ),
-        .I2(\WriteCount_reg_n_0_[9] ),
-        .I3(\WriteCount_reg_n_0_[8] ),
-        .O(\FIFO_Ext[3][31]_i_11_n_0 ));
-  LUT6 #(
-    .INIT(64'h8000000000000000)) 
-    \FIFO_Ext[3][31]_i_2 
-       (.I0(\FIFO_Ext[3][31]_i_3_n_0 ),
-        .I1(\FIFO_Ext[3][31]_i_4_n_0 ),
-        .I2(\FIFO_Ext[3][31]_i_5_n_0 ),
-        .I3(\FIFO_Ext[3][31]_i_6_n_0 ),
-        .I4(\WriteCount_reg_n_0_[1] ),
-        .I5(\WriteCount_reg_n_0_[0] ),
-        .O(\FIFO_Ext[3]_2 ));
+    .INIT(16'h0023)) 
+    \BytesInFIFO_0[31]_i_1 
+       (.I0(FIFO_1_Full_reg_n_0),
+        .I1(FIFOState[0]),
+        .I2(FIFOState[2]),
+        .I3(FIFOState[1]),
+        .O(\BytesInFIFO_0[31]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'h00010000)) 
-    \FIFO_Ext[3][31]_i_3 
-       (.I0(\WriteCount_reg_n_0_[20] ),
-        .I1(\WriteCount_reg_n_0_[21] ),
-        .I2(\WriteCount_reg_n_0_[22] ),
-        .I3(\WriteCount_reg_n_0_[23] ),
-        .I4(\FIFO_Ext[3][31]_i_7_n_0 ),
-        .O(\FIFO_Ext[3][31]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'h00010000)) 
-    \FIFO_Ext[3][31]_i_4 
-       (.I0(\WriteCount_reg_n_0_[12] ),
-        .I1(\WriteCount_reg_n_0_[13] ),
-        .I2(\WriteCount_reg_n_0_[14] ),
-        .I3(\WriteCount_reg_n_0_[15] ),
-        .I4(\FIFO_Ext[3][31]_i_8_n_0 ),
-        .O(\FIFO_Ext[3][31]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000000100)) 
-    \FIFO_Ext[3][31]_i_5 
-       (.I0(FIFO_Ext_Full),
-        .I1(\WriteCount_reg_n_0_[2] ),
-        .I2(\WriteCount_reg_n_0_[3] ),
-        .I3(\FIFO_Ext[3][31]_i_10_n_0 ),
-        .I4(\WriteCount_reg_n_0_[30] ),
-        .I5(\WriteCount_reg_n_0_[31] ),
-        .O(\FIFO_Ext[3][31]_i_5_n_0 ));
-  LUT5 #(
-    .INIT(32'h00010000)) 
-    \FIFO_Ext[3][31]_i_6 
-       (.I0(\WriteCount_reg_n_0_[4] ),
-        .I1(\WriteCount_reg_n_0_[5] ),
-        .I2(\WriteCount_reg_n_0_[6] ),
-        .I3(\WriteCount_reg_n_0_[7] ),
-        .I4(\FIFO_Ext[3][31]_i_11_n_0 ),
-        .O(\FIFO_Ext[3][31]_i_6_n_0 ));
+    .INIT(32'h11510051)) 
+    \BytesInFIFO_0[31]_i_2 
+       (.I0(FIFOState[0]),
+        .I1(FIFOState[1]),
+        .I2(FIFO_0_Full1_carry__2_n_0),
+        .I3(FIFOState[2]),
+        .I4(FIFO_1_Full_reg_n_0),
+        .O(\BytesInFIFO_0[31]_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0[0]_i_1_n_0 ),
+        .Q(\BytesInFIFO_0_reg_n_0_[0] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[10]),
+        .Q(\BytesInFIFO_0_reg_n_0_[10] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[11]),
+        .Q(\BytesInFIFO_0_reg_n_0_[11] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[12]),
+        .Q(\BytesInFIFO_0_reg_n_0_[12] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[12]_i_1 
+       (.CI(\BytesInFIFO_0_reg[8]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[12]_i_1_n_0 ,\BytesInFIFO_0_reg[12]_i_1_n_1 ,\BytesInFIFO_0_reg[12]_i_1_n_2 ,\BytesInFIFO_0_reg[12]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[12:9]),
+        .S({\BytesInFIFO_0_reg_n_0_[12] ,\BytesInFIFO_0_reg_n_0_[11] ,\BytesInFIFO_0_reg_n_0_[10] ,\BytesInFIFO_0_reg_n_0_[9] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[13]),
+        .Q(\BytesInFIFO_0_reg_n_0_[13] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[14]),
+        .Q(\BytesInFIFO_0_reg_n_0_[14] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[15]),
+        .Q(\BytesInFIFO_0_reg_n_0_[15] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[16]),
+        .Q(\BytesInFIFO_0_reg_n_0_[16] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[16]_i_1 
+       (.CI(\BytesInFIFO_0_reg[12]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[16]_i_1_n_0 ,\BytesInFIFO_0_reg[16]_i_1_n_1 ,\BytesInFIFO_0_reg[16]_i_1_n_2 ,\BytesInFIFO_0_reg[16]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[16:13]),
+        .S({\BytesInFIFO_0_reg_n_0_[16] ,\BytesInFIFO_0_reg_n_0_[15] ,\BytesInFIFO_0_reg_n_0_[14] ,\BytesInFIFO_0_reg_n_0_[13] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[17]),
+        .Q(\BytesInFIFO_0_reg_n_0_[17] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[18]),
+        .Q(\BytesInFIFO_0_reg_n_0_[18] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[19]),
+        .Q(\BytesInFIFO_0_reg_n_0_[19] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[1]),
+        .Q(\BytesInFIFO_0_reg_n_0_[1] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[20]),
+        .Q(\BytesInFIFO_0_reg_n_0_[20] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[20]_i_1 
+       (.CI(\BytesInFIFO_0_reg[16]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[20]_i_1_n_0 ,\BytesInFIFO_0_reg[20]_i_1_n_1 ,\BytesInFIFO_0_reg[20]_i_1_n_2 ,\BytesInFIFO_0_reg[20]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[20:17]),
+        .S({\BytesInFIFO_0_reg_n_0_[20] ,\BytesInFIFO_0_reg_n_0_[19] ,\BytesInFIFO_0_reg_n_0_[18] ,\BytesInFIFO_0_reg_n_0_[17] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[21]),
+        .Q(\BytesInFIFO_0_reg_n_0_[21] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[22]),
+        .Q(\BytesInFIFO_0_reg_n_0_[22] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[23]),
+        .Q(\BytesInFIFO_0_reg_n_0_[23] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[24]),
+        .Q(\BytesInFIFO_0_reg_n_0_[24] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[24]_i_1 
+       (.CI(\BytesInFIFO_0_reg[20]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[24]_i_1_n_0 ,\BytesInFIFO_0_reg[24]_i_1_n_1 ,\BytesInFIFO_0_reg[24]_i_1_n_2 ,\BytesInFIFO_0_reg[24]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[24:21]),
+        .S({\BytesInFIFO_0_reg_n_0_[24] ,\BytesInFIFO_0_reg_n_0_[23] ,\BytesInFIFO_0_reg_n_0_[22] ,\BytesInFIFO_0_reg_n_0_[21] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[25]),
+        .Q(\BytesInFIFO_0_reg_n_0_[25] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[26]),
+        .Q(\BytesInFIFO_0_reg_n_0_[26] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[27]),
+        .Q(\BytesInFIFO_0_reg_n_0_[27] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[28]),
+        .Q(\BytesInFIFO_0_reg_n_0_[28] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[28]_i_1 
+       (.CI(\BytesInFIFO_0_reg[24]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[28]_i_1_n_0 ,\BytesInFIFO_0_reg[28]_i_1_n_1 ,\BytesInFIFO_0_reg[28]_i_1_n_2 ,\BytesInFIFO_0_reg[28]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[28:25]),
+        .S({\BytesInFIFO_0_reg_n_0_[28] ,\BytesInFIFO_0_reg_n_0_[27] ,\BytesInFIFO_0_reg_n_0_[26] ,\BytesInFIFO_0_reg_n_0_[25] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[29]),
+        .Q(\BytesInFIFO_0_reg_n_0_[29] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[2]),
+        .Q(\BytesInFIFO_0_reg_n_0_[2] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[30]),
+        .Q(\BytesInFIFO_0_reg_n_0_[30] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[31]),
+        .Q(\BytesInFIFO_0_reg_n_0_[31] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[31]_i_3 
+       (.CI(\BytesInFIFO_0_reg[28]_i_1_n_0 ),
+        .CO({\NLW_BytesInFIFO_0_reg[31]_i_3_CO_UNCONNECTED [3:2],\BytesInFIFO_0_reg[31]_i_3_n_2 ,\BytesInFIFO_0_reg[31]_i_3_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\NLW_BytesInFIFO_0_reg[31]_i_3_O_UNCONNECTED [3],in11[31:29]}),
+        .S({1'b0,\BytesInFIFO_0_reg_n_0_[31] ,\BytesInFIFO_0_reg_n_0_[30] ,\BytesInFIFO_0_reg_n_0_[29] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[3]),
+        .Q(\BytesInFIFO_0_reg_n_0_[3] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[4]),
+        .Q(\BytesInFIFO_0_reg_n_0_[4] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[4]_i_1 
+       (.CI(1'b0),
+        .CO({\BytesInFIFO_0_reg[4]_i_1_n_0 ,\BytesInFIFO_0_reg[4]_i_1_n_1 ,\BytesInFIFO_0_reg[4]_i_1_n_2 ,\BytesInFIFO_0_reg[4]_i_1_n_3 }),
+        .CYINIT(\BytesInFIFO_0_reg_n_0_[0] ),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[4:1]),
+        .S({\BytesInFIFO_0_reg_n_0_[4] ,\BytesInFIFO_0_reg_n_0_[3] ,\BytesInFIFO_0_reg_n_0_[2] ,\BytesInFIFO_0_reg_n_0_[1] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[5]),
+        .Q(\BytesInFIFO_0_reg_n_0_[5] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[6]),
+        .Q(\BytesInFIFO_0_reg_n_0_[6] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[7]),
+        .Q(\BytesInFIFO_0_reg_n_0_[7] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[8]),
+        .Q(\BytesInFIFO_0_reg_n_0_[8] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  CARRY4 \BytesInFIFO_0_reg[8]_i_1 
+       (.CI(\BytesInFIFO_0_reg[4]_i_1_n_0 ),
+        .CO({\BytesInFIFO_0_reg[8]_i_1_n_0 ,\BytesInFIFO_0_reg[8]_i_1_n_1 ,\BytesInFIFO_0_reg[8]_i_1_n_2 ,\BytesInFIFO_0_reg[8]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(in11[8:5]),
+        .S({\BytesInFIFO_0_reg_n_0_[8] ,\BytesInFIFO_0_reg_n_0_[7] ,\BytesInFIFO_0_reg_n_0_[6] ,\BytesInFIFO_0_reg_n_0_[5] }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_0_reg[9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_0[31]_i_2_n_0 ),
+        .D(in11[9]),
+        .Q(\BytesInFIFO_0_reg_n_0_[9] ),
+        .R(\BytesInFIFO_0[31]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h8A)) 
+    \BytesInFIFO_1[31]_i_1 
+       (.I0(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .I1(I2SState[2]),
+        .I2(I2SState[0]),
+        .O(\BytesInFIFO_1[31]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h0001)) 
-    \FIFO_Ext[3][31]_i_7 
-       (.I0(\WriteCount_reg_n_0_[27] ),
-        .I1(\WriteCount_reg_n_0_[26] ),
-        .I2(\WriteCount_reg_n_0_[25] ),
-        .I3(\WriteCount_reg_n_0_[24] ),
-        .O(\FIFO_Ext[3][31]_i_7_n_0 ));
+    .INIT(16'h000D)) 
+    \BytesInFIFO_1[31]_i_2 
+       (.I0(I2SState[0]),
+        .I1(FIFO_0_Full_reg_n_0),
+        .I2(I2SState[2]),
+        .I3(I2SState[1]),
+        .O(\BytesInFIFO_1[31]_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[0] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[0] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[10] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[10] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[11] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[11] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[12] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[12] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[13] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[13] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[14] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[14] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[15] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[15] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[16] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[16] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[17] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[17] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[18] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[18] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[19] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[19] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[1] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[1] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[20] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[20] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[21] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[21] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[22] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[22] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[23] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[23] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[24] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[24] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[25] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[25] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[26] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[26] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[27] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[27] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[28] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[28] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[29] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[29] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[2] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[2] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[30] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[30] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[31] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[31] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[3] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[3] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[4] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[4] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[5] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[5] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[6] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[6] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[7] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[7] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[8] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[8] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \BytesInFIFO_1_reg[9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\BytesInFIFO_0_reg_n_0_[9] ),
+        .Q(\BytesInFIFO_1_reg_n_0_[9] ),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000005557)) 
+    \FIFO_0[0][31]_i_1 
+       (.I0(FIFOState[1]),
+        .I1(\BytesInFIFO_0_reg_n_0_[1] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[0] ),
+        .I3(\FIFO_0[3][31]_i_3_n_0 ),
+        .I4(FIFOState[2]),
+        .I5(FIFOState[0]),
+        .O(\FIFO_0[0][31]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000010011111111)) 
+    \FIFO_0[1][31]_i_1 
+       (.I0(FIFOState[2]),
+        .I1(FIFOState[0]),
+        .I2(\FIFO_0[3][31]_i_3_n_0 ),
+        .I3(\BytesInFIFO_0_reg_n_0_[0] ),
+        .I4(\BytesInFIFO_0_reg_n_0_[1] ),
+        .I5(FIFOState[1]),
+        .O(\FIFO_0[1]_3 ));
+  LUT6 #(
+    .INIT(64'h0000010011111111)) 
+    \FIFO_0[2][31]_i_1 
+       (.I0(FIFOState[2]),
+        .I1(FIFOState[0]),
+        .I2(\FIFO_0[3][31]_i_3_n_0 ),
+        .I3(\BytesInFIFO_0_reg_n_0_[1] ),
+        .I4(\BytesInFIFO_0_reg_n_0_[0] ),
+        .I5(FIFOState[1]),
+        .O(\FIFO_0[2]_2 ));
+  LUT3 #(
+    .INIT(8'h01)) 
+    \FIFO_0[3][31]_i_1 
+       (.I0(FIFOState[0]),
+        .I1(FIFOState[2]),
+        .I2(FIFOState[1]),
+        .O(\FIFO_0[3][31]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h0001)) 
-    \FIFO_Ext[3][31]_i_8 
-       (.I0(\WriteCount_reg_n_0_[19] ),
-        .I1(\WriteCount_reg_n_0_[18] ),
-        .I2(\WriteCount_reg_n_0_[17] ),
-        .I3(\WriteCount_reg_n_0_[16] ),
-        .O(\FIFO_Ext[3][31]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'hB)) 
-    \FIFO_Ext[3][31]_i_9 
-       (.I0(FIFOState),
-        .I1(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .O(FIFO_Ext_Full));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT3 #(
-    .INIT(8'hC8)) 
-    FIFO_Ext_Full_i_1
-       (.I0(FIFOState),
-        .I1(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .I2(FIFO_Ext_Full_reg_n_0),
-        .O(FIFO_Ext_Full_i_1_n_0));
-  FDRE #(
-    .INIT(1'b0)) 
-    FIFO_Ext_Full_reg
-       (.C(Clock),
-        .CE(1'b1),
-        .D(FIFO_Ext_Full_i_1_n_0),
-        .Q(FIFO_Ext_Full_reg_n_0),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][0] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[0]),
-        .Q(\FIFO_Ext_reg[0] [0]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][10] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[10]),
-        .Q(\FIFO_Ext_reg[0] [10]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][11] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[11]),
-        .Q(\FIFO_Ext_reg[0] [11]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][12] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[12]),
-        .Q(\FIFO_Ext_reg[0] [12]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][13] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[13]),
-        .Q(\FIFO_Ext_reg[0] [13]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][14] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[14]),
-        .Q(\FIFO_Ext_reg[0] [14]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][15] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[15]),
-        .Q(\FIFO_Ext_reg[0] [15]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][16] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[16]),
-        .Q(\FIFO_Ext_reg[0] [16]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][17] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[17]),
-        .Q(\FIFO_Ext_reg[0] [17]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][18] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[18]),
-        .Q(\FIFO_Ext_reg[0] [18]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][19] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[19]),
-        .Q(\FIFO_Ext_reg[0] [19]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][1] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[1]),
-        .Q(\FIFO_Ext_reg[0] [1]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][20] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[20]),
-        .Q(\FIFO_Ext_reg[0] [20]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][21] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[21]),
-        .Q(\FIFO_Ext_reg[0] [21]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][22] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[22]),
-        .Q(\FIFO_Ext_reg[0] [22]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][23] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[23]),
-        .Q(\FIFO_Ext_reg[0] [23]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][24] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[24]),
-        .Q(\FIFO_Ext_reg[0] [24]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][25] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[25]),
-        .Q(\FIFO_Ext_reg[0] [25]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][26] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[26]),
-        .Q(\FIFO_Ext_reg[0] [26]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][27] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[27]),
-        .Q(\FIFO_Ext_reg[0] [27]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][28] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[28]),
-        .Q(\FIFO_Ext_reg[0] [28]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][29] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[29]),
-        .Q(\FIFO_Ext_reg[0] [29]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][2] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[2]),
-        .Q(\FIFO_Ext_reg[0] [2]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][30] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[30]),
-        .Q(\FIFO_Ext_reg[0] [30]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][31] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[31]),
-        .Q(\FIFO_Ext_reg[0] [31]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][3] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[3]),
-        .Q(\FIFO_Ext_reg[0] [3]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][4] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[4]),
-        .Q(\FIFO_Ext_reg[0] [4]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][5] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[5]),
-        .Q(\FIFO_Ext_reg[0] [5]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][6] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[6]),
-        .Q(\FIFO_Ext_reg[0] [6]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][7] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[7]),
-        .Q(\FIFO_Ext_reg[0] [7]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][8] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[8]),
-        .Q(\FIFO_Ext_reg[0] [8]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[0][9] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[0]_3 ),
-        .D(D[9]),
-        .Q(\FIFO_Ext_reg[0] [9]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][0] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[0]),
-        .Q(\FIFO_Ext_reg[1] [0]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][10] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[10]),
-        .Q(\FIFO_Ext_reg[1] [10]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][11] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[11]),
-        .Q(\FIFO_Ext_reg[1] [11]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][12] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[12]),
-        .Q(\FIFO_Ext_reg[1] [12]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][13] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[13]),
-        .Q(\FIFO_Ext_reg[1] [13]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][14] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[14]),
-        .Q(\FIFO_Ext_reg[1] [14]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][15] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[15]),
-        .Q(\FIFO_Ext_reg[1] [15]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][16] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[16]),
-        .Q(\FIFO_Ext_reg[1] [16]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][17] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[17]),
-        .Q(\FIFO_Ext_reg[1] [17]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][18] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[18]),
-        .Q(\FIFO_Ext_reg[1] [18]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][19] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[19]),
-        .Q(\FIFO_Ext_reg[1] [19]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][1] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[1]),
-        .Q(\FIFO_Ext_reg[1] [1]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][20] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[20]),
-        .Q(\FIFO_Ext_reg[1] [20]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][21] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[21]),
-        .Q(\FIFO_Ext_reg[1] [21]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][22] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[22]),
-        .Q(\FIFO_Ext_reg[1] [22]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][23] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[23]),
-        .Q(\FIFO_Ext_reg[1] [23]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][24] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[24]),
-        .Q(\FIFO_Ext_reg[1] [24]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][25] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[25]),
-        .Q(\FIFO_Ext_reg[1] [25]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][26] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[26]),
-        .Q(\FIFO_Ext_reg[1] [26]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][27] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[27]),
-        .Q(\FIFO_Ext_reg[1] [27]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][28] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[28]),
-        .Q(\FIFO_Ext_reg[1] [28]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][29] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[29]),
-        .Q(\FIFO_Ext_reg[1] [29]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][2] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[2]),
-        .Q(\FIFO_Ext_reg[1] [2]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][30] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[30]),
-        .Q(\FIFO_Ext_reg[1] [30]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][31] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[31]),
-        .Q(\FIFO_Ext_reg[1] [31]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][3] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[3]),
-        .Q(\FIFO_Ext_reg[1] [3]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][4] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[4]),
-        .Q(\FIFO_Ext_reg[1] [4]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][5] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[5]),
-        .Q(\FIFO_Ext_reg[1] [5]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][6] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[6]),
-        .Q(\FIFO_Ext_reg[1] [6]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][7] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[7]),
-        .Q(\FIFO_Ext_reg[1] [7]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][8] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[8]),
-        .Q(\FIFO_Ext_reg[1] [8]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[1][9] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[1]_4 ),
-        .D(D[9]),
-        .Q(\FIFO_Ext_reg[1] [9]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][0] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[0]),
-        .Q(\FIFO_Ext_reg[2] [0]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][10] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[10]),
-        .Q(\FIFO_Ext_reg[2] [10]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][11] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[11]),
-        .Q(\FIFO_Ext_reg[2] [11]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][12] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[12]),
-        .Q(\FIFO_Ext_reg[2] [12]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][13] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[13]),
-        .Q(\FIFO_Ext_reg[2] [13]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][14] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[14]),
-        .Q(\FIFO_Ext_reg[2] [14]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][15] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[15]),
-        .Q(\FIFO_Ext_reg[2] [15]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][16] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[16]),
-        .Q(\FIFO_Ext_reg[2] [16]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][17] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[17]),
-        .Q(\FIFO_Ext_reg[2] [17]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][18] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[18]),
-        .Q(\FIFO_Ext_reg[2] [18]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][19] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[19]),
-        .Q(\FIFO_Ext_reg[2] [19]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][1] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[1]),
-        .Q(\FIFO_Ext_reg[2] [1]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][20] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[20]),
-        .Q(\FIFO_Ext_reg[2] [20]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][21] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[21]),
-        .Q(\FIFO_Ext_reg[2] [21]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][22] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[22]),
-        .Q(\FIFO_Ext_reg[2] [22]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][23] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[23]),
-        .Q(\FIFO_Ext_reg[2] [23]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][24] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[24]),
-        .Q(\FIFO_Ext_reg[2] [24]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][25] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[25]),
-        .Q(\FIFO_Ext_reg[2] [25]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][26] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[26]),
-        .Q(\FIFO_Ext_reg[2] [26]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][27] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[27]),
-        .Q(\FIFO_Ext_reg[2] [27]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][28] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[28]),
-        .Q(\FIFO_Ext_reg[2] [28]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][29] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[29]),
-        .Q(\FIFO_Ext_reg[2] [29]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][2] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[2]),
-        .Q(\FIFO_Ext_reg[2] [2]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][30] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[30]),
-        .Q(\FIFO_Ext_reg[2] [30]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][31] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[31]),
-        .Q(\FIFO_Ext_reg[2] [31]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][3] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[3]),
-        .Q(\FIFO_Ext_reg[2] [3]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][4] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[4]),
-        .Q(\FIFO_Ext_reg[2] [4]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][5] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[5]),
-        .Q(\FIFO_Ext_reg[2] [5]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][6] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[6]),
-        .Q(\FIFO_Ext_reg[2] [6]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][7] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[7]),
-        .Q(\FIFO_Ext_reg[2] [7]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][8] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[8]),
-        .Q(\FIFO_Ext_reg[2] [8]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[2][9] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[2]_5 ),
-        .D(D[9]),
-        .Q(\FIFO_Ext_reg[2] [9]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][0] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[0]),
-        .Q(\FIFO_Ext_reg[3] [0]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][10] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[10]),
-        .Q(\FIFO_Ext_reg[3] [10]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][11] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[11]),
-        .Q(\FIFO_Ext_reg[3] [11]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][12] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[12]),
-        .Q(\FIFO_Ext_reg[3] [12]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][13] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[13]),
-        .Q(\FIFO_Ext_reg[3] [13]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][14] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[14]),
-        .Q(\FIFO_Ext_reg[3] [14]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][15] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[15]),
-        .Q(\FIFO_Ext_reg[3] [15]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][16] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[16]),
-        .Q(\FIFO_Ext_reg[3] [16]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][17] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[17]),
-        .Q(\FIFO_Ext_reg[3] [17]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][18] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[18]),
-        .Q(\FIFO_Ext_reg[3] [18]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][19] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[19]),
-        .Q(\FIFO_Ext_reg[3] [19]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][1] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[1]),
-        .Q(\FIFO_Ext_reg[3] [1]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][20] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[20]),
-        .Q(\FIFO_Ext_reg[3] [20]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][21] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[21]),
-        .Q(\FIFO_Ext_reg[3] [21]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][22] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[22]),
-        .Q(\FIFO_Ext_reg[3] [22]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][23] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[23]),
-        .Q(\FIFO_Ext_reg[3] [23]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][24] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[24]),
-        .Q(\FIFO_Ext_reg[3] [24]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][25] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[25]),
-        .Q(\FIFO_Ext_reg[3] [25]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][26] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[26]),
-        .Q(\FIFO_Ext_reg[3] [26]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][27] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[27]),
-        .Q(\FIFO_Ext_reg[3] [27]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][28] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[28]),
-        .Q(\FIFO_Ext_reg[3] [28]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][29] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[29]),
-        .Q(\FIFO_Ext_reg[3] [29]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][2] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[2]),
-        .Q(\FIFO_Ext_reg[3] [2]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][30] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[30]),
-        .Q(\FIFO_Ext_reg[3] [30]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][31] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[31]),
-        .Q(\FIFO_Ext_reg[3] [31]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][3] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[3]),
-        .Q(\FIFO_Ext_reg[3] [3]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][4] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[4]),
-        .Q(\FIFO_Ext_reg[3] [4]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][5] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[5]),
-        .Q(\FIFO_Ext_reg[3] [5]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][6] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[6]),
-        .Q(\FIFO_Ext_reg[3] [6]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][7] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[7]),
-        .Q(\FIFO_Ext_reg[3] [7]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][8] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[8]),
-        .Q(\FIFO_Ext_reg[3] [8]),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Ext_reg[3][9] 
-       (.C(Clock),
-        .CE(\FIFO_Ext[3]_2 ),
-        .D(D[9]),
-        .Q(\FIFO_Ext_reg[3] [9]),
-        .R(WriteCount0));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \FIFO_Int[3][31]_i_1 
-       (.I0(\FIFO_Int[3][31]_i_2_n_0 ),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[1] ),
-        .O(\FIFO_Int[3][31]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'hF8)) 
-    \FIFO_Int[3][31]_i_2 
-       (.I0(\FSM_onehot_I2SState_reg_n_0_[1] ),
-        .I1(FIFO_Ext_Full_reg_n_0),
-        .I2(\FSM_onehot_I2SState_reg_n_0_[0] ),
-        .O(\FIFO_Int[3][31]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    FIFO_Int_Full_i_2
-       (.I0(FIFO_Ext_Full_reg_n_0),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[1] ),
-        .O(FIFO_Int_Full));
-  FDRE #(
-    .INIT(1'b0)) 
-    FIFO_Int_Full_reg
-       (.C(Clock),
-        .CE(1'b1),
-        .D(Transmitter_n_8),
-        .Q(FIFO_Int_Full_reg_n_0),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][0] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [0]),
-        .Q(\FIFO_Int_reg[0] [0]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][10] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [10]),
-        .Q(\FIFO_Int_reg[0] [10]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][11] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [11]),
-        .Q(\FIFO_Int_reg[0] [11]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][12] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [12]),
-        .Q(\FIFO_Int_reg[0] [12]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][13] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [13]),
-        .Q(\FIFO_Int_reg[0] [13]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][14] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [14]),
-        .Q(\FIFO_Int_reg[0] [14]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][15] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [15]),
-        .Q(\FIFO_Int_reg[0] [15]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][16] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [16]),
-        .Q(\FIFO_Int_reg[0] [16]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][17] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [17]),
-        .Q(\FIFO_Int_reg[0] [17]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][18] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [18]),
-        .Q(\FIFO_Int_reg[0] [18]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][19] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [19]),
-        .Q(\FIFO_Int_reg[0] [19]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][1] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [1]),
-        .Q(\FIFO_Int_reg[0] [1]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][20] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [20]),
-        .Q(\FIFO_Int_reg[0] [20]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][21] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [21]),
-        .Q(\FIFO_Int_reg[0] [21]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][22] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [22]),
-        .Q(\FIFO_Int_reg[0] [22]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][23] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [23]),
-        .Q(\FIFO_Int_reg[0] [23]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][24] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [24]),
-        .Q(\FIFO_Int_reg[0] [24]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][25] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [25]),
-        .Q(\FIFO_Int_reg[0] [25]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][26] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [26]),
-        .Q(\FIFO_Int_reg[0] [26]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][27] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [27]),
-        .Q(\FIFO_Int_reg[0] [27]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][28] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [28]),
-        .Q(\FIFO_Int_reg[0] [28]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][29] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [29]),
-        .Q(\FIFO_Int_reg[0] [29]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][2] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [2]),
-        .Q(\FIFO_Int_reg[0] [2]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][30] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [30]),
-        .Q(\FIFO_Int_reg[0] [30]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][31] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [31]),
-        .Q(\FIFO_Int_reg[0] [31]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][3] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [3]),
-        .Q(\FIFO_Int_reg[0] [3]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][4] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [4]),
-        .Q(\FIFO_Int_reg[0] [4]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][5] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [5]),
-        .Q(\FIFO_Int_reg[0] [5]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][6] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [6]),
-        .Q(\FIFO_Int_reg[0] [6]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][7] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [7]),
-        .Q(\FIFO_Int_reg[0] [7]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][8] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [8]),
-        .Q(\FIFO_Int_reg[0] [8]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[0][9] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[0] [9]),
-        .Q(\FIFO_Int_reg[0] [9]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][0] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [0]),
-        .Q(\FIFO_Int_reg[1] [0]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][10] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [10]),
-        .Q(\FIFO_Int_reg[1] [10]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][11] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [11]),
-        .Q(\FIFO_Int_reg[1] [11]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][12] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [12]),
-        .Q(\FIFO_Int_reg[1] [12]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][13] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [13]),
-        .Q(\FIFO_Int_reg[1] [13]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][14] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [14]),
-        .Q(\FIFO_Int_reg[1] [14]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][15] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [15]),
-        .Q(\FIFO_Int_reg[1] [15]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][16] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [16]),
-        .Q(\FIFO_Int_reg[1] [16]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][17] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [17]),
-        .Q(\FIFO_Int_reg[1] [17]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][18] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [18]),
-        .Q(\FIFO_Int_reg[1] [18]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][19] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [19]),
-        .Q(\FIFO_Int_reg[1] [19]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][1] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [1]),
-        .Q(\FIFO_Int_reg[1] [1]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][20] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [20]),
-        .Q(\FIFO_Int_reg[1] [20]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][21] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [21]),
-        .Q(\FIFO_Int_reg[1] [21]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][22] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [22]),
-        .Q(\FIFO_Int_reg[1] [22]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][23] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [23]),
-        .Q(\FIFO_Int_reg[1] [23]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][24] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [24]),
-        .Q(\FIFO_Int_reg[1] [24]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][25] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [25]),
-        .Q(\FIFO_Int_reg[1] [25]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][26] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [26]),
-        .Q(\FIFO_Int_reg[1] [26]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][27] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [27]),
-        .Q(\FIFO_Int_reg[1] [27]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][28] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [28]),
-        .Q(\FIFO_Int_reg[1] [28]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][29] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [29]),
-        .Q(\FIFO_Int_reg[1] [29]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][2] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [2]),
-        .Q(\FIFO_Int_reg[1] [2]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][30] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [30]),
-        .Q(\FIFO_Int_reg[1] [30]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][31] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [31]),
-        .Q(\FIFO_Int_reg[1] [31]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][3] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [3]),
-        .Q(\FIFO_Int_reg[1] [3]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][4] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [4]),
-        .Q(\FIFO_Int_reg[1] [4]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][5] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [5]),
-        .Q(\FIFO_Int_reg[1] [5]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][6] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [6]),
-        .Q(\FIFO_Int_reg[1] [6]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][7] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [7]),
-        .Q(\FIFO_Int_reg[1] [7]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][8] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [8]),
-        .Q(\FIFO_Int_reg[1] [8]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[1][9] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[1] [9]),
-        .Q(\FIFO_Int_reg[1] [9]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][0] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [0]),
-        .Q(\FIFO_Int_reg[2] [0]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][10] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [10]),
-        .Q(\FIFO_Int_reg[2] [10]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][11] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [11]),
-        .Q(\FIFO_Int_reg[2] [11]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][12] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [12]),
-        .Q(\FIFO_Int_reg[2] [12]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][13] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [13]),
-        .Q(\FIFO_Int_reg[2] [13]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][14] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [14]),
-        .Q(\FIFO_Int_reg[2] [14]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][15] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [15]),
-        .Q(\FIFO_Int_reg[2] [15]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][16] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [16]),
-        .Q(\FIFO_Int_reg[2] [16]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][17] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [17]),
-        .Q(\FIFO_Int_reg[2] [17]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][18] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [18]),
-        .Q(\FIFO_Int_reg[2] [18]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][19] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [19]),
-        .Q(\FIFO_Int_reg[2] [19]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][1] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [1]),
-        .Q(\FIFO_Int_reg[2] [1]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][20] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [20]),
-        .Q(\FIFO_Int_reg[2] [20]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][21] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [21]),
-        .Q(\FIFO_Int_reg[2] [21]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][22] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [22]),
-        .Q(\FIFO_Int_reg[2] [22]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][23] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [23]),
-        .Q(\FIFO_Int_reg[2] [23]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][24] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [24]),
-        .Q(\FIFO_Int_reg[2] [24]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][25] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [25]),
-        .Q(\FIFO_Int_reg[2] [25]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][26] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [26]),
-        .Q(\FIFO_Int_reg[2] [26]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][27] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [27]),
-        .Q(\FIFO_Int_reg[2] [27]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][28] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [28]),
-        .Q(\FIFO_Int_reg[2] [28]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][29] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [29]),
-        .Q(\FIFO_Int_reg[2] [29]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][2] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [2]),
-        .Q(\FIFO_Int_reg[2] [2]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][30] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [30]),
-        .Q(\FIFO_Int_reg[2] [30]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][31] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [31]),
-        .Q(\FIFO_Int_reg[2] [31]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][3] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [3]),
-        .Q(\FIFO_Int_reg[2] [3]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][4] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [4]),
-        .Q(\FIFO_Int_reg[2] [4]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][5] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [5]),
-        .Q(\FIFO_Int_reg[2] [5]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][6] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [6]),
-        .Q(\FIFO_Int_reg[2] [6]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][7] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [7]),
-        .Q(\FIFO_Int_reg[2] [7]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][8] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [8]),
-        .Q(\FIFO_Int_reg[2] [8]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[2][9] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[2] [9]),
-        .Q(\FIFO_Int_reg[2] [9]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][0] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [0]),
-        .Q(\FIFO_Int_reg[3] [0]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][10] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [10]),
-        .Q(\FIFO_Int_reg[3] [10]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][11] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [11]),
-        .Q(\FIFO_Int_reg[3] [11]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][12] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [12]),
-        .Q(\FIFO_Int_reg[3] [12]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][13] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [13]),
-        .Q(\FIFO_Int_reg[3] [13]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][14] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [14]),
-        .Q(\FIFO_Int_reg[3] [14]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][15] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [15]),
-        .Q(\FIFO_Int_reg[3] [15]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][16] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [16]),
-        .Q(\FIFO_Int_reg[3] [16]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][17] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [17]),
-        .Q(\FIFO_Int_reg[3] [17]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][18] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [18]),
-        .Q(\FIFO_Int_reg[3] [18]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][19] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [19]),
-        .Q(\FIFO_Int_reg[3] [19]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][1] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [1]),
-        .Q(\FIFO_Int_reg[3] [1]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][20] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [20]),
-        .Q(\FIFO_Int_reg[3] [20]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][21] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [21]),
-        .Q(\FIFO_Int_reg[3] [21]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][22] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [22]),
-        .Q(\FIFO_Int_reg[3] [22]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][23] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [23]),
-        .Q(\FIFO_Int_reg[3] [23]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][24] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [24]),
-        .Q(\FIFO_Int_reg[3] [24]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][25] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [25]),
-        .Q(\FIFO_Int_reg[3] [25]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][26] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [26]),
-        .Q(\FIFO_Int_reg[3] [26]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][27] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [27]),
-        .Q(\FIFO_Int_reg[3] [27]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][28] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [28]),
-        .Q(\FIFO_Int_reg[3] [28]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][29] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [29]),
-        .Q(\FIFO_Int_reg[3] [29]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][2] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [2]),
-        .Q(\FIFO_Int_reg[3] [2]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][30] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [30]),
-        .Q(\FIFO_Int_reg[3] [30]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][31] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [31]),
-        .Q(\FIFO_Int_reg[3] [31]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][3] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [3]),
-        .Q(\FIFO_Int_reg[3] [3]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][4] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [4]),
-        .Q(\FIFO_Int_reg[3] [4]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][5] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [5]),
-        .Q(\FIFO_Int_reg[3] [5]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][6] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [6]),
-        .Q(\FIFO_Int_reg[3] [6]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][7] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [7]),
-        .Q(\FIFO_Int_reg[3] [7]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][8] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [8]),
-        .Q(\FIFO_Int_reg[3] [8]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \FIFO_Int_reg[3][9] 
-       (.C(Clock),
-        .CE(\FIFO_Int[3][31]_i_2_n_0 ),
-        .D(\FIFO_Ext_reg[3] [9]),
-        .Q(\FIFO_Int_reg[3] [9]),
-        .R(\FIFO_Int[3][31]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h70)) 
-    \FSM_onehot_I2SState[0]_i_1 
-       (.I0(Resetn_IBUF),
-        .I1(Locked),
-        .I2(\FSM_onehot_I2SState_reg_n_0_[0] ),
-        .O(\FSM_onehot_I2SState[0]_i_1_n_0 ));
+    .INIT(16'hFFFE)) 
+    \FIFO_0[3][31]_i_10 
+       (.I0(\BytesInFIFO_0_reg_n_0_[5] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[4] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[13] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[12] ),
+        .O(\FIFO_0[3][31]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000100011111111)) 
+    \FIFO_0[3][31]_i_2 
+       (.I0(FIFOState[2]),
+        .I1(FIFOState[0]),
+        .I2(\BytesInFIFO_0_reg_n_0_[1] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[0] ),
+        .I4(\FIFO_0[3][31]_i_3_n_0 ),
+        .I5(FIFOState[1]),
+        .O(\FIFO_0[3]_1 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \FIFO_0[3][31]_i_3 
+       (.I0(\FIFO_0[3][31]_i_4_n_0 ),
+        .I1(\FIFO_0[3][31]_i_5_n_0 ),
+        .I2(\FIFO_0[3][31]_i_6_n_0 ),
+        .I3(\BytesInFIFO_0_reg_n_0_[14] ),
+        .I4(\BytesInFIFO_0_reg_n_0_[15] ),
+        .I5(\FIFO_0[3][31]_i_7_n_0 ),
+        .O(\FIFO_0[3][31]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \FIFO_0[3][31]_i_4 
+       (.I0(\FIFO_0[3][31]_i_8_n_0 ),
+        .I1(\FIFO_0[3][31]_i_9_n_0 ),
+        .I2(\BytesInFIFO_0_reg_n_0_[29] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[28] ),
+        .I4(\BytesInFIFO_0_reg_n_0_[27] ),
+        .I5(\BytesInFIFO_0_reg_n_0_[26] ),
+        .O(\FIFO_0[3][31]_i_4_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
-    \FSM_onehot_I2SState[5]_i_1 
-       (.I0(\FIFO_Int[3][31]_i_2_n_0 ),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[4] ),
-        .I2(\FSM_onehot_I2SState_reg_n_0_[5] ),
-        .I3(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I4(\FSM_onehot_I2SState_reg_n_0_[2] ),
-        .O(\FSM_onehot_I2SState[5]_i_1_n_0 ));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b1)) 
-    \FSM_onehot_I2SState_reg[0] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(\FSM_onehot_I2SState[0]_i_1_n_0 ),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[0] ),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b0)) 
-    \FSM_onehot_I2SState_reg[1] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(Transmitter_n_7),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[1] ),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b0)) 
-    \FSM_onehot_I2SState_reg[2] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(Transmitter_n_6),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[2] ),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b0)) 
-    \FSM_onehot_I2SState_reg[3] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(Transmitter_n_5),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b0)) 
-    \FSM_onehot_I2SState_reg[4] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(Transmitter_n_4),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[4] ),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:000001,waitforsync:000100,starttransmission:010000,waitfortransmissionend:100000,waitforfifo:000010,loaddata:001000" *) 
-  FDRE #(
-    .INIT(1'b0)) 
-    \FSM_onehot_I2SState_reg[5] 
-       (.C(Clock),
-        .CE(\FSM_onehot_I2SState[5]_i_1_n_0 ),
-        .D(Transmitter_n_3),
-        .Q(\FSM_onehot_I2SState_reg_n_0_[5] ),
-        .R(1'b0));
+    \FIFO_0[3][31]_i_5 
+       (.I0(\BytesInFIFO_0_reg_n_0_[24] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[25] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[10] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[11] ),
+        .I4(\FIFO_0[3][31]_i_10_n_0 ),
+        .O(\FIFO_0[3][31]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \FIFO_0[3][31]_i_6 
+       (.I0(\BytesInFIFO_0_reg_n_0_[20] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[21] ),
+        .O(\FIFO_0[3][31]_i_6_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FIFO_0[3][31]_i_7 
+       (.I0(\BytesInFIFO_0_reg_n_0_[3] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[2] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[31] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[30] ),
+        .O(\FIFO_0[3][31]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \FIFO_0[3][31]_i_8 
+       (.I0(\BytesInFIFO_0_reg_n_0_[23] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[22] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[16] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[17] ),
+        .I4(\BytesInFIFO_0_reg_n_0_[18] ),
+        .I5(\BytesInFIFO_0_reg_n_0_[19] ),
+        .O(\FIFO_0[3][31]_i_8_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FIFO_0[3][31]_i_9 
+       (.I0(\BytesInFIFO_0_reg_n_0_[7] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[6] ),
+        .I2(\BytesInFIFO_0_reg_n_0_[9] ),
+        .I3(\BytesInFIFO_0_reg_n_0_[8] ),
+        .O(\FIFO_0[3][31]_i_9_n_0 ));
+  CARRY4 FIFO_0_Full1_carry
+       (.CI(1'b0),
+        .CO({FIFO_0_Full1_carry_n_0,FIFO_0_Full1_carry_n_1,FIFO_0_Full1_carry_n_2,FIFO_0_Full1_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,FIFO_0_Full1_carry_i_1_n_0}),
+        .O(NLW_FIFO_0_Full1_carry_O_UNCONNECTED[3:0]),
+        .S({FIFO_0_Full1_carry_i_2_n_0,FIFO_0_Full1_carry_i_3_n_0,FIFO_0_Full1_carry_i_4_n_0,FIFO_0_Full1_carry_i_5_n_0}));
+  CARRY4 FIFO_0_Full1_carry__0
+       (.CI(FIFO_0_Full1_carry_n_0),
+        .CO({FIFO_0_Full1_carry__0_n_0,FIFO_0_Full1_carry__0_n_1,FIFO_0_Full1_carry__0_n_2,FIFO_0_Full1_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_FIFO_0_Full1_carry__0_O_UNCONNECTED[3:0]),
+        .S({FIFO_0_Full1_carry__0_i_1_n_0,FIFO_0_Full1_carry__0_i_2_n_0,FIFO_0_Full1_carry__0_i_3_n_0,FIFO_0_Full1_carry__0_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__0_i_1
+       (.I0(\BytesInFIFO_0_reg_n_0_[14] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[15] ),
+        .O(FIFO_0_Full1_carry__0_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__0_i_2
+       (.I0(\BytesInFIFO_0_reg_n_0_[13] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[12] ),
+        .O(FIFO_0_Full1_carry__0_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__0_i_3
+       (.I0(\BytesInFIFO_0_reg_n_0_[11] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[10] ),
+        .O(FIFO_0_Full1_carry__0_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__0_i_4
+       (.I0(\BytesInFIFO_0_reg_n_0_[9] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[8] ),
+        .O(FIFO_0_Full1_carry__0_i_4_n_0));
+  CARRY4 FIFO_0_Full1_carry__1
+       (.CI(FIFO_0_Full1_carry__0_n_0),
+        .CO({FIFO_0_Full1_carry__1_n_0,FIFO_0_Full1_carry__1_n_1,FIFO_0_Full1_carry__1_n_2,FIFO_0_Full1_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_FIFO_0_Full1_carry__1_O_UNCONNECTED[3:0]),
+        .S({FIFO_0_Full1_carry__1_i_1_n_0,FIFO_0_Full1_carry__1_i_2_n_0,FIFO_0_Full1_carry__1_i_3_n_0,FIFO_0_Full1_carry__1_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__1_i_1
+       (.I0(\BytesInFIFO_0_reg_n_0_[23] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[22] ),
+        .O(FIFO_0_Full1_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__1_i_2
+       (.I0(\BytesInFIFO_0_reg_n_0_[21] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[20] ),
+        .O(FIFO_0_Full1_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__1_i_3
+       (.I0(\BytesInFIFO_0_reg_n_0_[19] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[18] ),
+        .O(FIFO_0_Full1_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__1_i_4
+       (.I0(\BytesInFIFO_0_reg_n_0_[17] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[16] ),
+        .O(FIFO_0_Full1_carry__1_i_4_n_0));
+  CARRY4 FIFO_0_Full1_carry__2
+       (.CI(FIFO_0_Full1_carry__1_n_0),
+        .CO({FIFO_0_Full1_carry__2_n_0,FIFO_0_Full1_carry__2_n_1,FIFO_0_Full1_carry__2_n_2,FIFO_0_Full1_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({\BytesInFIFO_0_reg_n_0_[31] ,1'b0,1'b0,1'b0}),
+        .O(NLW_FIFO_0_Full1_carry__2_O_UNCONNECTED[3:0]),
+        .S({FIFO_0_Full1_carry__2_i_1_n_0,FIFO_0_Full1_carry__2_i_2_n_0,FIFO_0_Full1_carry__2_i_3_n_0,FIFO_0_Full1_carry__2_i_4_n_0}));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__2_i_1
+       (.I0(\BytesInFIFO_0_reg_n_0_[31] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[30] ),
+        .O(FIFO_0_Full1_carry__2_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__2_i_2
+       (.I0(\BytesInFIFO_0_reg_n_0_[29] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[28] ),
+        .O(FIFO_0_Full1_carry__2_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__2_i_3
+       (.I0(\BytesInFIFO_0_reg_n_0_[27] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[26] ),
+        .O(FIFO_0_Full1_carry__2_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry__2_i_4
+       (.I0(\BytesInFIFO_0_reg_n_0_[25] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[24] ),
+        .O(FIFO_0_Full1_carry__2_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    FIFO_0_Full1_carry_i_1
+       (.I0(\BytesInFIFO_0_reg_n_0_[1] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[0] ),
+        .O(FIFO_0_Full1_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry_i_2
+       (.I0(\BytesInFIFO_0_reg_n_0_[7] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[6] ),
+        .O(FIFO_0_Full1_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry_i_3
+       (.I0(\BytesInFIFO_0_reg_n_0_[5] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[4] ),
+        .O(FIFO_0_Full1_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    FIFO_0_Full1_carry_i_4
+       (.I0(\BytesInFIFO_0_reg_n_0_[3] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[2] ),
+        .O(FIFO_0_Full1_carry_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    FIFO_0_Full1_carry_i_5
+       (.I0(\BytesInFIFO_0_reg_n_0_[0] ),
+        .I1(\BytesInFIFO_0_reg_n_0_[1] ),
+        .O(FIFO_0_Full1_carry_i_5_n_0));
   LUT5 #(
-    .INIT(32'hBFBABABA)) 
+    .INIT(32'hFFAA0002)) 
+    FIFO_0_Full_i_1
+       (.I0(FIFOState[1]),
+        .I1(FIFO_0_Full1_carry__2_n_0),
+        .I2(FIFOState[0]),
+        .I3(FIFOState[2]),
+        .I4(FIFO_0_Full_reg_n_0),
+        .O(FIFO_0_Full_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    FIFO_0_Full_reg
+       (.C(Clock),
+        .CE(1'b1),
+        .D(FIFO_0_Full_i_1_n_0),
+        .Q(FIFO_0_Full_reg_n_0),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][0] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[0]),
+        .Q(\FIFO_0_reg[0] [0]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][10] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[10]),
+        .Q(\FIFO_0_reg[0] [10]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][11] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[11]),
+        .Q(\FIFO_0_reg[0] [11]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][12] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[12]),
+        .Q(\FIFO_0_reg[0] [12]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][13] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[13]),
+        .Q(\FIFO_0_reg[0] [13]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][14] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[14]),
+        .Q(\FIFO_0_reg[0] [14]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][15] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[15]),
+        .Q(\FIFO_0_reg[0] [15]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][16] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[16]),
+        .Q(\FIFO_0_reg[0] [16]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][17] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[17]),
+        .Q(\FIFO_0_reg[0] [17]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][18] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[18]),
+        .Q(\FIFO_0_reg[0] [18]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][19] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[19]),
+        .Q(\FIFO_0_reg[0] [19]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][1] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[1]),
+        .Q(\FIFO_0_reg[0] [1]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][20] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[20]),
+        .Q(\FIFO_0_reg[0] [20]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][21] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[21]),
+        .Q(\FIFO_0_reg[0] [21]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][22] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[22]),
+        .Q(\FIFO_0_reg[0] [22]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][23] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[23]),
+        .Q(\FIFO_0_reg[0] [23]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][24] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[24]),
+        .Q(\FIFO_0_reg[0] [24]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][25] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[25]),
+        .Q(\FIFO_0_reg[0] [25]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][26] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[26]),
+        .Q(\FIFO_0_reg[0] [26]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][27] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[27]),
+        .Q(\FIFO_0_reg[0] [27]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][28] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[28]),
+        .Q(\FIFO_0_reg[0] [28]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][29] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[29]),
+        .Q(\FIFO_0_reg[0] [29]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][2] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[2]),
+        .Q(\FIFO_0_reg[0] [2]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][30] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[30]),
+        .Q(\FIFO_0_reg[0] [30]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][31] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[31]),
+        .Q(\FIFO_0_reg[0] [31]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][3] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[3]),
+        .Q(\FIFO_0_reg[0] [3]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][4] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[4]),
+        .Q(\FIFO_0_reg[0] [4]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][5] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[5]),
+        .Q(\FIFO_0_reg[0] [5]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][6] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[6]),
+        .Q(\FIFO_0_reg[0] [6]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][7] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[7]),
+        .Q(\FIFO_0_reg[0] [7]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][8] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[8]),
+        .Q(\FIFO_0_reg[0] [8]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[0][9] 
+       (.C(Clock),
+        .CE(\FIFO_0[0][31]_i_1_n_0 ),
+        .D(TDATA[9]),
+        .Q(\FIFO_0_reg[0] [9]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][0] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[0]),
+        .Q(\FIFO_0_reg[1] [0]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][10] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[10]),
+        .Q(\FIFO_0_reg[1] [10]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][11] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[11]),
+        .Q(\FIFO_0_reg[1] [11]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][12] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[12]),
+        .Q(\FIFO_0_reg[1] [12]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][13] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[13]),
+        .Q(\FIFO_0_reg[1] [13]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][14] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[14]),
+        .Q(\FIFO_0_reg[1] [14]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][15] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[15]),
+        .Q(\FIFO_0_reg[1] [15]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][16] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[16]),
+        .Q(\FIFO_0_reg[1] [16]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][17] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[17]),
+        .Q(\FIFO_0_reg[1] [17]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][18] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[18]),
+        .Q(\FIFO_0_reg[1] [18]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][19] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[19]),
+        .Q(\FIFO_0_reg[1] [19]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][1] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[1]),
+        .Q(\FIFO_0_reg[1] [1]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][20] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[20]),
+        .Q(\FIFO_0_reg[1] [20]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][21] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[21]),
+        .Q(\FIFO_0_reg[1] [21]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][22] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[22]),
+        .Q(\FIFO_0_reg[1] [22]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][23] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[23]),
+        .Q(\FIFO_0_reg[1] [23]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][24] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[24]),
+        .Q(\FIFO_0_reg[1] [24]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][25] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[25]),
+        .Q(\FIFO_0_reg[1] [25]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][26] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[26]),
+        .Q(\FIFO_0_reg[1] [26]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][27] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[27]),
+        .Q(\FIFO_0_reg[1] [27]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][28] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[28]),
+        .Q(\FIFO_0_reg[1] [28]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][29] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[29]),
+        .Q(\FIFO_0_reg[1] [29]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][2] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[2]),
+        .Q(\FIFO_0_reg[1] [2]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][30] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[30]),
+        .Q(\FIFO_0_reg[1] [30]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][31] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[31]),
+        .Q(\FIFO_0_reg[1] [31]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][3] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[3]),
+        .Q(\FIFO_0_reg[1] [3]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][4] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[4]),
+        .Q(\FIFO_0_reg[1] [4]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][5] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[5]),
+        .Q(\FIFO_0_reg[1] [5]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][6] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[6]),
+        .Q(\FIFO_0_reg[1] [6]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][7] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[7]),
+        .Q(\FIFO_0_reg[1] [7]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][8] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[8]),
+        .Q(\FIFO_0_reg[1] [8]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[1][9] 
+       (.C(Clock),
+        .CE(\FIFO_0[1]_3 ),
+        .D(TDATA[9]),
+        .Q(\FIFO_0_reg[1] [9]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][0] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[0]),
+        .Q(\FIFO_0_reg[2] [0]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][10] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[10]),
+        .Q(\FIFO_0_reg[2] [10]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][11] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[11]),
+        .Q(\FIFO_0_reg[2] [11]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][12] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[12]),
+        .Q(\FIFO_0_reg[2] [12]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][13] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[13]),
+        .Q(\FIFO_0_reg[2] [13]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][14] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[14]),
+        .Q(\FIFO_0_reg[2] [14]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][15] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[15]),
+        .Q(\FIFO_0_reg[2] [15]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][16] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[16]),
+        .Q(\FIFO_0_reg[2] [16]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][17] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[17]),
+        .Q(\FIFO_0_reg[2] [17]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][18] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[18]),
+        .Q(\FIFO_0_reg[2] [18]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][19] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[19]),
+        .Q(\FIFO_0_reg[2] [19]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][1] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[1]),
+        .Q(\FIFO_0_reg[2] [1]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][20] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[20]),
+        .Q(\FIFO_0_reg[2] [20]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][21] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[21]),
+        .Q(\FIFO_0_reg[2] [21]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][22] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[22]),
+        .Q(\FIFO_0_reg[2] [22]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][23] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[23]),
+        .Q(\FIFO_0_reg[2] [23]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][24] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[24]),
+        .Q(\FIFO_0_reg[2] [24]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][25] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[25]),
+        .Q(\FIFO_0_reg[2] [25]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][26] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[26]),
+        .Q(\FIFO_0_reg[2] [26]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][27] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[27]),
+        .Q(\FIFO_0_reg[2] [27]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][28] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[28]),
+        .Q(\FIFO_0_reg[2] [28]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][29] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[29]),
+        .Q(\FIFO_0_reg[2] [29]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][2] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[2]),
+        .Q(\FIFO_0_reg[2] [2]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][30] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[30]),
+        .Q(\FIFO_0_reg[2] [30]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][31] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[31]),
+        .Q(\FIFO_0_reg[2] [31]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][3] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[3]),
+        .Q(\FIFO_0_reg[2] [3]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][4] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[4]),
+        .Q(\FIFO_0_reg[2] [4]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][5] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[5]),
+        .Q(\FIFO_0_reg[2] [5]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][6] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[6]),
+        .Q(\FIFO_0_reg[2] [6]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][7] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[7]),
+        .Q(\FIFO_0_reg[2] [7]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][8] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[8]),
+        .Q(\FIFO_0_reg[2] [8]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[2][9] 
+       (.C(Clock),
+        .CE(\FIFO_0[2]_2 ),
+        .D(TDATA[9]),
+        .Q(\FIFO_0_reg[2] [9]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][0] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[0]),
+        .Q(\FIFO_0_reg[3] [0]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][10] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[10]),
+        .Q(\FIFO_0_reg[3] [10]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][11] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[11]),
+        .Q(\FIFO_0_reg[3] [11]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][12] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[12]),
+        .Q(\FIFO_0_reg[3] [12]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][13] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[13]),
+        .Q(\FIFO_0_reg[3] [13]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][14] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[14]),
+        .Q(\FIFO_0_reg[3] [14]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][15] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[15]),
+        .Q(\FIFO_0_reg[3] [15]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][16] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[16]),
+        .Q(\FIFO_0_reg[3] [16]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][17] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[17]),
+        .Q(\FIFO_0_reg[3] [17]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][18] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[18]),
+        .Q(\FIFO_0_reg[3] [18]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][19] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[19]),
+        .Q(\FIFO_0_reg[3] [19]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][1] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[1]),
+        .Q(\FIFO_0_reg[3] [1]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][20] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[20]),
+        .Q(\FIFO_0_reg[3] [20]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][21] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[21]),
+        .Q(\FIFO_0_reg[3] [21]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][22] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[22]),
+        .Q(\FIFO_0_reg[3] [22]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][23] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[23]),
+        .Q(\FIFO_0_reg[3] [23]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][24] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[24]),
+        .Q(\FIFO_0_reg[3] [24]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][25] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[25]),
+        .Q(\FIFO_0_reg[3] [25]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][26] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[26]),
+        .Q(\FIFO_0_reg[3] [26]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][27] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[27]),
+        .Q(\FIFO_0_reg[3] [27]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][28] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[28]),
+        .Q(\FIFO_0_reg[3] [28]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][29] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[29]),
+        .Q(\FIFO_0_reg[3] [29]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][2] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[2]),
+        .Q(\FIFO_0_reg[3] [2]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][30] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[30]),
+        .Q(\FIFO_0_reg[3] [30]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][31] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[31]),
+        .Q(\FIFO_0_reg[3] [31]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][3] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[3]),
+        .Q(\FIFO_0_reg[3] [3]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][4] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[4]),
+        .Q(\FIFO_0_reg[3] [4]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][5] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[5]),
+        .Q(\FIFO_0_reg[3] [5]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][6] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[6]),
+        .Q(\FIFO_0_reg[3] [6]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][7] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[7]),
+        .Q(\FIFO_0_reg[3] [7]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][8] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[8]),
+        .Q(\FIFO_0_reg[3] [8]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_0_reg[3][9] 
+       (.C(Clock),
+        .CE(\FIFO_0[3]_1 ),
+        .D(TDATA[9]),
+        .Q(\FIFO_0_reg[3] [9]),
+        .R(\FIFO_0[3][31]_i_1_n_0 ));
+  CARRY4 FIFO_1_Full1_carry
+       (.CI(1'b0),
+        .CO({FIFO_1_Full1_carry_n_0,FIFO_1_Full1_carry_n_1,FIFO_1_Full1_carry_n_2,FIFO_1_Full1_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({FIFO_1_Full1_carry_i_1_n_0,FIFO_1_Full1_carry_i_2_n_0,FIFO_1_Full1_carry_i_3_n_0,FIFO_1_Full1_carry_i_4_n_0}),
+        .O(NLW_FIFO_1_Full1_carry_O_UNCONNECTED[3:0]),
+        .S({FIFO_1_Full1_carry_i_5_n_0,FIFO_1_Full1_carry_i_6_n_0,FIFO_1_Full1_carry_i_7_n_0,FIFO_1_Full1_carry_i_8_n_0}));
+  CARRY4 FIFO_1_Full1_carry__0
+       (.CI(FIFO_1_Full1_carry_n_0),
+        .CO({FIFO_1_Full1_carry__0_n_0,FIFO_1_Full1_carry__0_n_1,FIFO_1_Full1_carry__0_n_2,FIFO_1_Full1_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({FIFO_1_Full1_carry__0_i_1_n_0,FIFO_1_Full1_carry__0_i_2_n_0,FIFO_1_Full1_carry__0_i_3_n_0,FIFO_1_Full1_carry__0_i_4_n_0}),
+        .O(NLW_FIFO_1_Full1_carry__0_O_UNCONNECTED[3:0]),
+        .S({FIFO_1_Full1_carry__0_i_5_n_0,FIFO_1_Full1_carry__0_i_6_n_0,FIFO_1_Full1_carry__0_i_7_n_0,FIFO_1_Full1_carry__0_i_8_n_0}));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__0_i_1
+       (.I0(ReadCounter_reg[15]),
+        .I1(\BytesInFIFO_1_reg_n_0_[15] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[14] ),
+        .I3(ReadCounter_reg[14]),
+        .O(FIFO_1_Full1_carry__0_i_1_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__0_i_2
+       (.I0(ReadCounter_reg[13]),
+        .I1(\BytesInFIFO_1_reg_n_0_[13] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[12] ),
+        .I3(ReadCounter_reg[12]),
+        .O(FIFO_1_Full1_carry__0_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__0_i_3
+       (.I0(ReadCounter_reg[11]),
+        .I1(\BytesInFIFO_1_reg_n_0_[11] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[10] ),
+        .I3(ReadCounter_reg[10]),
+        .O(FIFO_1_Full1_carry__0_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__0_i_4
+       (.I0(ReadCounter_reg[9]),
+        .I1(\BytesInFIFO_1_reg_n_0_[9] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[8] ),
+        .I3(ReadCounter_reg[8]),
+        .O(FIFO_1_Full1_carry__0_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__0_i_5
+       (.I0(\BytesInFIFO_1_reg_n_0_[15] ),
+        .I1(ReadCounter_reg[15]),
+        .I2(\BytesInFIFO_1_reg_n_0_[14] ),
+        .I3(ReadCounter_reg[14]),
+        .O(FIFO_1_Full1_carry__0_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__0_i_6
+       (.I0(\BytesInFIFO_1_reg_n_0_[13] ),
+        .I1(ReadCounter_reg[13]),
+        .I2(\BytesInFIFO_1_reg_n_0_[12] ),
+        .I3(ReadCounter_reg[12]),
+        .O(FIFO_1_Full1_carry__0_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__0_i_7
+       (.I0(\BytesInFIFO_1_reg_n_0_[11] ),
+        .I1(ReadCounter_reg[11]),
+        .I2(\BytesInFIFO_1_reg_n_0_[10] ),
+        .I3(ReadCounter_reg[10]),
+        .O(FIFO_1_Full1_carry__0_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__0_i_8
+       (.I0(\BytesInFIFO_1_reg_n_0_[9] ),
+        .I1(ReadCounter_reg[9]),
+        .I2(\BytesInFIFO_1_reg_n_0_[8] ),
+        .I3(ReadCounter_reg[8]),
+        .O(FIFO_1_Full1_carry__0_i_8_n_0));
+  CARRY4 FIFO_1_Full1_carry__1
+       (.CI(FIFO_1_Full1_carry__0_n_0),
+        .CO({FIFO_1_Full1_carry__1_n_0,FIFO_1_Full1_carry__1_n_1,FIFO_1_Full1_carry__1_n_2,FIFO_1_Full1_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({FIFO_1_Full1_carry__1_i_1_n_0,FIFO_1_Full1_carry__1_i_2_n_0,FIFO_1_Full1_carry__1_i_3_n_0,FIFO_1_Full1_carry__1_i_4_n_0}),
+        .O(NLW_FIFO_1_Full1_carry__1_O_UNCONNECTED[3:0]),
+        .S({FIFO_1_Full1_carry__1_i_5_n_0,FIFO_1_Full1_carry__1_i_6_n_0,FIFO_1_Full1_carry__1_i_7_n_0,FIFO_1_Full1_carry__1_i_8_n_0}));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__1_i_1
+       (.I0(ReadCounter_reg[23]),
+        .I1(\BytesInFIFO_1_reg_n_0_[23] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[22] ),
+        .I3(ReadCounter_reg[22]),
+        .O(FIFO_1_Full1_carry__1_i_1_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__1_i_2
+       (.I0(ReadCounter_reg[21]),
+        .I1(\BytesInFIFO_1_reg_n_0_[21] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[20] ),
+        .I3(ReadCounter_reg[20]),
+        .O(FIFO_1_Full1_carry__1_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__1_i_3
+       (.I0(ReadCounter_reg[19]),
+        .I1(\BytesInFIFO_1_reg_n_0_[19] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[18] ),
+        .I3(ReadCounter_reg[18]),
+        .O(FIFO_1_Full1_carry__1_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__1_i_4
+       (.I0(ReadCounter_reg[17]),
+        .I1(\BytesInFIFO_1_reg_n_0_[17] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[16] ),
+        .I3(ReadCounter_reg[16]),
+        .O(FIFO_1_Full1_carry__1_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__1_i_5
+       (.I0(\BytesInFIFO_1_reg_n_0_[23] ),
+        .I1(ReadCounter_reg[23]),
+        .I2(\BytesInFIFO_1_reg_n_0_[22] ),
+        .I3(ReadCounter_reg[22]),
+        .O(FIFO_1_Full1_carry__1_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__1_i_6
+       (.I0(\BytesInFIFO_1_reg_n_0_[21] ),
+        .I1(ReadCounter_reg[21]),
+        .I2(\BytesInFIFO_1_reg_n_0_[20] ),
+        .I3(ReadCounter_reg[20]),
+        .O(FIFO_1_Full1_carry__1_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__1_i_7
+       (.I0(\BytesInFIFO_1_reg_n_0_[19] ),
+        .I1(ReadCounter_reg[19]),
+        .I2(\BytesInFIFO_1_reg_n_0_[18] ),
+        .I3(ReadCounter_reg[18]),
+        .O(FIFO_1_Full1_carry__1_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__1_i_8
+       (.I0(\BytesInFIFO_1_reg_n_0_[17] ),
+        .I1(ReadCounter_reg[17]),
+        .I2(\BytesInFIFO_1_reg_n_0_[16] ),
+        .I3(ReadCounter_reg[16]),
+        .O(FIFO_1_Full1_carry__1_i_8_n_0));
+  CARRY4 FIFO_1_Full1_carry__2
+       (.CI(FIFO_1_Full1_carry__1_n_0),
+        .CO({p_0_in,FIFO_1_Full1_carry__2_n_1,FIFO_1_Full1_carry__2_n_2,FIFO_1_Full1_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({FIFO_1_Full1_carry__2_i_1_n_0,FIFO_1_Full1_carry__2_i_2_n_0,FIFO_1_Full1_carry__2_i_3_n_0,FIFO_1_Full1_carry__2_i_4_n_0}),
+        .O(NLW_FIFO_1_Full1_carry__2_O_UNCONNECTED[3:0]),
+        .S({FIFO_1_Full1_carry__2_i_5_n_0,FIFO_1_Full1_carry__2_i_6_n_0,FIFO_1_Full1_carry__2_i_7_n_0,FIFO_1_Full1_carry__2_i_8_n_0}));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__2_i_1
+       (.I0(\BytesInFIFO_1_reg_n_0_[31] ),
+        .I1(ReadCounter_reg[31]),
+        .I2(\BytesInFIFO_1_reg_n_0_[30] ),
+        .I3(ReadCounter_reg[30]),
+        .O(FIFO_1_Full1_carry__2_i_1_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__2_i_2
+       (.I0(ReadCounter_reg[29]),
+        .I1(\BytesInFIFO_1_reg_n_0_[29] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[28] ),
+        .I3(ReadCounter_reg[28]),
+        .O(FIFO_1_Full1_carry__2_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__2_i_3
+       (.I0(ReadCounter_reg[27]),
+        .I1(\BytesInFIFO_1_reg_n_0_[27] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[26] ),
+        .I3(ReadCounter_reg[26]),
+        .O(FIFO_1_Full1_carry__2_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry__2_i_4
+       (.I0(ReadCounter_reg[25]),
+        .I1(\BytesInFIFO_1_reg_n_0_[25] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[24] ),
+        .I3(ReadCounter_reg[24]),
+        .O(FIFO_1_Full1_carry__2_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__2_i_5
+       (.I0(ReadCounter_reg[31]),
+        .I1(\BytesInFIFO_1_reg_n_0_[31] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[30] ),
+        .I3(ReadCounter_reg[30]),
+        .O(FIFO_1_Full1_carry__2_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__2_i_6
+       (.I0(\BytesInFIFO_1_reg_n_0_[29] ),
+        .I1(ReadCounter_reg[29]),
+        .I2(\BytesInFIFO_1_reg_n_0_[28] ),
+        .I3(ReadCounter_reg[28]),
+        .O(FIFO_1_Full1_carry__2_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__2_i_7
+       (.I0(\BytesInFIFO_1_reg_n_0_[27] ),
+        .I1(ReadCounter_reg[27]),
+        .I2(\BytesInFIFO_1_reg_n_0_[26] ),
+        .I3(ReadCounter_reg[26]),
+        .O(FIFO_1_Full1_carry__2_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry__2_i_8
+       (.I0(\BytesInFIFO_1_reg_n_0_[25] ),
+        .I1(ReadCounter_reg[25]),
+        .I2(\BytesInFIFO_1_reg_n_0_[24] ),
+        .I3(ReadCounter_reg[24]),
+        .O(FIFO_1_Full1_carry__2_i_8_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry_i_1
+       (.I0(ReadCounter_reg[7]),
+        .I1(\BytesInFIFO_1_reg_n_0_[7] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[6] ),
+        .I3(ReadCounter_reg[6]),
+        .O(FIFO_1_Full1_carry_i_1_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry_i_2
+       (.I0(ReadCounter_reg[5]),
+        .I1(\BytesInFIFO_1_reg_n_0_[5] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[4] ),
+        .I3(ReadCounter_reg[4]),
+        .O(FIFO_1_Full1_carry_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry_i_3
+       (.I0(ReadCounter_reg[3]),
+        .I1(\BytesInFIFO_1_reg_n_0_[3] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[2] ),
+        .I3(ReadCounter_reg[2]),
+        .O(FIFO_1_Full1_carry_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h44D4)) 
+    FIFO_1_Full1_carry_i_4
+       (.I0(ReadCounter_reg[1]),
+        .I1(\BytesInFIFO_1_reg_n_0_[1] ),
+        .I2(\BytesInFIFO_1_reg_n_0_[0] ),
+        .I3(ReadCounter_reg[0]),
+        .O(FIFO_1_Full1_carry_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry_i_5
+       (.I0(\BytesInFIFO_1_reg_n_0_[7] ),
+        .I1(ReadCounter_reg[7]),
+        .I2(\BytesInFIFO_1_reg_n_0_[6] ),
+        .I3(ReadCounter_reg[6]),
+        .O(FIFO_1_Full1_carry_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry_i_6
+       (.I0(\BytesInFIFO_1_reg_n_0_[5] ),
+        .I1(ReadCounter_reg[5]),
+        .I2(\BytesInFIFO_1_reg_n_0_[4] ),
+        .I3(ReadCounter_reg[4]),
+        .O(FIFO_1_Full1_carry_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry_i_7
+       (.I0(\BytesInFIFO_1_reg_n_0_[3] ),
+        .I1(ReadCounter_reg[3]),
+        .I2(\BytesInFIFO_1_reg_n_0_[2] ),
+        .I3(ReadCounter_reg[2]),
+        .O(FIFO_1_Full1_carry_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    FIFO_1_Full1_carry_i_8
+       (.I0(\BytesInFIFO_1_reg_n_0_[1] ),
+        .I1(ReadCounter_reg[1]),
+        .I2(\BytesInFIFO_1_reg_n_0_[0] ),
+        .I3(ReadCounter_reg[0]),
+        .O(FIFO_1_Full1_carry_i_8_n_0));
+  LUT6 #(
+    .INIT(64'h3033BB3300008800)) 
+    FIFO_1_Full_i_1
+       (.I0(FIFO_0_Full_reg_n_0),
+        .I1(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .I2(p_0_in),
+        .I3(FIFO_1_Full_i_2_n_0),
+        .I4(I2SState[1]),
+        .I5(FIFO_1_Full_reg_n_0),
+        .O(FIFO_1_Full_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h2)) 
+    FIFO_1_Full_i_2
+       (.I0(I2SState[0]),
+        .I1(I2SState[2]),
+        .O(FIFO_1_Full_i_2_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    FIFO_1_Full_reg
+       (.C(Clock),
+        .CE(1'b1),
+        .D(FIFO_1_Full_i_1_n_0),
+        .Q(FIFO_1_Full_reg_n_0),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [0]),
+        .Q(\FIFO_1_reg[0] [0]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [10]),
+        .Q(\FIFO_1_reg[0] [10]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [11]),
+        .Q(\FIFO_1_reg[0] [11]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [12]),
+        .Q(\FIFO_1_reg[0] [12]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [13]),
+        .Q(\FIFO_1_reg[0] [13]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [14]),
+        .Q(\FIFO_1_reg[0] [14]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [15]),
+        .Q(\FIFO_1_reg[0] [15]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [16]),
+        .Q(\FIFO_1_reg[0] [16]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [17]),
+        .Q(\FIFO_1_reg[0] [17]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [18]),
+        .Q(\FIFO_1_reg[0] [18]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [19]),
+        .Q(\FIFO_1_reg[0] [19]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [1]),
+        .Q(\FIFO_1_reg[0] [1]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [20]),
+        .Q(\FIFO_1_reg[0] [20]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [21]),
+        .Q(\FIFO_1_reg[0] [21]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [22]),
+        .Q(\FIFO_1_reg[0] [22]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [23]),
+        .Q(\FIFO_1_reg[0] [23]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [24]),
+        .Q(\FIFO_1_reg[0] [24]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [25]),
+        .Q(\FIFO_1_reg[0] [25]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [26]),
+        .Q(\FIFO_1_reg[0] [26]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [27]),
+        .Q(\FIFO_1_reg[0] [27]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [28]),
+        .Q(\FIFO_1_reg[0] [28]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [29]),
+        .Q(\FIFO_1_reg[0] [29]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [2]),
+        .Q(\FIFO_1_reg[0] [2]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [30]),
+        .Q(\FIFO_1_reg[0] [30]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [31]),
+        .Q(\FIFO_1_reg[0] [31]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [3]),
+        .Q(\FIFO_1_reg[0] [3]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [4]),
+        .Q(\FIFO_1_reg[0] [4]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [5]),
+        .Q(\FIFO_1_reg[0] [5]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [6]),
+        .Q(\FIFO_1_reg[0] [6]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [7]),
+        .Q(\FIFO_1_reg[0] [7]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [8]),
+        .Q(\FIFO_1_reg[0] [8]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[0][9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[0] [9]),
+        .Q(\FIFO_1_reg[0] [9]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [0]),
+        .Q(\FIFO_1_reg[1] [0]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [10]),
+        .Q(\FIFO_1_reg[1] [10]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [11]),
+        .Q(\FIFO_1_reg[1] [11]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [12]),
+        .Q(\FIFO_1_reg[1] [12]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [13]),
+        .Q(\FIFO_1_reg[1] [13]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [14]),
+        .Q(\FIFO_1_reg[1] [14]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [15]),
+        .Q(\FIFO_1_reg[1] [15]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [16]),
+        .Q(\FIFO_1_reg[1] [16]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [17]),
+        .Q(\FIFO_1_reg[1] [17]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [18]),
+        .Q(\FIFO_1_reg[1] [18]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [19]),
+        .Q(\FIFO_1_reg[1] [19]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [1]),
+        .Q(\FIFO_1_reg[1] [1]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [20]),
+        .Q(\FIFO_1_reg[1] [20]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [21]),
+        .Q(\FIFO_1_reg[1] [21]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [22]),
+        .Q(\FIFO_1_reg[1] [22]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [23]),
+        .Q(\FIFO_1_reg[1] [23]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [24]),
+        .Q(\FIFO_1_reg[1] [24]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [25]),
+        .Q(\FIFO_1_reg[1] [25]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [26]),
+        .Q(\FIFO_1_reg[1] [26]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [27]),
+        .Q(\FIFO_1_reg[1] [27]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [28]),
+        .Q(\FIFO_1_reg[1] [28]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [29]),
+        .Q(\FIFO_1_reg[1] [29]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [2]),
+        .Q(\FIFO_1_reg[1] [2]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [30]),
+        .Q(\FIFO_1_reg[1] [30]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [31]),
+        .Q(\FIFO_1_reg[1] [31]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [3]),
+        .Q(\FIFO_1_reg[1] [3]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [4]),
+        .Q(\FIFO_1_reg[1] [4]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [5]),
+        .Q(\FIFO_1_reg[1] [5]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [6]),
+        .Q(\FIFO_1_reg[1] [6]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [7]),
+        .Q(\FIFO_1_reg[1] [7]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [8]),
+        .Q(\FIFO_1_reg[1] [8]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[1][9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[1] [9]),
+        .Q(\FIFO_1_reg[1] [9]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [0]),
+        .Q(\FIFO_1_reg[2] [0]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [10]),
+        .Q(\FIFO_1_reg[2] [10]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [11]),
+        .Q(\FIFO_1_reg[2] [11]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [12]),
+        .Q(\FIFO_1_reg[2] [12]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [13]),
+        .Q(\FIFO_1_reg[2] [13]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [14]),
+        .Q(\FIFO_1_reg[2] [14]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [15]),
+        .Q(\FIFO_1_reg[2] [15]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [16]),
+        .Q(\FIFO_1_reg[2] [16]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [17]),
+        .Q(\FIFO_1_reg[2] [17]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [18]),
+        .Q(\FIFO_1_reg[2] [18]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [19]),
+        .Q(\FIFO_1_reg[2] [19]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [1]),
+        .Q(\FIFO_1_reg[2] [1]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [20]),
+        .Q(\FIFO_1_reg[2] [20]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [21]),
+        .Q(\FIFO_1_reg[2] [21]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [22]),
+        .Q(\FIFO_1_reg[2] [22]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [23]),
+        .Q(\FIFO_1_reg[2] [23]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [24]),
+        .Q(\FIFO_1_reg[2] [24]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [25]),
+        .Q(\FIFO_1_reg[2] [25]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [26]),
+        .Q(\FIFO_1_reg[2] [26]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [27]),
+        .Q(\FIFO_1_reg[2] [27]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [28]),
+        .Q(\FIFO_1_reg[2] [28]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [29]),
+        .Q(\FIFO_1_reg[2] [29]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [2]),
+        .Q(\FIFO_1_reg[2] [2]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [30]),
+        .Q(\FIFO_1_reg[2] [30]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [31]),
+        .Q(\FIFO_1_reg[2] [31]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [3]),
+        .Q(\FIFO_1_reg[2] [3]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [4]),
+        .Q(\FIFO_1_reg[2] [4]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [5]),
+        .Q(\FIFO_1_reg[2] [5]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [6]),
+        .Q(\FIFO_1_reg[2] [6]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [7]),
+        .Q(\FIFO_1_reg[2] [7]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [8]),
+        .Q(\FIFO_1_reg[2] [8]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[2][9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[2] [9]),
+        .Q(\FIFO_1_reg[2] [9]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][0] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [0]),
+        .Q(\FIFO_1_reg[3] [0]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][10] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [10]),
+        .Q(\FIFO_1_reg[3] [10]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][11] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [11]),
+        .Q(\FIFO_1_reg[3] [11]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][12] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [12]),
+        .Q(\FIFO_1_reg[3] [12]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][13] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [13]),
+        .Q(\FIFO_1_reg[3] [13]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][14] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [14]),
+        .Q(\FIFO_1_reg[3] [14]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][15] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [15]),
+        .Q(\FIFO_1_reg[3] [15]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][16] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [16]),
+        .Q(\FIFO_1_reg[3] [16]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][17] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [17]),
+        .Q(\FIFO_1_reg[3] [17]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][18] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [18]),
+        .Q(\FIFO_1_reg[3] [18]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][19] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [19]),
+        .Q(\FIFO_1_reg[3] [19]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][1] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [1]),
+        .Q(\FIFO_1_reg[3] [1]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][20] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [20]),
+        .Q(\FIFO_1_reg[3] [20]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][21] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [21]),
+        .Q(\FIFO_1_reg[3] [21]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][22] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [22]),
+        .Q(\FIFO_1_reg[3] [22]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][23] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [23]),
+        .Q(\FIFO_1_reg[3] [23]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][24] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [24]),
+        .Q(\FIFO_1_reg[3] [24]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][25] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [25]),
+        .Q(\FIFO_1_reg[3] [25]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][26] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [26]),
+        .Q(\FIFO_1_reg[3] [26]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][27] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [27]),
+        .Q(\FIFO_1_reg[3] [27]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][28] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [28]),
+        .Q(\FIFO_1_reg[3] [28]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][29] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [29]),
+        .Q(\FIFO_1_reg[3] [29]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][2] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [2]),
+        .Q(\FIFO_1_reg[3] [2]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][30] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [30]),
+        .Q(\FIFO_1_reg[3] [30]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][31] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [31]),
+        .Q(\FIFO_1_reg[3] [31]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][3] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [3]),
+        .Q(\FIFO_1_reg[3] [3]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][4] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [4]),
+        .Q(\FIFO_1_reg[3] [4]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][5] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [5]),
+        .Q(\FIFO_1_reg[3] [5]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][6] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [6]),
+        .Q(\FIFO_1_reg[3] [6]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][7] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [7]),
+        .Q(\FIFO_1_reg[3] [7]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][8] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [8]),
+        .Q(\FIFO_1_reg[3] [8]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \FIFO_1_reg[3][9] 
+       (.C(Clock),
+        .CE(\BytesInFIFO_1[31]_i_2_n_0 ),
+        .D(\FIFO_0_reg[3] [9]),
+        .Q(\FIFO_1_reg[3] [9]),
+        .R(\BytesInFIFO_1[31]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hCACAEAEACACEEAEA)) 
     \FSM_sequential_FIFOState[0]_i_1 
-       (.I0(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .I1(TVALID),
-        .I2(FIFOState),
-        .I3(Locked),
-        .I4(Resetn_IBUF),
+       (.I0(\FSM_sequential_FIFOState[0]_i_2_n_0 ),
+        .I1(FIFOState[0]),
+        .I2(FIFOState[2]),
+        .I3(FIFO_1_Full_reg_n_0),
+        .I4(FIFOState[1]),
+        .I5(FIFO_0_Full_reg_n_0),
         .O(\FSM_sequential_FIFOState[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'hFFFFB080)) 
+  LUT6 #(
+    .INIT(64'hEEEE0000EEEEAAEA)) 
+    \FSM_sequential_FIFOState[0]_i_2 
+       (.I0(\FSM_sequential_FIFOState[0]_i_3_n_0 ),
+        .I1(FIFOState[1]),
+        .I2(FIFO_0_Full1_carry__2_n_0),
+        .I3(FIFOState[0]),
+        .I4(FIFO_1_Full_reg_n_0),
+        .I5(FIFOState[2]),
+        .O(\FSM_sequential_FIFOState[0]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF11115000)) 
+    \FSM_sequential_FIFOState[0]_i_3 
+       (.I0(FIFOState[1]),
+        .I1(TVALID),
+        .I2(Locked),
+        .I3(Resetn_IBUF),
+        .I4(FIFOState[0]),
+        .I5(FIFOState[2]),
+        .O(\FSM_sequential_FIFOState[0]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h008AFFFF00FF0000)) 
     \FSM_sequential_FIFOState[1]_i_1 
-       (.I0(FIFO_Int_Full_reg_n_0),
-        .I1(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .I2(FIFOState),
-        .I3(TVALID),
-        .I4(\FIFO_Ext[3]_2 ),
+       (.I0(FIFO_1_Full_reg_n_0),
+        .I1(FIFOState[0]),
+        .I2(FIFO_0_Full1_carry__2_n_0),
+        .I3(\FSM_sequential_FIFOState[1]_i_2_n_0 ),
+        .I4(\FSM_sequential_FIFOState[1]_i_3_n_0 ),
+        .I5(FIFOState[1]),
         .O(\FSM_sequential_FIFOState[1]_i_1_n_0 ));
-  (* FSM_ENCODED_STATES = "reset:00,ackdata:10,fifofull:11,waitforvalid:01" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT4 #(
+    .INIT(16'hAABF)) 
+    \FSM_sequential_FIFOState[1]_i_2 
+       (.I0(FIFOState[2]),
+        .I1(FIFOState[0]),
+        .I2(TVALID),
+        .I3(FIFOState[1]),
+        .O(\FSM_sequential_FIFOState[1]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'h33773177)) 
+    \FSM_sequential_FIFOState[1]_i_3 
+       (.I0(FIFOState[0]),
+        .I1(FIFOState[2]),
+        .I2(FIFO_1_Full_reg_n_0),
+        .I3(FIFOState[1]),
+        .I4(FIFO_0_Full_reg_n_0),
+        .O(\FSM_sequential_FIFOState[1]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hF0FDC0F0F0F1C0F0)) 
+    \FSM_sequential_FIFOState[2]_i_1 
+       (.I0(FIFO_0_Full1_carry__2_n_0),
+        .I1(FIFOState[0]),
+        .I2(FIFOState[2]),
+        .I3(FIFO_1_Full_reg_n_0),
+        .I4(FIFOState[1]),
+        .I5(FIFO_0_Full_reg_n_0),
+        .O(\FSM_sequential_FIFOState[2]_i_1_n_0 ));
+  (* FSM_ENCODED_STATES = "reset:000,ackdata:010,waitforvalid:001,full_fifo_0:100,full_fifo_1:011" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_sequential_FIFOState_reg[0] 
        (.C(Clock),
         .CE(1'b1),
         .D(\FSM_sequential_FIFOState[0]_i_1_n_0 ),
-        .Q(FIFOState),
+        .Q(FIFOState[0]),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "reset:00,ackdata:10,fifofull:11,waitforvalid:01" *) 
+  (* FSM_ENCODED_STATES = "reset:000,ackdata:010,waitforvalid:001,full_fifo_0:100,full_fifo_1:011" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_sequential_FIFOState_reg[1] 
        (.C(Clock),
         .CE(1'b1),
         .D(\FSM_sequential_FIFOState[1]_i_1_n_0 ),
-        .Q(\FSM_sequential_FIFOState_reg_n_0_[1] ),
+        .Q(FIFOState[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* FSM_ENCODED_STATES = "reset:000,ackdata:010,waitforvalid:001,full_fifo_0:100,full_fifo_1:011" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_sequential_FIFOState_reg[2] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(\FSM_sequential_FIFOState[2]_i_1_n_0 ),
+        .Q(FIFOState[2]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT3 #(
+    .INIT(8'hEF)) 
+    \FSM_sequential_I2SState[0]_i_3 
+       (.I0(I2SState[1]),
+        .I1(I2SState[0]),
+        .I2(I2SState[2]),
+        .O(\FSM_sequential_I2SState[0]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT4 #(
+    .INIT(16'h554F)) 
+    \FSM_sequential_I2SState[0]_i_4 
+       (.I0(I2SState[2]),
+        .I1(FIFO_0_Full_reg_n_0),
+        .I2(I2SState[0]),
+        .I3(I2SState[1]),
+        .O(\FSM_sequential_I2SState[0]_i_4_n_0 ));
+  (* FSM_ENCODED_STATES = "reset:000,loaddata:011,starttransmission:100,waitforfifo:001,waitforsync:010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_sequential_I2SState_reg[0] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Transmitter_n_4),
+        .Q(I2SState[0]),
+        .R(1'b0));
+  (* FSM_ENCODED_STATES = "reset:000,loaddata:011,starttransmission:100,waitforfifo:001,waitforsync:010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_sequential_I2SState_reg[1] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Transmitter_n_3),
+        .Q(I2SState[1]),
+        .R(1'b0));
+  (* FSM_ENCODED_STATES = "reset:000,loaddata:011,starttransmission:100,waitforfifo:001,waitforsync:010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_sequential_I2SState_reg[2] 
+       (.C(Clock),
+        .CE(1'b1),
+        .D(Transmitter_n_5),
+        .Q(I2SState[2]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \MCLK_Cnt[0]_i_1 
        (.I0(MCLK_Cnt[0]),
-        .O(MCLK_Cnt_1[0]));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+        .O(MCLK_Cnt_0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[10]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[12]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[10]));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[11]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[12]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[11]));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[12]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[12]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[12]));
+       (.I0(data0[10]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[10]));
   (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[11]_i_1 
+       (.I0(data0[11]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[11]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[12]_i_1 
+       (.I0(data0[12]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[12]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[13]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[16]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[13]));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+       (.I0(data0[13]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[13]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[14]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[16]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[14]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[15]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[16]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[15]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[16]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[16]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[16]));
+       (.I0(data0[14]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[14]));
   (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[15]_i_1 
+       (.I0(data0[15]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[15]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[16]_i_1 
+       (.I0(data0[16]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[16]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[17]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[20]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[17]));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+       (.I0(data0[17]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[17]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[18]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[20]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[18]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[19]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[20]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[19]));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[1]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[4]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[1]));
+       (.I0(data0[18]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[18]));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[19]_i_1 
+       (.I0(data0[19]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[19]));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[1]_i_1 
+       (.I0(data0[1]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[20]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[20]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[20]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[21]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[24]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[21]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[22]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[24]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[22]));
+       (.I0(data0[20]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[20]));
   (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[23]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[24]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[23]));
+    .INIT(4'h2)) 
+    \MCLK_Cnt[21]_i_1 
+       (.I0(data0[21]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[21]));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[22]_i_1 
+       (.I0(data0[22]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[22]));
   (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[23]_i_1 
+       (.I0(data0[23]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[23]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[24]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[24]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[24]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[25]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[28]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[25]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[26]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[28]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[26]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[27]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[28]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[27]));
+       (.I0(data0[24]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[24]));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[28]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[28]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[28]));
+    .INIT(4'h2)) 
+    \MCLK_Cnt[25]_i_1 
+       (.I0(data0[25]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[25]));
   (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[29]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[31]_i_3_n_7 ),
-        .O(MCLK_Cnt_1[29]));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[26]_i_1 
+       (.I0(data0[26]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[26]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[2]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[4]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[2]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[27]_i_1 
+       (.I0(data0[27]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[27]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[30]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[31]_i_3_n_6 ),
-        .O(MCLK_Cnt_1[30]));
+    .INIT(4'h2)) 
+    \MCLK_Cnt[28]_i_1 
+       (.I0(data0[28]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[28]));
   (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[29]_i_1 
+       (.I0(data0[29]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[29]));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[2]_i_1 
+       (.I0(data0[2]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[30]_i_1 
+       (.I0(data0[30]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[30]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[31]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[31]_i_3_n_5 ),
-        .O(MCLK_Cnt_1[31]));
+       (.I0(data0[31]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[31]));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \MCLK_Cnt[31]_i_10 
-       (.I0(MCLK_Cnt[29]),
-        .I1(MCLK_Cnt[28]),
-        .I2(MCLK_Cnt[31]),
-        .I3(MCLK_Cnt[30]),
+       (.I0(MCLK_Cnt[17]),
+        .I1(MCLK_Cnt[30]),
+        .I2(MCLK_Cnt[14]),
+        .I3(MCLK_Cnt[21]),
         .O(\MCLK_Cnt[31]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
-    .INIT(16'hFFFE)) 
+    .INIT(16'hFFFD)) 
     \MCLK_Cnt[31]_i_11 
-       (.I0(MCLK_Cnt[21]),
-        .I1(MCLK_Cnt[20]),
-        .I2(MCLK_Cnt[23]),
-        .I3(MCLK_Cnt[22]),
+       (.I0(MCLK_Cnt[0]),
+        .I1(MCLK_Cnt[16]),
+        .I2(MCLK_Cnt[7]),
+        .I3(MCLK_Cnt[2]),
         .O(\MCLK_Cnt[31]_i_11_n_0 ));
   LUT4 #(
-    .INIT(16'hFFFE)) 
-    \MCLK_Cnt[31]_i_2 
+    .INIT(16'h0004)) 
+    \MCLK_Cnt[31]_i_3 
        (.I0(\MCLK_Cnt[31]_i_4_n_0 ),
         .I1(\MCLK_Cnt[31]_i_5_n_0 ),
         .I2(\MCLK_Cnt[31]_i_6_n_0 ),
         .I3(\MCLK_Cnt[31]_i_7_n_0 ),
-        .O(\MCLK_Cnt[31]_i_2_n_0 ));
+        .O(\MCLK_Cnt[31]_i_3_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \MCLK_Cnt[31]_i_4 
-       (.I0(MCLK_Cnt[10]),
-        .I1(MCLK_Cnt[11]),
-        .I2(MCLK_Cnt[8]),
-        .I3(MCLK_Cnt[9]),
+       (.I0(MCLK_Cnt[3]),
+        .I1(MCLK_Cnt[23]),
+        .I2(MCLK_Cnt[25]),
+        .I3(MCLK_Cnt[5]),
         .I4(\MCLK_Cnt[31]_i_8_n_0 ),
         .O(\MCLK_Cnt[31]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'hFFFFEFFF)) 
+    .INIT(32'h00000001)) 
     \MCLK_Cnt[31]_i_5 
-       (.I0(MCLK_Cnt[2]),
-        .I1(MCLK_Cnt[3]),
-        .I2(MCLK_Cnt[0]),
-        .I3(MCLK_Cnt[1]),
+       (.I0(MCLK_Cnt[8]),
+        .I1(MCLK_Cnt[13]),
+        .I2(MCLK_Cnt[24]),
+        .I3(MCLK_Cnt[10]),
         .I4(\MCLK_Cnt[31]_i_9_n_0 ),
         .O(\MCLK_Cnt[31]_i_5_n_0 ));
   LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
+    .INIT(32'hFFFFFFFB)) 
     \MCLK_Cnt[31]_i_6 
-       (.I0(MCLK_Cnt[26]),
-        .I1(MCLK_Cnt[27]),
-        .I2(MCLK_Cnt[24]),
-        .I3(MCLK_Cnt[25]),
+       (.I0(MCLK_Cnt[19]),
+        .I1(MCLK_Cnt[1]),
+        .I2(MCLK_Cnt[18]),
+        .I3(MCLK_Cnt[22]),
         .I4(\MCLK_Cnt[31]_i_10_n_0 ),
         .O(\MCLK_Cnt[31]_i_6_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \MCLK_Cnt[31]_i_7 
-       (.I0(MCLK_Cnt[18]),
-        .I1(MCLK_Cnt[19]),
-        .I2(MCLK_Cnt[16]),
-        .I3(MCLK_Cnt[17]),
+       (.I0(MCLK_Cnt[11]),
+        .I1(MCLK_Cnt[20]),
+        .I2(MCLK_Cnt[31]),
+        .I3(MCLK_Cnt[26]),
         .I4(\MCLK_Cnt[31]_i_11_n_0 ),
         .O(\MCLK_Cnt[31]_i_7_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \MCLK_Cnt[31]_i_8 
-       (.I0(MCLK_Cnt[13]),
-        .I1(MCLK_Cnt[12]),
-        .I2(MCLK_Cnt[15]),
-        .I3(MCLK_Cnt[14]),
+       (.I0(MCLK_Cnt[4]),
+        .I1(MCLK_Cnt[9]),
+        .I2(MCLK_Cnt[27]),
+        .I3(MCLK_Cnt[12]),
         .O(\MCLK_Cnt[31]_i_8_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \MCLK_Cnt[31]_i_9 
-       (.I0(MCLK_Cnt[5]),
-        .I1(MCLK_Cnt[4]),
-        .I2(MCLK_Cnt[7]),
-        .I3(MCLK_Cnt[6]),
+       (.I0(MCLK_Cnt[6]),
+        .I1(MCLK_Cnt[28]),
+        .I2(MCLK_Cnt[29]),
+        .I3(MCLK_Cnt[15]),
         .O(\MCLK_Cnt[31]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[3]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[4]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[3]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+       (.I0(data0[3]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[3]));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[4]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[4]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[4]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+       (.I0(data0[4]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[4]));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[5]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[8]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[5]));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+       (.I0(data0[5]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[5]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
     \MCLK_Cnt[6]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[8]_i_2_n_6 ),
-        .O(MCLK_Cnt_1[6]));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[7]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[8]_i_2_n_5 ),
-        .O(MCLK_Cnt_1[7]));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \MCLK_Cnt[8]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[8]_i_2_n_4 ),
-        .O(MCLK_Cnt_1[8]));
+       (.I0(data0[6]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[6]));
   (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
-    .INIT(4'h8)) 
+    .INIT(4'h2)) 
+    \MCLK_Cnt[7]_i_1 
+       (.I0(data0[7]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[7]));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \MCLK_Cnt[8]_i_1 
+       (.I0(data0[8]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[8]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \MCLK_Cnt[9]_i_1 
-       (.I0(\MCLK_Cnt[31]_i_2_n_0 ),
-        .I1(\MCLK_Cnt_reg[12]_i_2_n_7 ),
-        .O(MCLK_Cnt_1[9]));
+       (.I0(data0[9]),
+        .I1(\MCLK_Cnt[31]_i_3_n_0 ),
+        .O(MCLK_Cnt_0[9]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[0] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[0]),
+        .D(MCLK_Cnt_0[0]),
         .Q(MCLK_Cnt[0]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[10] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[10]),
+        .D(MCLK_Cnt_0[10]),
         .Q(MCLK_Cnt[10]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[11] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[11]),
+        .D(MCLK_Cnt_0[11]),
         .Q(MCLK_Cnt[11]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[12] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[12]),
+        .D(MCLK_Cnt_0[12]),
         .Q(MCLK_Cnt[12]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[12]_i_2 
        (.CI(\MCLK_Cnt_reg[8]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[12]_i_2_n_0 ,\MCLK_Cnt_reg[12]_i_2_n_1 ,\MCLK_Cnt_reg[12]_i_2_n_2 ,\MCLK_Cnt_reg[12]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[12]_i_2_n_4 ,\MCLK_Cnt_reg[12]_i_2_n_5 ,\MCLK_Cnt_reg[12]_i_2_n_6 ,\MCLK_Cnt_reg[12]_i_2_n_7 }),
+        .O(data0[12:9]),
         .S(MCLK_Cnt[12:9]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[13] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[13]),
+        .D(MCLK_Cnt_0[13]),
         .Q(MCLK_Cnt[13]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[14] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[14]),
+        .D(MCLK_Cnt_0[14]),
         .Q(MCLK_Cnt[14]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[15] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[15]),
+        .D(MCLK_Cnt_0[15]),
         .Q(MCLK_Cnt[15]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[16] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[16]),
+        .D(MCLK_Cnt_0[16]),
         .Q(MCLK_Cnt[16]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[16]_i_2 
        (.CI(\MCLK_Cnt_reg[12]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[16]_i_2_n_0 ,\MCLK_Cnt_reg[16]_i_2_n_1 ,\MCLK_Cnt_reg[16]_i_2_n_2 ,\MCLK_Cnt_reg[16]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[16]_i_2_n_4 ,\MCLK_Cnt_reg[16]_i_2_n_5 ,\MCLK_Cnt_reg[16]_i_2_n_6 ,\MCLK_Cnt_reg[16]_i_2_n_7 }),
+        .O(data0[16:13]),
         .S(MCLK_Cnt[16:13]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[17] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[17]),
+        .D(MCLK_Cnt_0[17]),
         .Q(MCLK_Cnt[17]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[18] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[18]),
+        .D(MCLK_Cnt_0[18]),
         .Q(MCLK_Cnt[18]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[19] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[19]),
+        .D(MCLK_Cnt_0[19]),
         .Q(MCLK_Cnt[19]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[1] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[1]),
+        .D(MCLK_Cnt_0[1]),
         .Q(MCLK_Cnt[1]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[20] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[20]),
+        .D(MCLK_Cnt_0[20]),
         .Q(MCLK_Cnt[20]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[20]_i_2 
        (.CI(\MCLK_Cnt_reg[16]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[20]_i_2_n_0 ,\MCLK_Cnt_reg[20]_i_2_n_1 ,\MCLK_Cnt_reg[20]_i_2_n_2 ,\MCLK_Cnt_reg[20]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[20]_i_2_n_4 ,\MCLK_Cnt_reg[20]_i_2_n_5 ,\MCLK_Cnt_reg[20]_i_2_n_6 ,\MCLK_Cnt_reg[20]_i_2_n_7 }),
+        .O(data0[20:17]),
         .S(MCLK_Cnt[20:17]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[21] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[21]),
+        .D(MCLK_Cnt_0[21]),
         .Q(MCLK_Cnt[21]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[22] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[22]),
+        .D(MCLK_Cnt_0[22]),
         .Q(MCLK_Cnt[22]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[23] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[23]),
+        .D(MCLK_Cnt_0[23]),
         .Q(MCLK_Cnt[23]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[24] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[24]),
+        .D(MCLK_Cnt_0[24]),
         .Q(MCLK_Cnt[24]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[24]_i_2 
        (.CI(\MCLK_Cnt_reg[20]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[24]_i_2_n_0 ,\MCLK_Cnt_reg[24]_i_2_n_1 ,\MCLK_Cnt_reg[24]_i_2_n_2 ,\MCLK_Cnt_reg[24]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[24]_i_2_n_4 ,\MCLK_Cnt_reg[24]_i_2_n_5 ,\MCLK_Cnt_reg[24]_i_2_n_6 ,\MCLK_Cnt_reg[24]_i_2_n_7 }),
+        .O(data0[24:21]),
         .S(MCLK_Cnt[24:21]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[25] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[25]),
+        .D(MCLK_Cnt_0[25]),
         .Q(MCLK_Cnt[25]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[26] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[26]),
+        .D(MCLK_Cnt_0[26]),
         .Q(MCLK_Cnt[26]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[27] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[27]),
+        .D(MCLK_Cnt_0[27]),
         .Q(MCLK_Cnt[27]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[28] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[28]),
+        .D(MCLK_Cnt_0[28]),
         .Q(MCLK_Cnt[28]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[28]_i_2 
        (.CI(\MCLK_Cnt_reg[24]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[28]_i_2_n_0 ,\MCLK_Cnt_reg[28]_i_2_n_1 ,\MCLK_Cnt_reg[28]_i_2_n_2 ,\MCLK_Cnt_reg[28]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[28]_i_2_n_4 ,\MCLK_Cnt_reg[28]_i_2_n_5 ,\MCLK_Cnt_reg[28]_i_2_n_6 ,\MCLK_Cnt_reg[28]_i_2_n_7 }),
+        .O(data0[28:25]),
         .S(MCLK_Cnt[28:25]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[29] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[29]),
+        .D(MCLK_Cnt_0[29]),
         .Q(MCLK_Cnt[29]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[2] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[2]),
+        .D(MCLK_Cnt_0[2]),
         .Q(MCLK_Cnt[2]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[30] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[30]),
+        .D(MCLK_Cnt_0[30]),
         .Q(MCLK_Cnt[30]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[31] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[31]),
+        .D(MCLK_Cnt_0[31]),
         .Q(MCLK_Cnt[31]),
-        .R(p_0_in));
-  CARRY4 \MCLK_Cnt_reg[31]_i_3 
+        .R(Transmitter_n_1));
+  CARRY4 \MCLK_Cnt_reg[31]_i_2 
        (.CI(\MCLK_Cnt_reg[28]_i_2_n_0 ),
-        .CO({\NLW_MCLK_Cnt_reg[31]_i_3_CO_UNCONNECTED [3:2],\MCLK_Cnt_reg[31]_i_3_n_2 ,\MCLK_Cnt_reg[31]_i_3_n_3 }),
+        .CO({\NLW_MCLK_Cnt_reg[31]_i_2_CO_UNCONNECTED [3:2],\MCLK_Cnt_reg[31]_i_2_n_2 ,\MCLK_Cnt_reg[31]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_MCLK_Cnt_reg[31]_i_3_O_UNCONNECTED [3],\MCLK_Cnt_reg[31]_i_3_n_5 ,\MCLK_Cnt_reg[31]_i_3_n_6 ,\MCLK_Cnt_reg[31]_i_3_n_7 }),
+        .O({\NLW_MCLK_Cnt_reg[31]_i_2_O_UNCONNECTED [3],data0[31:29]}),
         .S({1'b0,MCLK_Cnt[31:29]}));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[3] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[3]),
+        .D(MCLK_Cnt_0[3]),
         .Q(MCLK_Cnt[3]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[4] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[4]),
+        .D(MCLK_Cnt_0[4]),
         .Q(MCLK_Cnt[4]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[4]_i_2 
        (.CI(1'b0),
         .CO({\MCLK_Cnt_reg[4]_i_2_n_0 ,\MCLK_Cnt_reg[4]_i_2_n_1 ,\MCLK_Cnt_reg[4]_i_2_n_2 ,\MCLK_Cnt_reg[4]_i_2_n_3 }),
         .CYINIT(MCLK_Cnt[0]),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[4]_i_2_n_4 ,\MCLK_Cnt_reg[4]_i_2_n_5 ,\MCLK_Cnt_reg[4]_i_2_n_6 ,\MCLK_Cnt_reg[4]_i_2_n_7 }),
+        .O(data0[4:1]),
         .S(MCLK_Cnt[4:1]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[5] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[5]),
+        .D(MCLK_Cnt_0[5]),
         .Q(MCLK_Cnt[5]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[6] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[6]),
+        .D(MCLK_Cnt_0[6]),
         .Q(MCLK_Cnt[6]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[7] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[7]),
+        .D(MCLK_Cnt_0[7]),
         .Q(MCLK_Cnt[7]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[8] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[8]),
+        .D(MCLK_Cnt_0[8]),
         .Q(MCLK_Cnt[8]),
-        .R(p_0_in));
+        .R(Transmitter_n_1));
   CARRY4 \MCLK_Cnt_reg[8]_i_2 
        (.CI(\MCLK_Cnt_reg[4]_i_2_n_0 ),
         .CO({\MCLK_Cnt_reg[8]_i_2_n_0 ,\MCLK_Cnt_reg[8]_i_2_n_1 ,\MCLK_Cnt_reg[8]_i_2_n_2 ,\MCLK_Cnt_reg[8]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\MCLK_Cnt_reg[8]_i_2_n_4 ,\MCLK_Cnt_reg[8]_i_2_n_5 ,\MCLK_Cnt_reg[8]_i_2_n_6 ,\MCLK_Cnt_reg[8]_i_2_n_7 }),
+        .O(data0[8:5]),
         .S(MCLK_Cnt[8:5]));
   FDRE #(
     .INIT(1'b0)) 
     \MCLK_Cnt_reg[9] 
        (.C(CLK),
         .CE(1'b1),
-        .D(MCLK_Cnt_1[9]),
+        .D(MCLK_Cnt_0[9]),
         .Q(MCLK_Cnt[9]),
-        .R(p_0_in));
-  CARRY4 ReadCount1_carry
-       (.CI(1'b0),
-        .CO({ReadCount1_carry_n_0,ReadCount1_carry_n_1,ReadCount1_carry_n_2,ReadCount1_carry_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,ReadCount1_carry_i_1_n_0}),
-        .O(NLW_ReadCount1_carry_O_UNCONNECTED[3:0]),
-        .S({ReadCount1_carry_i_2_n_0,ReadCount1_carry_i_3_n_0,ReadCount1_carry_i_4_n_0,ReadCount1_carry_i_5_n_0}));
-  CARRY4 ReadCount1_carry__0
-       (.CI(ReadCount1_carry_n_0),
-        .CO({ReadCount1_carry__0_n_0,ReadCount1_carry__0_n_1,ReadCount1_carry__0_n_2,ReadCount1_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_ReadCount1_carry__0_O_UNCONNECTED[3:0]),
-        .S({ReadCount1_carry__0_i_1_n_0,ReadCount1_carry__0_i_2_n_0,ReadCount1_carry__0_i_3_n_0,ReadCount1_carry__0_i_4_n_0}));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__0_i_1
-       (.I0(ReadCount[14]),
-        .I1(ReadCount[15]),
-        .O(ReadCount1_carry__0_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__0_i_2
-       (.I0(ReadCount[12]),
-        .I1(ReadCount[13]),
-        .O(ReadCount1_carry__0_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__0_i_3
-       (.I0(ReadCount[10]),
-        .I1(ReadCount[11]),
-        .O(ReadCount1_carry__0_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__0_i_4
-       (.I0(ReadCount[8]),
-        .I1(ReadCount[9]),
-        .O(ReadCount1_carry__0_i_4_n_0));
-  CARRY4 ReadCount1_carry__1
-       (.CI(ReadCount1_carry__0_n_0),
-        .CO({ReadCount1_carry__1_n_0,ReadCount1_carry__1_n_1,ReadCount1_carry__1_n_2,ReadCount1_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_ReadCount1_carry__1_O_UNCONNECTED[3:0]),
-        .S({ReadCount1_carry__1_i_1_n_0,ReadCount1_carry__1_i_2_n_0,ReadCount1_carry__1_i_3_n_0,ReadCount1_carry__1_i_4_n_0}));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__1_i_1
-       (.I0(ReadCount[22]),
-        .I1(ReadCount[23]),
-        .O(ReadCount1_carry__1_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__1_i_2
-       (.I0(ReadCount[20]),
-        .I1(ReadCount[21]),
-        .O(ReadCount1_carry__1_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__1_i_3
-       (.I0(ReadCount[18]),
-        .I1(ReadCount[19]),
-        .O(ReadCount1_carry__1_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__1_i_4
-       (.I0(ReadCount[16]),
-        .I1(ReadCount[17]),
-        .O(ReadCount1_carry__1_i_4_n_0));
-  CARRY4 ReadCount1_carry__2
-       (.CI(ReadCount1_carry__1_n_0),
-        .CO({in4,ReadCount1_carry__2_n_1,ReadCount1_carry__2_n_2,ReadCount1_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({ReadCount[31],1'b0,1'b0,1'b0}),
-        .O(NLW_ReadCount1_carry__2_O_UNCONNECTED[3:0]),
-        .S({ReadCount1_carry__2_i_1_n_0,ReadCount1_carry__2_i_2_n_0,ReadCount1_carry__2_i_3_n_0,ReadCount1_carry__2_i_4_n_0}));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__2_i_1
-       (.I0(ReadCount[30]),
-        .I1(ReadCount[31]),
-        .O(ReadCount1_carry__2_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__2_i_2
-       (.I0(ReadCount[28]),
-        .I1(ReadCount[29]),
-        .O(ReadCount1_carry__2_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__2_i_3
-       (.I0(ReadCount[26]),
-        .I1(ReadCount[27]),
-        .O(ReadCount1_carry__2_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry__2_i_4
-       (.I0(ReadCount[24]),
-        .I1(ReadCount[25]),
-        .O(ReadCount1_carry__2_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h7)) 
-    ReadCount1_carry_i_1
-       (.I0(ReadCount[0]),
-        .I1(ReadCount[1]),
-        .O(ReadCount1_carry_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry_i_2
-       (.I0(ReadCount[6]),
-        .I1(ReadCount[7]),
-        .O(ReadCount1_carry_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry_i_3
-       (.I0(ReadCount[4]),
-        .I1(ReadCount[5]),
-        .O(ReadCount1_carry_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    ReadCount1_carry_i_4
-       (.I0(ReadCount[2]),
-        .I1(ReadCount[3]),
-        .O(ReadCount1_carry_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
-    ReadCount1_carry_i_5
-       (.I0(ReadCount[0]),
-        .I1(ReadCount[1]),
-        .O(ReadCount1_carry_i_5_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
-    \ReadCount[0]_i_1 
-       (.I0(\FSM_onehot_I2SState_reg_n_0_[0] ),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .O(\ReadCount[0]_i_1_n_0 ));
+        .R(Transmitter_n_1));
   LUT3 #(
     .INIT(8'h40)) 
-    \ReadCount[0]_i_2 
-       (.I0(ReadCount[0]),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(in4),
-        .O(\ReadCount[0]_i_2_n_0 ));
-  LUT3 #(
-    .INIT(8'h2E)) 
-    \ReadCount[31]_i_1 
-       (.I0(\FSM_onehot_I2SState_reg_n_0_[0] ),
-        .I1(\FSM_onehot_I2SState_reg_n_0_[3] ),
-        .I2(in4),
-        .O(\ReadCount[31]_i_1_n_0 ));
+    \ReadCounter[0]_i_1 
+       (.I0(I2SState[2]),
+        .I1(I2SState[0]),
+        .I2(I2SState[1]),
+        .O(\ReadCounter[0]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[0]_i_3 
+       (.I0(ReadCounter_reg[3]),
+        .I1(p_0_in),
+        .O(\ReadCounter[0]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[0]_i_4 
+       (.I0(ReadCounter_reg[2]),
+        .I1(p_0_in),
+        .O(\ReadCounter[0]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[0]_i_5 
+       (.I0(ReadCounter_reg[1]),
+        .I1(p_0_in),
+        .O(\ReadCounter[0]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h4)) 
+    \ReadCounter[0]_i_6 
+       (.I0(ReadCounter_reg[0]),
+        .I1(p_0_in),
+        .O(\ReadCounter[0]_i_6_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[12]_i_2 
+       (.I0(ReadCounter_reg[15]),
+        .I1(p_0_in),
+        .O(\ReadCounter[12]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[12]_i_3 
+       (.I0(ReadCounter_reg[14]),
+        .I1(p_0_in),
+        .O(\ReadCounter[12]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[12]_i_4 
+       (.I0(ReadCounter_reg[13]),
+        .I1(p_0_in),
+        .O(\ReadCounter[12]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[12]_i_5 
+       (.I0(ReadCounter_reg[12]),
+        .I1(p_0_in),
+        .O(\ReadCounter[12]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[16]_i_2 
+       (.I0(ReadCounter_reg[19]),
+        .I1(p_0_in),
+        .O(\ReadCounter[16]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[16]_i_3 
+       (.I0(ReadCounter_reg[18]),
+        .I1(p_0_in),
+        .O(\ReadCounter[16]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[16]_i_4 
+       (.I0(ReadCounter_reg[17]),
+        .I1(p_0_in),
+        .O(\ReadCounter[16]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[16]_i_5 
+       (.I0(ReadCounter_reg[16]),
+        .I1(p_0_in),
+        .O(\ReadCounter[16]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[20]_i_2 
+       (.I0(ReadCounter_reg[23]),
+        .I1(p_0_in),
+        .O(\ReadCounter[20]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[20]_i_3 
+       (.I0(ReadCounter_reg[22]),
+        .I1(p_0_in),
+        .O(\ReadCounter[20]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[20]_i_4 
+       (.I0(ReadCounter_reg[21]),
+        .I1(p_0_in),
+        .O(\ReadCounter[20]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[20]_i_5 
+       (.I0(ReadCounter_reg[20]),
+        .I1(p_0_in),
+        .O(\ReadCounter[20]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[24]_i_2 
+       (.I0(ReadCounter_reg[27]),
+        .I1(p_0_in),
+        .O(\ReadCounter[24]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[24]_i_3 
+       (.I0(ReadCounter_reg[26]),
+        .I1(p_0_in),
+        .O(\ReadCounter[24]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[24]_i_4 
+       (.I0(ReadCounter_reg[25]),
+        .I1(p_0_in),
+        .O(\ReadCounter[24]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[24]_i_5 
+       (.I0(ReadCounter_reg[24]),
+        .I1(p_0_in),
+        .O(\ReadCounter[24]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[28]_i_2 
+       (.I0(ReadCounter_reg[31]),
+        .I1(p_0_in),
+        .O(\ReadCounter[28]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[28]_i_3 
+       (.I0(ReadCounter_reg[30]),
+        .I1(p_0_in),
+        .O(\ReadCounter[28]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[28]_i_4 
+       (.I0(ReadCounter_reg[29]),
+        .I1(p_0_in),
+        .O(\ReadCounter[28]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[28]_i_5 
+       (.I0(ReadCounter_reg[28]),
+        .I1(p_0_in),
+        .O(\ReadCounter[28]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[4]_i_2 
+       (.I0(ReadCounter_reg[7]),
+        .I1(p_0_in),
+        .O(\ReadCounter[4]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[4]_i_3 
+       (.I0(ReadCounter_reg[6]),
+        .I1(p_0_in),
+        .O(\ReadCounter[4]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[4]_i_4 
+       (.I0(ReadCounter_reg[5]),
+        .I1(p_0_in),
+        .O(\ReadCounter[4]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[4]_i_5 
+       (.I0(ReadCounter_reg[4]),
+        .I1(p_0_in),
+        .O(\ReadCounter[4]_i_5_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[8]_i_2 
+       (.I0(ReadCounter_reg[11]),
+        .I1(p_0_in),
+        .O(\ReadCounter[8]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[8]_i_3 
+       (.I0(ReadCounter_reg[10]),
+        .I1(p_0_in),
+        .O(\ReadCounter[8]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[8]_i_4 
+       (.I0(ReadCounter_reg[9]),
+        .I1(p_0_in),
+        .O(\ReadCounter[8]_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \ReadCounter[8]_i_5 
+       (.I0(ReadCounter_reg[8]),
+        .I1(p_0_in),
+        .O(\ReadCounter[8]_i_5_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[0] 
+    \ReadCounter_reg[0] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(\ReadCount[0]_i_2_n_0 ),
-        .Q(ReadCount[0]),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[0]_i_2_n_7 ),
+        .Q(ReadCounter_reg[0]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[0]_i_2 
+       (.CI(1'b0),
+        .CO({\ReadCounter_reg[0]_i_2_n_0 ,\ReadCounter_reg[0]_i_2_n_1 ,\ReadCounter_reg[0]_i_2_n_2 ,\ReadCounter_reg[0]_i_2_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,p_0_in}),
+        .O({\ReadCounter_reg[0]_i_2_n_4 ,\ReadCounter_reg[0]_i_2_n_5 ,\ReadCounter_reg[0]_i_2_n_6 ,\ReadCounter_reg[0]_i_2_n_7 }),
+        .S({\ReadCounter[0]_i_3_n_0 ,\ReadCounter[0]_i_4_n_0 ,\ReadCounter[0]_i_5_n_0 ,\ReadCounter[0]_i_6_n_0 }));
+  FDRE #(
+    .INIT(1'b0)) 
+    \ReadCounter_reg[10] 
+       (.C(Clock),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[8]_i_1_n_5 ),
+        .Q(ReadCounter_reg[10]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[10] 
+    \ReadCounter_reg[11] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[10]),
-        .Q(ReadCount[10]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[8]_i_1_n_4 ),
+        .Q(ReadCounter_reg[11]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[11] 
+    \ReadCounter_reg[12] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[11]),
-        .Q(ReadCount[11]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \ReadCount_reg[12] 
-       (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[12]),
-        .Q(ReadCount[12]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[12]_i_1 
-       (.CI(\ReadCount_reg[8]_i_1_n_0 ),
-        .CO({\ReadCount_reg[12]_i_1_n_0 ,\ReadCount_reg[12]_i_1_n_1 ,\ReadCount_reg[12]_i_1_n_2 ,\ReadCount_reg[12]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[12]_i_1_n_7 ),
+        .Q(ReadCounter_reg[12]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[12]_i_1 
+       (.CI(\ReadCounter_reg[8]_i_1_n_0 ),
+        .CO({\ReadCounter_reg[12]_i_1_n_0 ,\ReadCounter_reg[12]_i_1_n_1 ,\ReadCounter_reg[12]_i_1_n_2 ,\ReadCounter_reg[12]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[12:9]),
-        .S(ReadCount[12:9]));
+        .O({\ReadCounter_reg[12]_i_1_n_4 ,\ReadCounter_reg[12]_i_1_n_5 ,\ReadCounter_reg[12]_i_1_n_6 ,\ReadCounter_reg[12]_i_1_n_7 }),
+        .S({\ReadCounter[12]_i_2_n_0 ,\ReadCounter[12]_i_3_n_0 ,\ReadCounter[12]_i_4_n_0 ,\ReadCounter[12]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[13] 
+    \ReadCounter_reg[13] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[13]),
-        .Q(ReadCount[13]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[12]_i_1_n_6 ),
+        .Q(ReadCounter_reg[13]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[14] 
+    \ReadCounter_reg[14] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[14]),
-        .Q(ReadCount[14]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[12]_i_1_n_5 ),
+        .Q(ReadCounter_reg[14]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[15] 
+    \ReadCounter_reg[15] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[15]),
-        .Q(ReadCount[15]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[12]_i_1_n_4 ),
+        .Q(ReadCounter_reg[15]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[16] 
+    \ReadCounter_reg[16] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[16]),
-        .Q(ReadCount[16]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[16]_i_1 
-       (.CI(\ReadCount_reg[12]_i_1_n_0 ),
-        .CO({\ReadCount_reg[16]_i_1_n_0 ,\ReadCount_reg[16]_i_1_n_1 ,\ReadCount_reg[16]_i_1_n_2 ,\ReadCount_reg[16]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[16]_i_1_n_7 ),
+        .Q(ReadCounter_reg[16]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[16]_i_1 
+       (.CI(\ReadCounter_reg[12]_i_1_n_0 ),
+        .CO({\ReadCounter_reg[16]_i_1_n_0 ,\ReadCounter_reg[16]_i_1_n_1 ,\ReadCounter_reg[16]_i_1_n_2 ,\ReadCounter_reg[16]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[16:13]),
-        .S(ReadCount[16:13]));
+        .O({\ReadCounter_reg[16]_i_1_n_4 ,\ReadCounter_reg[16]_i_1_n_5 ,\ReadCounter_reg[16]_i_1_n_6 ,\ReadCounter_reg[16]_i_1_n_7 }),
+        .S({\ReadCounter[16]_i_2_n_0 ,\ReadCounter[16]_i_3_n_0 ,\ReadCounter[16]_i_4_n_0 ,\ReadCounter[16]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[17] 
+    \ReadCounter_reg[17] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[17]),
-        .Q(ReadCount[17]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[16]_i_1_n_6 ),
+        .Q(ReadCounter_reg[17]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[18] 
+    \ReadCounter_reg[18] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[18]),
-        .Q(ReadCount[18]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[16]_i_1_n_5 ),
+        .Q(ReadCounter_reg[18]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[19] 
+    \ReadCounter_reg[19] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[19]),
-        .Q(ReadCount[19]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[16]_i_1_n_4 ),
+        .Q(ReadCounter_reg[19]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[1] 
+    \ReadCounter_reg[1] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[1]),
-        .Q(ReadCount[1]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[0]_i_2_n_6 ),
+        .Q(ReadCounter_reg[1]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[20] 
+    \ReadCounter_reg[20] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[20]),
-        .Q(ReadCount[20]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[20]_i_1 
-       (.CI(\ReadCount_reg[16]_i_1_n_0 ),
-        .CO({\ReadCount_reg[20]_i_1_n_0 ,\ReadCount_reg[20]_i_1_n_1 ,\ReadCount_reg[20]_i_1_n_2 ,\ReadCount_reg[20]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[20]_i_1_n_7 ),
+        .Q(ReadCounter_reg[20]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[20]_i_1 
+       (.CI(\ReadCounter_reg[16]_i_1_n_0 ),
+        .CO({\ReadCounter_reg[20]_i_1_n_0 ,\ReadCounter_reg[20]_i_1_n_1 ,\ReadCounter_reg[20]_i_1_n_2 ,\ReadCounter_reg[20]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[20:17]),
-        .S(ReadCount[20:17]));
+        .O({\ReadCounter_reg[20]_i_1_n_4 ,\ReadCounter_reg[20]_i_1_n_5 ,\ReadCounter_reg[20]_i_1_n_6 ,\ReadCounter_reg[20]_i_1_n_7 }),
+        .S({\ReadCounter[20]_i_2_n_0 ,\ReadCounter[20]_i_3_n_0 ,\ReadCounter[20]_i_4_n_0 ,\ReadCounter[20]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[21] 
+    \ReadCounter_reg[21] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[21]),
-        .Q(ReadCount[21]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[20]_i_1_n_6 ),
+        .Q(ReadCounter_reg[21]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[22] 
+    \ReadCounter_reg[22] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[22]),
-        .Q(ReadCount[22]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[20]_i_1_n_5 ),
+        .Q(ReadCounter_reg[22]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[23] 
+    \ReadCounter_reg[23] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[23]),
-        .Q(ReadCount[23]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[20]_i_1_n_4 ),
+        .Q(ReadCounter_reg[23]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[24] 
+    \ReadCounter_reg[24] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[24]),
-        .Q(ReadCount[24]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[24]_i_1 
-       (.CI(\ReadCount_reg[20]_i_1_n_0 ),
-        .CO({\ReadCount_reg[24]_i_1_n_0 ,\ReadCount_reg[24]_i_1_n_1 ,\ReadCount_reg[24]_i_1_n_2 ,\ReadCount_reg[24]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[24]_i_1_n_7 ),
+        .Q(ReadCounter_reg[24]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[24]_i_1 
+       (.CI(\ReadCounter_reg[20]_i_1_n_0 ),
+        .CO({\ReadCounter_reg[24]_i_1_n_0 ,\ReadCounter_reg[24]_i_1_n_1 ,\ReadCounter_reg[24]_i_1_n_2 ,\ReadCounter_reg[24]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[24:21]),
-        .S(ReadCount[24:21]));
+        .O({\ReadCounter_reg[24]_i_1_n_4 ,\ReadCounter_reg[24]_i_1_n_5 ,\ReadCounter_reg[24]_i_1_n_6 ,\ReadCounter_reg[24]_i_1_n_7 }),
+        .S({\ReadCounter[24]_i_2_n_0 ,\ReadCounter[24]_i_3_n_0 ,\ReadCounter[24]_i_4_n_0 ,\ReadCounter[24]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[25] 
+    \ReadCounter_reg[25] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[25]),
-        .Q(ReadCount[25]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[24]_i_1_n_6 ),
+        .Q(ReadCounter_reg[25]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[26] 
+    \ReadCounter_reg[26] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[26]),
-        .Q(ReadCount[26]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[24]_i_1_n_5 ),
+        .Q(ReadCounter_reg[26]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[27] 
+    \ReadCounter_reg[27] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[27]),
-        .Q(ReadCount[27]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[24]_i_1_n_4 ),
+        .Q(ReadCounter_reg[27]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[28] 
+    \ReadCounter_reg[28] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[28]),
-        .Q(ReadCount[28]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[28]_i_1 
-       (.CI(\ReadCount_reg[24]_i_1_n_0 ),
-        .CO({\ReadCount_reg[28]_i_1_n_0 ,\ReadCount_reg[28]_i_1_n_1 ,\ReadCount_reg[28]_i_1_n_2 ,\ReadCount_reg[28]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[28]_i_1_n_7 ),
+        .Q(ReadCounter_reg[28]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[28]_i_1 
+       (.CI(\ReadCounter_reg[24]_i_1_n_0 ),
+        .CO({\NLW_ReadCounter_reg[28]_i_1_CO_UNCONNECTED [3],\ReadCounter_reg[28]_i_1_n_1 ,\ReadCounter_reg[28]_i_1_n_2 ,\ReadCounter_reg[28]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[28:25]),
-        .S(ReadCount[28:25]));
+        .O({\ReadCounter_reg[28]_i_1_n_4 ,\ReadCounter_reg[28]_i_1_n_5 ,\ReadCounter_reg[28]_i_1_n_6 ,\ReadCounter_reg[28]_i_1_n_7 }),
+        .S({\ReadCounter[28]_i_2_n_0 ,\ReadCounter[28]_i_3_n_0 ,\ReadCounter[28]_i_4_n_0 ,\ReadCounter[28]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[29] 
+    \ReadCounter_reg[29] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[29]),
-        .Q(ReadCount[29]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[28]_i_1_n_6 ),
+        .Q(ReadCounter_reg[29]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[2] 
+    \ReadCounter_reg[2] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[2]),
-        .Q(ReadCount[2]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[0]_i_2_n_5 ),
+        .Q(ReadCounter_reg[2]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[30] 
+    \ReadCounter_reg[30] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[30]),
-        .Q(ReadCount[30]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[28]_i_1_n_5 ),
+        .Q(ReadCounter_reg[30]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[31] 
+    \ReadCounter_reg[31] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[31]),
-        .Q(ReadCount[31]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[31]_i_2 
-       (.CI(\ReadCount_reg[28]_i_1_n_0 ),
-        .CO({\NLW_ReadCount_reg[31]_i_2_CO_UNCONNECTED [3:2],\ReadCount_reg[31]_i_2_n_2 ,\ReadCount_reg[31]_i_2_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[28]_i_1_n_4 ),
+        .Q(ReadCounter_reg[31]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \ReadCounter_reg[3] 
+       (.C(Clock),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[0]_i_2_n_4 ),
+        .Q(ReadCounter_reg[3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \ReadCounter_reg[4] 
+       (.C(Clock),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[4]_i_1_n_7 ),
+        .Q(ReadCounter_reg[4]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[4]_i_1 
+       (.CI(\ReadCounter_reg[0]_i_2_n_0 ),
+        .CO({\ReadCounter_reg[4]_i_1_n_0 ,\ReadCounter_reg[4]_i_1_n_1 ,\ReadCounter_reg[4]_i_1_n_2 ,\ReadCounter_reg[4]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_ReadCount_reg[31]_i_2_O_UNCONNECTED [3],ReadCount0[31:29]}),
-        .S({1'b0,ReadCount[31:29]}));
+        .O({\ReadCounter_reg[4]_i_1_n_4 ,\ReadCounter_reg[4]_i_1_n_5 ,\ReadCounter_reg[4]_i_1_n_6 ,\ReadCounter_reg[4]_i_1_n_7 }),
+        .S({\ReadCounter[4]_i_2_n_0 ,\ReadCounter[4]_i_3_n_0 ,\ReadCounter[4]_i_4_n_0 ,\ReadCounter[4]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[3] 
+    \ReadCounter_reg[5] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[3]),
-        .Q(ReadCount[3]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[4]_i_1_n_6 ),
+        .Q(ReadCounter_reg[5]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[4] 
+    \ReadCounter_reg[6] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[4]),
-        .Q(ReadCount[4]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[4]_i_1 
-       (.CI(1'b0),
-        .CO({\ReadCount_reg[4]_i_1_n_0 ,\ReadCount_reg[4]_i_1_n_1 ,\ReadCount_reg[4]_i_1_n_2 ,\ReadCount_reg[4]_i_1_n_3 }),
-        .CYINIT(ReadCount[0]),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[4:1]),
-        .S(ReadCount[4:1]));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[4]_i_1_n_5 ),
+        .Q(ReadCounter_reg[6]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[5] 
+    \ReadCounter_reg[7] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[5]),
-        .Q(ReadCount[5]),
-        .R(\ReadCount[31]_i_1_n_0 ));
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[4]_i_1_n_4 ),
+        .Q(ReadCounter_reg[7]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[6] 
+    \ReadCounter_reg[8] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[6]),
-        .Q(ReadCount[6]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \ReadCount_reg[7] 
-       (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[7]),
-        .Q(ReadCount[7]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \ReadCount_reg[8] 
-       (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[8]),
-        .Q(ReadCount[8]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  CARRY4 \ReadCount_reg[8]_i_1 
-       (.CI(\ReadCount_reg[4]_i_1_n_0 ),
-        .CO({\ReadCount_reg[8]_i_1_n_0 ,\ReadCount_reg[8]_i_1_n_1 ,\ReadCount_reg[8]_i_1_n_2 ,\ReadCount_reg[8]_i_1_n_3 }),
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[8]_i_1_n_7 ),
+        .Q(ReadCounter_reg[8]),
+        .R(1'b0));
+  CARRY4 \ReadCounter_reg[8]_i_1 
+       (.CI(\ReadCounter_reg[4]_i_1_n_0 ),
+        .CO({\ReadCounter_reg[8]_i_1_n_0 ,\ReadCounter_reg[8]_i_1_n_1 ,\ReadCounter_reg[8]_i_1_n_2 ,\ReadCounter_reg[8]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(ReadCount0[8:5]),
-        .S(ReadCount[8:5]));
+        .O({\ReadCounter_reg[8]_i_1_n_4 ,\ReadCounter_reg[8]_i_1_n_5 ,\ReadCounter_reg[8]_i_1_n_6 ,\ReadCounter_reg[8]_i_1_n_7 }),
+        .S({\ReadCounter[8]_i_2_n_0 ,\ReadCounter[8]_i_3_n_0 ,\ReadCounter[8]_i_4_n_0 ,\ReadCounter[8]_i_5_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
-    \ReadCount_reg[9] 
+    \ReadCounter_reg[9] 
        (.C(Clock),
-        .CE(\ReadCount[0]_i_1_n_0 ),
-        .D(ReadCount0[9]),
-        .Q(ReadCount[9]),
-        .R(\ReadCount[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+        .CE(\ReadCounter[0]_i_1_n_0 ),
+        .D(\ReadCounter_reg[8]_i_1_n_6 ),
+        .Q(ReadCounter_reg[9]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'h80)) 
     SCLK_OBUF_inst_i_1
@@ -6096,14 +6925,15 @@ module I2S
         .I1(Resetn_IBUF),
         .I2(Locked),
         .O(SCLK_OBUF));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'hC808)) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT5 #(
+    .INIT(32'hFCF80008)) 
     TREADY_Int_i_1
        (.I0(TVALID),
-        .I1(FIFOState),
-        .I2(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .I3(TREADY),
+        .I1(FIFOState[0]),
+        .I2(FIFOState[2]),
+        .I3(FIFOState[1]),
+        .I4(TREADY),
         .O(TREADY_Int_i_1_n_0));
   FDRE #(
     .INIT(1'b0)) 
@@ -6114,758 +6944,61 @@ module I2S
         .Q(TREADY),
         .R(1'b0));
   I2S_Transmitter Transmitter
-       (.CO(in4),
-        .D({Transmitter_n_3,Transmitter_n_4,Transmitter_n_5,Transmitter_n_6,Transmitter_n_7}),
-        .FIFO_Int_Full(FIFO_Int_Full),
-        .FIFO_Int_Full_reg(\FIFO_Int[3][31]_i_2_n_0 ),
-        .FIFO_Int_Full_reg_0(FIFO_Int_Full_reg_n_0),
-        .\FSM_onehot_I2SState_reg[5] (Transmitter_n_8),
+       (.ARESETN(ARESETN),
+        .Data(Data),
+        .FIFO_1_Full_reg(Transmitter_n_3),
+        .FIFO_1_Full_reg_0(Transmitter_n_4),
+        .\FSM_sequential_I2SState_reg[0] (\FSM_sequential_I2SState[0]_i_3_n_0 ),
+        .\FSM_sequential_I2SState_reg[0]_0 (\FSM_sequential_I2SState[0]_i_4_n_0 ),
+        .\FSM_sequential_I2SState_reg[1] (FIFO_1_Full_reg_n_0),
+        .\FSM_sequential_I2SState_reg[1]_0 (FIFO_0_Full_reg_n_0),
+        .\FSM_sequential_I2SState_reg[2] (Transmitter_n_5),
+        .I2SState(I2SState),
         .LRCLK_OBUF(LRCLK_OBUF),
         .Locked(Locked),
-        .Q({\FSM_onehot_I2SState_reg_n_0_[5] ,\FSM_onehot_I2SState_reg_n_0_[4] ,\FSM_onehot_I2SState_reg_n_0_[3] ,\FSM_onehot_I2SState_reg_n_0_[2] ,\FSM_onehot_I2SState_reg_n_0_[1] ,\FSM_onehot_I2SState_reg_n_0_[0] }),
         .Resetn_IBUF(Resetn_IBUF),
         .SD_Int_reg_0(SD_Int_reg),
         .SD_OBUF(SD_OBUF),
-        .SR(p_0_in),
-        .\ShiftReg_reg[31]_0 (Data));
-  CARRY4 \WriteCount0_inferred__0/i__carry 
-       (.CI(1'b0),
-        .CO({\WriteCount0_inferred__0/i__carry_n_0 ,\WriteCount0_inferred__0/i__carry_n_1 ,\WriteCount0_inferred__0/i__carry_n_2 ,\WriteCount0_inferred__0/i__carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,i__carry_i_1_n_0}),
-        .O(\NLW_WriteCount0_inferred__0/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0,i__carry_i_5_n_0}));
-  CARRY4 \WriteCount0_inferred__0/i__carry__0 
-       (.CI(\WriteCount0_inferred__0/i__carry_n_0 ),
-        .CO({\WriteCount0_inferred__0/i__carry__0_n_0 ,\WriteCount0_inferred__0/i__carry__0_n_1 ,\WriteCount0_inferred__0/i__carry__0_n_2 ,\WriteCount0_inferred__0/i__carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(\NLW_WriteCount0_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({i__carry__0_i_1_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0,i__carry__0_i_4_n_0}));
-  CARRY4 \WriteCount0_inferred__0/i__carry__1 
-       (.CI(\WriteCount0_inferred__0/i__carry__0_n_0 ),
-        .CO({\WriteCount0_inferred__0/i__carry__1_n_0 ,\WriteCount0_inferred__0/i__carry__1_n_1 ,\WriteCount0_inferred__0/i__carry__1_n_2 ,\WriteCount0_inferred__0/i__carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(\NLW_WriteCount0_inferred__0/i__carry__1_O_UNCONNECTED [3:0]),
-        .S({i__carry__1_i_1_n_0,i__carry__1_i_2_n_0,i__carry__1_i_3_n_0,i__carry__1_i_4_n_0}));
-  CARRY4 \WriteCount0_inferred__0/i__carry__2 
-       (.CI(\WriteCount0_inferred__0/i__carry__1_n_0 ),
-        .CO({\WriteCount0_inferred__0/i__carry__2_n_0 ,\WriteCount0_inferred__0/i__carry__2_n_1 ,\WriteCount0_inferred__0/i__carry__2_n_2 ,\WriteCount0_inferred__0/i__carry__2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({\WriteCount_reg_n_0_[31] ,1'b0,1'b0,1'b0}),
-        .O(\NLW_WriteCount0_inferred__0/i__carry__2_O_UNCONNECTED [3:0]),
-        .S({i__carry__2_i_1_n_0,i__carry__2_i_2_n_0,i__carry__2_i_3_n_0,i__carry__2_i_4_n_0}));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT3 #(
-    .INIT(8'hD1)) 
-    \WriteCount[0]_i_1 
-       (.I0(\WriteCount_reg_n_0_[0] ),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[0]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[10]_i_1 
-       (.I0(in7[10]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[10]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[11]_i_1 
-       (.I0(in7[11]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[11]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[12]_i_1 
-       (.I0(in7[12]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[12]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[13]_i_1 
-       (.I0(in7[13]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[13]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[14]_i_1 
-       (.I0(in7[14]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[14]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[15]_i_1 
-       (.I0(in7[15]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[15]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[16]_i_1 
-       (.I0(in7[16]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[16]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[17]_i_1 
-       (.I0(in7[17]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[17]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[18]_i_1 
-       (.I0(in7[18]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[18]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[19]_i_1 
-       (.I0(in7[19]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[19]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[1]_i_1 
-       (.I0(in7[1]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[1]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[20]_i_1 
-       (.I0(in7[20]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[20]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[21]_i_1 
-       (.I0(in7[21]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[21]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[22]_i_1 
-       (.I0(in7[22]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[22]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[23]_i_1 
-       (.I0(in7[23]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[23]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[24]_i_1 
-       (.I0(in7[24]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[24]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[25]_i_1 
-       (.I0(in7[25]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[25]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[26]_i_1 
-       (.I0(in7[26]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[26]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[27]_i_1 
-       (.I0(in7[27]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[27]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[28]_i_1 
-       (.I0(in7[28]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[28]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[29]_i_1 
-       (.I0(in7[29]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[29]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[2]_i_1 
-       (.I0(in7[2]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[2]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[30]_i_1 
-       (.I0(in7[30]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[30]));
-  LUT4 #(
-    .INIT(16'h7040)) 
-    \WriteCount[31]_i_1 
-       (.I0(FIFO_Int_Full_reg_n_0),
-        .I1(FIFOState),
-        .I2(\FSM_sequential_FIFOState_reg_n_0_[1] ),
-        .I3(\WriteCount0_inferred__0/i__carry__2_n_0 ),
-        .O(WriteCount_0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[31]_i_2 
-       (.I0(in7[31]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[31]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[3]_i_1 
-       (.I0(in7[3]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[3]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[4]_i_1 
-       (.I0(in7[4]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[4]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[5]_i_1 
-       (.I0(in7[5]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[5]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[6]_i_1 
-       (.I0(in7[6]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[6]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[7]_i_1 
-       (.I0(in7[7]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[7]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[8]_i_1 
-       (.I0(in7[8]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[8]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT3 #(
-    .INIT(8'hE2)) 
-    \WriteCount[9]_i_1 
-       (.I0(in7[9]),
-        .I1(FIFOState),
-        .I2(FIFO_Int_Full_reg_n_0),
-        .O(WriteCount[9]));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[0] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[0]),
-        .Q(\WriteCount_reg_n_0_[0] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[10] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[10]),
-        .Q(\WriteCount_reg_n_0_[10] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[11] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[11]),
-        .Q(\WriteCount_reg_n_0_[11] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[12] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[12]),
-        .Q(\WriteCount_reg_n_0_[12] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[12]_i_2 
-       (.CI(\WriteCount_reg[8]_i_2_n_0 ),
-        .CO({\WriteCount_reg[12]_i_2_n_0 ,\WriteCount_reg[12]_i_2_n_1 ,\WriteCount_reg[12]_i_2_n_2 ,\WriteCount_reg[12]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[12:9]),
-        .S({\WriteCount_reg_n_0_[12] ,\WriteCount_reg_n_0_[11] ,\WriteCount_reg_n_0_[10] ,\WriteCount_reg_n_0_[9] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[13] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[13]),
-        .Q(\WriteCount_reg_n_0_[13] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[14] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[14]),
-        .Q(\WriteCount_reg_n_0_[14] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[15] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[15]),
-        .Q(\WriteCount_reg_n_0_[15] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[16] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[16]),
-        .Q(\WriteCount_reg_n_0_[16] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[16]_i_2 
-       (.CI(\WriteCount_reg[12]_i_2_n_0 ),
-        .CO({\WriteCount_reg[16]_i_2_n_0 ,\WriteCount_reg[16]_i_2_n_1 ,\WriteCount_reg[16]_i_2_n_2 ,\WriteCount_reg[16]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[16:13]),
-        .S({\WriteCount_reg_n_0_[16] ,\WriteCount_reg_n_0_[15] ,\WriteCount_reg_n_0_[14] ,\WriteCount_reg_n_0_[13] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[17] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[17]),
-        .Q(\WriteCount_reg_n_0_[17] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[18] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[18]),
-        .Q(\WriteCount_reg_n_0_[18] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[19] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[19]),
-        .Q(\WriteCount_reg_n_0_[19] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[1] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[1]),
-        .Q(\WriteCount_reg_n_0_[1] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[20] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[20]),
-        .Q(\WriteCount_reg_n_0_[20] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[20]_i_2 
-       (.CI(\WriteCount_reg[16]_i_2_n_0 ),
-        .CO({\WriteCount_reg[20]_i_2_n_0 ,\WriteCount_reg[20]_i_2_n_1 ,\WriteCount_reg[20]_i_2_n_2 ,\WriteCount_reg[20]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[20:17]),
-        .S({\WriteCount_reg_n_0_[20] ,\WriteCount_reg_n_0_[19] ,\WriteCount_reg_n_0_[18] ,\WriteCount_reg_n_0_[17] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[21] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[21]),
-        .Q(\WriteCount_reg_n_0_[21] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[22] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[22]),
-        .Q(\WriteCount_reg_n_0_[22] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[23] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[23]),
-        .Q(\WriteCount_reg_n_0_[23] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[24] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[24]),
-        .Q(\WriteCount_reg_n_0_[24] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[24]_i_2 
-       (.CI(\WriteCount_reg[20]_i_2_n_0 ),
-        .CO({\WriteCount_reg[24]_i_2_n_0 ,\WriteCount_reg[24]_i_2_n_1 ,\WriteCount_reg[24]_i_2_n_2 ,\WriteCount_reg[24]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[24:21]),
-        .S({\WriteCount_reg_n_0_[24] ,\WriteCount_reg_n_0_[23] ,\WriteCount_reg_n_0_[22] ,\WriteCount_reg_n_0_[21] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[25] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[25]),
-        .Q(\WriteCount_reg_n_0_[25] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[26] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[26]),
-        .Q(\WriteCount_reg_n_0_[26] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[27] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[27]),
-        .Q(\WriteCount_reg_n_0_[27] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[28] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[28]),
-        .Q(\WriteCount_reg_n_0_[28] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[28]_i_2 
-       (.CI(\WriteCount_reg[24]_i_2_n_0 ),
-        .CO({\WriteCount_reg[28]_i_2_n_0 ,\WriteCount_reg[28]_i_2_n_1 ,\WriteCount_reg[28]_i_2_n_2 ,\WriteCount_reg[28]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[28:25]),
-        .S({\WriteCount_reg_n_0_[28] ,\WriteCount_reg_n_0_[27] ,\WriteCount_reg_n_0_[26] ,\WriteCount_reg_n_0_[25] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[29] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[29]),
-        .Q(\WriteCount_reg_n_0_[29] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[2] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[2]),
-        .Q(\WriteCount_reg_n_0_[2] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[30] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[30]),
-        .Q(\WriteCount_reg_n_0_[30] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[31] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[31]),
-        .Q(\WriteCount_reg_n_0_[31] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[31]_i_3 
-       (.CI(\WriteCount_reg[28]_i_2_n_0 ),
-        .CO({\NLW_WriteCount_reg[31]_i_3_CO_UNCONNECTED [3:2],\WriteCount_reg[31]_i_3_n_2 ,\WriteCount_reg[31]_i_3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_WriteCount_reg[31]_i_3_O_UNCONNECTED [3],in7[31:29]}),
-        .S({1'b0,\WriteCount_reg_n_0_[31] ,\WriteCount_reg_n_0_[30] ,\WriteCount_reg_n_0_[29] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[3] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[3]),
-        .Q(\WriteCount_reg_n_0_[3] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[4] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[4]),
-        .Q(\WriteCount_reg_n_0_[4] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[4]_i_2 
-       (.CI(1'b0),
-        .CO({\WriteCount_reg[4]_i_2_n_0 ,\WriteCount_reg[4]_i_2_n_1 ,\WriteCount_reg[4]_i_2_n_2 ,\WriteCount_reg[4]_i_2_n_3 }),
-        .CYINIT(\WriteCount_reg_n_0_[0] ),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[4:1]),
-        .S({\WriteCount_reg_n_0_[4] ,\WriteCount_reg_n_0_[3] ,\WriteCount_reg_n_0_[2] ,\WriteCount_reg_n_0_[1] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[5] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[5]),
-        .Q(\WriteCount_reg_n_0_[5] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[6] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[6]),
-        .Q(\WriteCount_reg_n_0_[6] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[7] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[7]),
-        .Q(\WriteCount_reg_n_0_[7] ),
-        .R(WriteCount0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[8] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[8]),
-        .Q(\WriteCount_reg_n_0_[8] ),
-        .R(WriteCount0));
-  CARRY4 \WriteCount_reg[8]_i_2 
-       (.CI(\WriteCount_reg[4]_i_2_n_0 ),
-        .CO({\WriteCount_reg[8]_i_2_n_0 ,\WriteCount_reg[8]_i_2_n_1 ,\WriteCount_reg[8]_i_2_n_2 ,\WriteCount_reg[8]_i_2_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in7[8:5]),
-        .S({\WriteCount_reg_n_0_[8] ,\WriteCount_reg_n_0_[7] ,\WriteCount_reg_n_0_[6] ,\WriteCount_reg_n_0_[5] }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \WriteCount_reg[9] 
-       (.C(Clock),
-        .CE(WriteCount_0),
-        .D(WriteCount[9]),
-        .Q(\WriteCount_reg_n_0_[9] ),
-        .R(WriteCount0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__0_i_1
-       (.I0(\WriteCount_reg_n_0_[14] ),
-        .I1(\WriteCount_reg_n_0_[15] ),
-        .O(i__carry__0_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__0_i_2
-       (.I0(\WriteCount_reg_n_0_[12] ),
-        .I1(\WriteCount_reg_n_0_[13] ),
-        .O(i__carry__0_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__0_i_3
-       (.I0(\WriteCount_reg_n_0_[10] ),
-        .I1(\WriteCount_reg_n_0_[11] ),
-        .O(i__carry__0_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__0_i_4
-       (.I0(\WriteCount_reg_n_0_[8] ),
-        .I1(\WriteCount_reg_n_0_[9] ),
-        .O(i__carry__0_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__1_i_1
-       (.I0(\WriteCount_reg_n_0_[22] ),
-        .I1(\WriteCount_reg_n_0_[23] ),
-        .O(i__carry__1_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__1_i_2
-       (.I0(\WriteCount_reg_n_0_[20] ),
-        .I1(\WriteCount_reg_n_0_[21] ),
-        .O(i__carry__1_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__1_i_3
-       (.I0(\WriteCount_reg_n_0_[18] ),
-        .I1(\WriteCount_reg_n_0_[19] ),
-        .O(i__carry__1_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__1_i_4
-       (.I0(\WriteCount_reg_n_0_[16] ),
-        .I1(\WriteCount_reg_n_0_[17] ),
-        .O(i__carry__1_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__2_i_1
-       (.I0(\WriteCount_reg_n_0_[30] ),
-        .I1(\WriteCount_reg_n_0_[31] ),
-        .O(i__carry__2_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__2_i_2
-       (.I0(\WriteCount_reg_n_0_[28] ),
-        .I1(\WriteCount_reg_n_0_[29] ),
-        .O(i__carry__2_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__2_i_3
-       (.I0(\WriteCount_reg_n_0_[26] ),
-        .I1(\WriteCount_reg_n_0_[27] ),
-        .O(i__carry__2_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry__2_i_4
-       (.I0(\WriteCount_reg_n_0_[24] ),
-        .I1(\WriteCount_reg_n_0_[25] ),
-        .O(i__carry__2_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h7)) 
-    i__carry_i_1
-       (.I0(\WriteCount_reg_n_0_[0] ),
-        .I1(\WriteCount_reg_n_0_[1] ),
-        .O(i__carry_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry_i_2
-       (.I0(\WriteCount_reg_n_0_[6] ),
-        .I1(\WriteCount_reg_n_0_[7] ),
-        .O(i__carry_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry_i_3
-       (.I0(\WriteCount_reg_n_0_[4] ),
-        .I1(\WriteCount_reg_n_0_[5] ),
-        .O(i__carry_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
-    i__carry_i_4
-       (.I0(\WriteCount_reg_n_0_[2] ),
-        .I1(\WriteCount_reg_n_0_[3] ),
-        .O(i__carry_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
-    i__carry_i_5
-       (.I0(\WriteCount_reg_n_0_[1] ),
-        .I1(\WriteCount_reg_n_0_[0] ),
-        .O(i__carry_i_5_n_0));
+        .SR(Transmitter_n_1));
 endmodule
 
 module I2S_Transmitter
    (LRCLK_OBUF,
     SR,
     SD_OBUF,
-    D,
-    \FSM_onehot_I2SState_reg[5] ,
+    FIFO_1_Full_reg,
+    FIFO_1_Full_reg_0,
+    \FSM_sequential_I2SState_reg[2] ,
     SD_Int_reg_0,
     Resetn_IBUF,
     Locked,
-    Q,
-    CO,
-    \ShiftReg_reg[31]_0 ,
-    FIFO_Int_Full,
-    FIFO_Int_Full_reg,
-    FIFO_Int_Full_reg_0);
+    ARESETN,
+    I2SState,
+    Data,
+    \FSM_sequential_I2SState_reg[1] ,
+    \FSM_sequential_I2SState_reg[1]_0 ,
+    \FSM_sequential_I2SState_reg[0] ,
+    \FSM_sequential_I2SState_reg[0]_0 );
   output LRCLK_OBUF;
   output [0:0]SR;
   output SD_OBUF;
-  output [4:0]D;
-  output \FSM_onehot_I2SState_reg[5] ;
+  output FIFO_1_Full_reg;
+  output FIFO_1_Full_reg_0;
+  output \FSM_sequential_I2SState_reg[2] ;
   input SD_Int_reg_0;
   input Resetn_IBUF;
   input Locked;
-  input [5:0]Q;
-  input [0:0]CO;
-  input [31:0]\ShiftReg_reg[31]_0 ;
-  input FIFO_Int_Full;
-  input FIFO_Int_Full_reg;
-  input FIFO_Int_Full_reg_0;
+  input ARESETN;
+  input [2:0]I2SState;
+  input [31:0]Data;
+  input \FSM_sequential_I2SState_reg[1] ;
+  input \FSM_sequential_I2SState_reg[1]_0 ;
+  input \FSM_sequential_I2SState_reg[0] ;
+  input \FSM_sequential_I2SState_reg[0]_0 ;
 
+  wire ARESETN;
+  wire [31:0]BitCounter;
+  wire BitCounter_Int1;
   wire BitCounter_Int1_carry__0_i_1_n_0;
   wire BitCounter_Int1_carry__0_i_2_n_0;
   wire BitCounter_Int1_carry__0_i_3_n_0;
@@ -6902,7 +7035,6 @@ module I2S_Transmitter
   wire BitCounter_Int1_carry_n_3;
   wire \BitCounter_Int[0]_i_1_n_0 ;
   wire \BitCounter_Int[0]_i_3_n_0 ;
-  wire [31:0]BitCounter_Int_reg;
   wire \BitCounter_Int_reg[0]_i_2_n_0 ;
   wire \BitCounter_Int_reg[0]_i_2_n_1 ;
   wire \BitCounter_Int_reg[0]_i_2_n_2 ;
@@ -6966,25 +7098,28 @@ module I2S_Transmitter
   wire \BitCounter_Int_reg[8]_i_1_n_5 ;
   wire \BitCounter_Int_reg[8]_i_1_n_6 ;
   wire \BitCounter_Int_reg[8]_i_1_n_7 ;
-  wire [0:0]CO;
-  wire [4:0]D;
-  wire FIFO_Int_Full;
-  wire FIFO_Int_Full_reg;
-  wire FIFO_Int_Full_reg_0;
-  wire \FSM_onehot_I2SState[3]_i_2_n_0 ;
-  wire \FSM_onehot_I2SState[3]_i_3_n_0 ;
-  wire \FSM_onehot_I2SState[3]_i_4_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_10_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_11_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_12_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_3_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_4_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_5_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_6_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_7_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_8_n_0 ;
-  wire \FSM_onehot_I2SState[5]_i_9_n_0 ;
-  wire \FSM_onehot_I2SState_reg[5] ;
+  wire [31:0]Data;
+  wire FIFO_1_Full_reg;
+  wire FIFO_1_Full_reg_0;
+  wire \FSM_sequential_I2SState[0]_i_2_n_0 ;
+  wire \FSM_sequential_I2SState[0]_i_5_n_0 ;
+  wire \FSM_sequential_I2SState[0]_i_6_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_10_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_11_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_2_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_3_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_4_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_5_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_6_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_7_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_8_n_0 ;
+  wire \FSM_sequential_I2SState[2]_i_9_n_0 ;
+  wire \FSM_sequential_I2SState_reg[0] ;
+  wire \FSM_sequential_I2SState_reg[0]_0 ;
+  wire \FSM_sequential_I2SState_reg[1] ;
+  wire \FSM_sequential_I2SState_reg[1]_0 ;
+  wire \FSM_sequential_I2SState_reg[2] ;
+  wire [2:0]I2SState;
   wire LRCLK_Int1;
   wire LRCLK_Int_i_10_n_0;
   wire LRCLK_Int_i_11_n_0;
@@ -7017,15 +7152,12 @@ module I2S_Transmitter
   wire LRCLK_Int_reg_i_7_n_3;
   wire LRCLK_OBUF;
   wire Locked;
-  wire [5:0]Q;
   wire Resetn_IBUF;
   wire SD_Int_reg_0;
   wire SD_OBUF;
   wire [0:0]SR;
   wire [31:0]ShiftReg;
-  wire [31:0]\ShiftReg_reg[31]_0 ;
   wire [31:1]data1;
-  wire in2;
   wire p_1_in;
   wire [3:0]NLW_BitCounter_Int1_carry_O_UNCONNECTED;
   wire [3:0]NLW_BitCounter_Int1_carry__0_O_UNCONNECTED;
@@ -7055,26 +7187,26 @@ module I2S_Transmitter
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__0_i_1
-       (.I0(BitCounter_Int_reg[15]),
-        .I1(BitCounter_Int_reg[14]),
+       (.I0(BitCounter[15]),
+        .I1(BitCounter[14]),
         .O(BitCounter_Int1_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__0_i_2
-       (.I0(BitCounter_Int_reg[13]),
-        .I1(BitCounter_Int_reg[12]),
+       (.I0(BitCounter[13]),
+        .I1(BitCounter[12]),
         .O(BitCounter_Int1_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__0_i_3
-       (.I0(BitCounter_Int_reg[11]),
-        .I1(BitCounter_Int_reg[10]),
+       (.I0(BitCounter[11]),
+        .I1(BitCounter[10]),
         .O(BitCounter_Int1_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__0_i_4
-       (.I0(BitCounter_Int_reg[9]),
-        .I1(BitCounter_Int_reg[8]),
+       (.I0(BitCounter[9]),
+        .I1(BitCounter[8]),
         .O(BitCounter_Int1_carry__0_i_4_n_0));
   CARRY4 BitCounter_Int1_carry__1
        (.CI(BitCounter_Int1_carry__0_n_0),
@@ -7086,111 +7218,111 @@ module I2S_Transmitter
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__1_i_1
-       (.I0(BitCounter_Int_reg[23]),
-        .I1(BitCounter_Int_reg[22]),
+       (.I0(BitCounter[23]),
+        .I1(BitCounter[22]),
         .O(BitCounter_Int1_carry__1_i_1_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__1_i_2
-       (.I0(BitCounter_Int_reg[21]),
-        .I1(BitCounter_Int_reg[20]),
+       (.I0(BitCounter[21]),
+        .I1(BitCounter[20]),
         .O(BitCounter_Int1_carry__1_i_2_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__1_i_3
-       (.I0(BitCounter_Int_reg[19]),
-        .I1(BitCounter_Int_reg[18]),
+       (.I0(BitCounter[19]),
+        .I1(BitCounter[18]),
         .O(BitCounter_Int1_carry__1_i_3_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__1_i_4
-       (.I0(BitCounter_Int_reg[17]),
-        .I1(BitCounter_Int_reg[16]),
+       (.I0(BitCounter[17]),
+        .I1(BitCounter[16]),
         .O(BitCounter_Int1_carry__1_i_4_n_0));
   CARRY4 BitCounter_Int1_carry__2
        (.CI(BitCounter_Int1_carry__1_n_0),
-        .CO({in2,BitCounter_Int1_carry__2_n_1,BitCounter_Int1_carry__2_n_2,BitCounter_Int1_carry__2_n_3}),
+        .CO({BitCounter_Int1,BitCounter_Int1_carry__2_n_1,BitCounter_Int1_carry__2_n_2,BitCounter_Int1_carry__2_n_3}),
         .CYINIT(1'b0),
-        .DI({BitCounter_Int_reg[31],1'b0,1'b0,1'b0}),
+        .DI({BitCounter[31],1'b0,1'b0,1'b0}),
         .O(NLW_BitCounter_Int1_carry__2_O_UNCONNECTED[3:0]),
         .S({BitCounter_Int1_carry__2_i_1_n_0,BitCounter_Int1_carry__2_i_2_n_0,BitCounter_Int1_carry__2_i_3_n_0,BitCounter_Int1_carry__2_i_4_n_0}));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__2_i_1
-       (.I0(BitCounter_Int_reg[31]),
-        .I1(BitCounter_Int_reg[30]),
+       (.I0(BitCounter[31]),
+        .I1(BitCounter[30]),
         .O(BitCounter_Int1_carry__2_i_1_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__2_i_2
-       (.I0(BitCounter_Int_reg[29]),
-        .I1(BitCounter_Int_reg[28]),
+       (.I0(BitCounter[29]),
+        .I1(BitCounter[28]),
         .O(BitCounter_Int1_carry__2_i_2_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__2_i_3
-       (.I0(BitCounter_Int_reg[27]),
-        .I1(BitCounter_Int_reg[26]),
+       (.I0(BitCounter[26]),
+        .I1(BitCounter[27]),
         .O(BitCounter_Int1_carry__2_i_3_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry__2_i_4
-       (.I0(BitCounter_Int_reg[25]),
-        .I1(BitCounter_Int_reg[24]),
+       (.I0(BitCounter[25]),
+        .I1(BitCounter[24]),
         .O(BitCounter_Int1_carry__2_i_4_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry_i_1
-       (.I0(BitCounter_Int_reg[4]),
-        .I1(BitCounter_Int_reg[5]),
+       (.I0(BitCounter[5]),
+        .I1(BitCounter[4]),
         .O(BitCounter_Int1_carry_i_1_n_0));
   LUT2 #(
     .INIT(4'h7)) 
     BitCounter_Int1_carry_i_2
-       (.I0(BitCounter_Int_reg[2]),
-        .I1(BitCounter_Int_reg[3]),
+       (.I0(BitCounter[3]),
+        .I1(BitCounter[2]),
         .O(BitCounter_Int1_carry_i_2_n_0));
   LUT2 #(
     .INIT(4'h7)) 
     BitCounter_Int1_carry_i_3
-       (.I0(BitCounter_Int_reg[0]),
-        .I1(BitCounter_Int_reg[1]),
+       (.I0(BitCounter[1]),
+        .I1(BitCounter[0]),
         .O(BitCounter_Int1_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     BitCounter_Int1_carry_i_4
-       (.I0(BitCounter_Int_reg[7]),
-        .I1(BitCounter_Int_reg[6]),
+       (.I0(BitCounter[7]),
+        .I1(BitCounter[6]),
         .O(BitCounter_Int1_carry_i_4_n_0));
   LUT2 #(
     .INIT(4'h2)) 
     BitCounter_Int1_carry_i_5
-       (.I0(BitCounter_Int_reg[4]),
-        .I1(BitCounter_Int_reg[5]),
+       (.I0(BitCounter[4]),
+        .I1(BitCounter[5]),
         .O(BitCounter_Int1_carry_i_5_n_0));
   LUT2 #(
     .INIT(4'h8)) 
     BitCounter_Int1_carry_i_6
-       (.I0(BitCounter_Int_reg[3]),
-        .I1(BitCounter_Int_reg[2]),
+       (.I0(BitCounter[2]),
+        .I1(BitCounter[3]),
         .O(BitCounter_Int1_carry_i_6_n_0));
   LUT2 #(
     .INIT(4'h8)) 
     BitCounter_Int1_carry_i_7
-       (.I0(BitCounter_Int_reg[0]),
-        .I1(BitCounter_Int_reg[1]),
+       (.I0(BitCounter[0]),
+        .I1(BitCounter[1]),
         .O(BitCounter_Int1_carry_i_7_n_0));
   LUT3 #(
     .INIT(8'h7F)) 
     \BitCounter_Int[0]_i_1 
-       (.I0(Resetn_IBUF),
-        .I1(Locked),
-        .I2(in2),
+       (.I0(BitCounter_Int1),
+        .I1(Resetn_IBUF),
+        .I2(Locked),
         .O(\BitCounter_Int[0]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \BitCounter_Int[0]_i_3 
-       (.I0(BitCounter_Int_reg[0]),
+       (.I0(BitCounter[0]),
         .O(\BitCounter_Int[0]_i_3_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7198,7 +7330,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[0]_i_2_n_7 ),
-        .Q(BitCounter_Int_reg[0]),
+        .Q(BitCounter[0]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[0]_i_2 
        (.CI(1'b0),
@@ -7206,14 +7338,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\BitCounter_Int_reg[0]_i_2_n_4 ,\BitCounter_Int_reg[0]_i_2_n_5 ,\BitCounter_Int_reg[0]_i_2_n_6 ,\BitCounter_Int_reg[0]_i_2_n_7 }),
-        .S({BitCounter_Int_reg[3:1],\BitCounter_Int[0]_i_3_n_0 }));
+        .S({BitCounter[3:1],\BitCounter_Int[0]_i_3_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[10] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[8]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[10]),
+        .Q(BitCounter[10]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7221,7 +7353,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[8]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[11]),
+        .Q(BitCounter[11]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7229,7 +7361,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[12]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[12]),
+        .Q(BitCounter[12]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[12]_i_1 
        (.CI(\BitCounter_Int_reg[8]_i_1_n_0 ),
@@ -7237,14 +7369,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[12]_i_1_n_4 ,\BitCounter_Int_reg[12]_i_1_n_5 ,\BitCounter_Int_reg[12]_i_1_n_6 ,\BitCounter_Int_reg[12]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[15:12]));
+        .S(BitCounter[15:12]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[13] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[12]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[13]),
+        .Q(BitCounter[13]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7252,7 +7384,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[12]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[14]),
+        .Q(BitCounter[14]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7260,7 +7392,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[12]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[15]),
+        .Q(BitCounter[15]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7268,7 +7400,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[16]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[16]),
+        .Q(BitCounter[16]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[16]_i_1 
        (.CI(\BitCounter_Int_reg[12]_i_1_n_0 ),
@@ -7276,14 +7408,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[16]_i_1_n_4 ,\BitCounter_Int_reg[16]_i_1_n_5 ,\BitCounter_Int_reg[16]_i_1_n_6 ,\BitCounter_Int_reg[16]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[19:16]));
+        .S(BitCounter[19:16]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[17] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[16]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[17]),
+        .Q(BitCounter[17]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7291,7 +7423,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[16]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[18]),
+        .Q(BitCounter[18]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7299,7 +7431,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[16]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[19]),
+        .Q(BitCounter[19]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7307,7 +7439,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[0]_i_2_n_6 ),
-        .Q(BitCounter_Int_reg[1]),
+        .Q(BitCounter[1]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7315,7 +7447,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[20]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[20]),
+        .Q(BitCounter[20]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[20]_i_1 
        (.CI(\BitCounter_Int_reg[16]_i_1_n_0 ),
@@ -7323,14 +7455,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[20]_i_1_n_4 ,\BitCounter_Int_reg[20]_i_1_n_5 ,\BitCounter_Int_reg[20]_i_1_n_6 ,\BitCounter_Int_reg[20]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[23:20]));
+        .S(BitCounter[23:20]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[21] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[20]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[21]),
+        .Q(BitCounter[21]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7338,7 +7470,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[20]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[22]),
+        .Q(BitCounter[22]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7346,7 +7478,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[20]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[23]),
+        .Q(BitCounter[23]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7354,7 +7486,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[24]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[24]),
+        .Q(BitCounter[24]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[24]_i_1 
        (.CI(\BitCounter_Int_reg[20]_i_1_n_0 ),
@@ -7362,14 +7494,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[24]_i_1_n_4 ,\BitCounter_Int_reg[24]_i_1_n_5 ,\BitCounter_Int_reg[24]_i_1_n_6 ,\BitCounter_Int_reg[24]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[27:24]));
+        .S(BitCounter[27:24]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[25] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[24]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[25]),
+        .Q(BitCounter[25]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7377,7 +7509,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[24]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[26]),
+        .Q(BitCounter[26]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7385,7 +7517,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[24]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[27]),
+        .Q(BitCounter[27]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7393,7 +7525,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[28]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[28]),
+        .Q(BitCounter[28]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[28]_i_1 
        (.CI(\BitCounter_Int_reg[24]_i_1_n_0 ),
@@ -7401,14 +7533,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[28]_i_1_n_4 ,\BitCounter_Int_reg[28]_i_1_n_5 ,\BitCounter_Int_reg[28]_i_1_n_6 ,\BitCounter_Int_reg[28]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[31:28]));
+        .S(BitCounter[31:28]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[29] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[28]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[29]),
+        .Q(BitCounter[29]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7416,7 +7548,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[0]_i_2_n_5 ),
-        .Q(BitCounter_Int_reg[2]),
+        .Q(BitCounter[2]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7424,7 +7556,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[28]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[30]),
+        .Q(BitCounter[30]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7432,7 +7564,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[28]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[31]),
+        .Q(BitCounter[31]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7440,7 +7572,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[0]_i_2_n_4 ),
-        .Q(BitCounter_Int_reg[3]),
+        .Q(BitCounter[3]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7448,7 +7580,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[4]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[4]),
+        .Q(BitCounter[4]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[4]_i_1 
        (.CI(\BitCounter_Int_reg[0]_i_2_n_0 ),
@@ -7456,14 +7588,14 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[4]_i_1_n_4 ,\BitCounter_Int_reg[4]_i_1_n_5 ,\BitCounter_Int_reg[4]_i_1_n_6 ,\BitCounter_Int_reg[4]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[7:4]));
+        .S(BitCounter[7:4]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[5] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[4]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[5]),
+        .Q(BitCounter[5]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7471,7 +7603,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[4]_i_1_n_5 ),
-        .Q(BitCounter_Int_reg[6]),
+        .Q(BitCounter[6]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7479,7 +7611,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[4]_i_1_n_4 ),
-        .Q(BitCounter_Int_reg[7]),
+        .Q(BitCounter[7]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -7487,7 +7619,7 @@ module I2S_Transmitter
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[8]_i_1_n_7 ),
-        .Q(BitCounter_Int_reg[8]),
+        .Q(BitCounter[8]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   CARRY4 \BitCounter_Int_reg[8]_i_1 
        (.CI(\BitCounter_Int_reg[4]_i_1_n_0 ),
@@ -7495,275 +7627,251 @@ module I2S_Transmitter
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\BitCounter_Int_reg[8]_i_1_n_4 ,\BitCounter_Int_reg[8]_i_1_n_5 ,\BitCounter_Int_reg[8]_i_1_n_6 ,\BitCounter_Int_reg[8]_i_1_n_7 }),
-        .S(BitCounter_Int_reg[11:8]));
+        .S(BitCounter[11:8]));
   FDRE #(
     .INIT(1'b0)) 
     \BitCounter_Int_reg[9] 
        (.C(SD_Int_reg_0),
         .CE(1'b1),
         .D(\BitCounter_Int_reg[8]_i_1_n_6 ),
-        .Q(BitCounter_Int_reg[9]),
+        .Q(BitCounter[9]),
         .R(\BitCounter_Int[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hAAAAFFEFAAAA0020)) 
-    FIFO_Int_Full_i_1
-       (.I0(FIFO_Int_Full),
-        .I1(\FSM_onehot_I2SState[3]_i_2_n_0 ),
-        .I2(Q[5]),
-        .I3(CO),
-        .I4(FIFO_Int_Full_reg),
-        .I5(FIFO_Int_Full_reg_0),
-        .O(\FSM_onehot_I2SState_reg[5] ));
+    .INIT(64'h0003FFFFAAAB0000)) 
+    \FSM_sequential_I2SState[0]_i_1 
+       (.I0(\FSM_sequential_I2SState[0]_i_2_n_0 ),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(\FSM_sequential_I2SState_reg[1] ),
+        .I3(\FSM_sequential_I2SState_reg[0] ),
+        .I4(\FSM_sequential_I2SState_reg[0]_0 ),
+        .I5(I2SState[0]),
+        .O(FIFO_1_Full_reg_0));
   LUT6 #(
-    .INIT(64'h8080808080FF8080)) 
-    \FSM_onehot_I2SState[1]_i_1 
-       (.I0(Locked),
-        .I1(Resetn_IBUF),
-        .I2(Q[0]),
-        .I3(\FSM_onehot_I2SState[3]_i_2_n_0 ),
-        .I4(Q[5]),
-        .I5(CO),
-        .O(D[0]));
-  LUT3 #(
-    .INIT(8'hF8)) 
-    \FSM_onehot_I2SState[2]_i_1 
-       (.I0(Q[2]),
-        .I1(in2),
-        .I2(Q[1]),
-        .O(D[1]));
-  LUT5 #(
-    .INIT(32'h4F444444)) 
-    \FSM_onehot_I2SState[3]_i_1 
-       (.I0(in2),
-        .I1(Q[2]),
-        .I2(\FSM_onehot_I2SState[3]_i_2_n_0 ),
-        .I3(CO),
-        .I4(Q[5]),
-        .O(D[2]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFBF)) 
-    \FSM_onehot_I2SState[3]_i_2 
-       (.I0(\FSM_onehot_I2SState[3]_i_3_n_0 ),
-        .I1(BitCounter_Int_reg[0]),
-        .I2(BitCounter_Int_reg[4]),
-        .I3(\FSM_onehot_I2SState[5]_i_9_n_0 ),
-        .I4(\FSM_onehot_I2SState[3]_i_4_n_0 ),
-        .I5(\FSM_onehot_I2SState[5]_i_6_n_0 ),
-        .O(\FSM_onehot_I2SState[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
-    \FSM_onehot_I2SState[3]_i_3 
-       (.I0(BitCounter_Int_reg[2]),
-        .I1(BitCounter_Int_reg[3]),
-        .O(\FSM_onehot_I2SState[3]_i_3_n_0 ));
+    .INIT(64'h101010101010FF10)) 
+    \FSM_sequential_I2SState[0]_i_2 
+       (.I0(\FSM_sequential_I2SState[2]_i_5_n_0 ),
+        .I1(\FSM_sequential_I2SState[0]_i_5_n_0 ),
+        .I2(\FSM_sequential_I2SState[2]_i_6_n_0 ),
+        .I3(ARESETN),
+        .I4(I2SState[1]),
+        .I5(I2SState[2]),
+        .O(\FSM_sequential_I2SState[0]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \FSM_onehot_I2SState[3]_i_4 
-       (.I0(BitCounter_Int_reg[10]),
-        .I1(BitCounter_Int_reg[11]),
-        .I2(BitCounter_Int_reg[8]),
-        .I3(BitCounter_Int_reg[9]),
-        .I4(\FSM_onehot_I2SState[5]_i_8_n_0 ),
-        .O(\FSM_onehot_I2SState[3]_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFA8)) 
-    \FSM_onehot_I2SState[4]_i_1 
-       (.I0(Q[4]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(Q[3]),
-        .O(D[3]));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_onehot_I2SState[5]_i_10 
-       (.I0(BitCounter_Int_reg[21]),
-        .I1(BitCounter_Int_reg[20]),
-        .I2(BitCounter_Int_reg[23]),
-        .I3(BitCounter_Int_reg[22]),
-        .O(\FSM_onehot_I2SState[5]_i_10_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_onehot_I2SState[5]_i_11 
-       (.I0(BitCounter_Int_reg[29]),
-        .I1(BitCounter_Int_reg[28]),
-        .I2(BitCounter_Int_reg[31]),
-        .I3(BitCounter_Int_reg[30]),
-        .O(\FSM_onehot_I2SState[5]_i_11_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_onehot_I2SState[5]_i_12 
-       (.I0(BitCounter_Int_reg[5]),
-        .I1(BitCounter_Int_reg[1]),
-        .I2(BitCounter_Int_reg[7]),
-        .I3(BitCounter_Int_reg[6]),
-        .O(\FSM_onehot_I2SState[5]_i_12_n_0 ));
-  LUT5 #(
-    .INIT(32'hF0F0F444)) 
-    \FSM_onehot_I2SState[5]_i_2 
-       (.I0(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I1(Q[4]),
-        .I2(Q[5]),
-        .I3(\FSM_onehot_I2SState[5]_i_4_n_0 ),
-        .I4(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .O(D[4]));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_onehot_I2SState[5]_i_3 
-       (.I0(BitCounter_Int_reg[2]),
-        .I1(BitCounter_Int_reg[0]),
-        .I2(BitCounter_Int_reg[4]),
-        .I3(BitCounter_Int_reg[3]),
-        .O(\FSM_onehot_I2SState[5]_i_3_n_0 ));
+    .INIT(32'hFFFFFFFB)) 
+    \FSM_sequential_I2SState[0]_i_5 
+       (.I0(BitCounter[1]),
+        .I1(BitCounter[0]),
+        .I2(BitCounter[6]),
+        .I3(BitCounter[7]),
+        .I4(\FSM_sequential_I2SState[0]_i_6_n_0 ),
+        .O(\FSM_sequential_I2SState[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFF7FFFFFFFFFF)) 
+    \FSM_sequential_I2SState[0]_i_6 
+       (.I0(BitCounter[2]),
+        .I1(BitCounter[3]),
+        .I2(I2SState[2]),
+        .I3(I2SState[1]),
+        .I4(BitCounter[5]),
+        .I5(BitCounter[4]),
+        .O(\FSM_sequential_I2SState[0]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hF0F0FFFF0F004040)) 
+    \FSM_sequential_I2SState[1]_i_1 
+       (.I0(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I1(\FSM_sequential_I2SState_reg[1] ),
+        .I2(I2SState[2]),
+        .I3(\FSM_sequential_I2SState_reg[1]_0 ),
+        .I4(I2SState[0]),
+        .I5(I2SState[1]),
+        .O(FIFO_1_Full_reg));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
-    .INIT(16'h7FFF)) 
-    \FSM_onehot_I2SState[5]_i_4 
-       (.I0(BitCounter_Int_reg[4]),
-        .I1(BitCounter_Int_reg[0]),
-        .I2(BitCounter_Int_reg[3]),
-        .I3(BitCounter_Int_reg[2]),
-        .O(\FSM_onehot_I2SState[5]_i_4_n_0 ));
+    .INIT(16'hFCC8)) 
+    \FSM_sequential_I2SState[2]_i_1 
+       (.I0(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I1(I2SState[2]),
+        .I2(I2SState[0]),
+        .I3(I2SState[1]),
+        .O(\FSM_sequential_I2SState_reg[2] ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FSM_sequential_I2SState[2]_i_10 
+       (.I0(BitCounter[25]),
+        .I1(BitCounter[24]),
+        .I2(BitCounter[21]),
+        .I3(BitCounter[20]),
+        .O(\FSM_sequential_I2SState[2]_i_10_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FSM_sequential_I2SState[2]_i_11 
+       (.I0(BitCounter[29]),
+        .I1(BitCounter[28]),
+        .I2(BitCounter[17]),
+        .I3(BitCounter[16]),
+        .O(\FSM_sequential_I2SState[2]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \FSM_onehot_I2SState[5]_i_5 
-       (.I0(\FSM_onehot_I2SState[5]_i_6_n_0 ),
-        .I1(\FSM_onehot_I2SState[5]_i_7_n_0 ),
-        .I2(BitCounter_Int_reg[8]),
-        .I3(BitCounter_Int_reg[9]),
-        .I4(\FSM_onehot_I2SState[5]_i_8_n_0 ),
-        .I5(\FSM_onehot_I2SState[5]_i_9_n_0 ),
-        .O(\FSM_onehot_I2SState[5]_i_5_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \FSM_onehot_I2SState[5]_i_6 
-       (.I0(BitCounter_Int_reg[18]),
-        .I1(BitCounter_Int_reg[19]),
-        .I2(BitCounter_Int_reg[16]),
-        .I3(BitCounter_Int_reg[17]),
-        .I4(\FSM_onehot_I2SState[5]_i_10_n_0 ),
-        .O(\FSM_onehot_I2SState[5]_i_6_n_0 ));
+    .INIT(64'hFFFFFFFEFFFFFFFF)) 
+    \FSM_sequential_I2SState[2]_i_2 
+       (.I0(\FSM_sequential_I2SState[2]_i_3_n_0 ),
+        .I1(\FSM_sequential_I2SState[2]_i_4_n_0 ),
+        .I2(BitCounter[4]),
+        .I3(BitCounter[5]),
+        .I4(\FSM_sequential_I2SState[2]_i_5_n_0 ),
+        .I5(\FSM_sequential_I2SState[2]_i_6_n_0 ),
+        .O(\FSM_sequential_I2SState[2]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FSM_sequential_I2SState[2]_i_3 
+       (.I0(BitCounter[1]),
+        .I1(BitCounter[0]),
+        .I2(BitCounter[2]),
+        .I3(BitCounter[3]),
+        .O(\FSM_sequential_I2SState[2]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT2 #(
     .INIT(4'hE)) 
-    \FSM_onehot_I2SState[5]_i_7 
-       (.I0(BitCounter_Int_reg[10]),
-        .I1(BitCounter_Int_reg[11]),
-        .O(\FSM_onehot_I2SState[5]_i_7_n_0 ));
+    \FSM_sequential_I2SState[2]_i_4 
+       (.I0(BitCounter[6]),
+        .I1(BitCounter[7]),
+        .O(\FSM_sequential_I2SState[2]_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \FSM_sequential_I2SState[2]_i_5 
+       (.I0(BitCounter[12]),
+        .I1(BitCounter[13]),
+        .I2(BitCounter[14]),
+        .I3(BitCounter[15]),
+        .I4(\FSM_sequential_I2SState[2]_i_7_n_0 ),
+        .O(\FSM_sequential_I2SState[2]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000004)) 
+    \FSM_sequential_I2SState[2]_i_6 
+       (.I0(\FSM_sequential_I2SState[2]_i_8_n_0 ),
+        .I1(\FSM_sequential_I2SState[2]_i_9_n_0 ),
+        .I2(BitCounter[23]),
+        .I3(BitCounter[22]),
+        .I4(\FSM_sequential_I2SState[2]_i_10_n_0 ),
+        .I5(\FSM_sequential_I2SState[2]_i_11_n_0 ),
+        .O(\FSM_sequential_I2SState[2]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
-    \FSM_onehot_I2SState[5]_i_8 
-       (.I0(BitCounter_Int_reg[13]),
-        .I1(BitCounter_Int_reg[12]),
-        .I2(BitCounter_Int_reg[15]),
-        .I3(BitCounter_Int_reg[14]),
-        .O(\FSM_onehot_I2SState[5]_i_8_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \FSM_onehot_I2SState[5]_i_9 
-       (.I0(\FSM_onehot_I2SState[5]_i_11_n_0 ),
-        .I1(BitCounter_Int_reg[25]),
-        .I2(BitCounter_Int_reg[24]),
-        .I3(BitCounter_Int_reg[27]),
-        .I4(BitCounter_Int_reg[26]),
-        .I5(\FSM_onehot_I2SState[5]_i_12_n_0 ),
-        .O(\FSM_onehot_I2SState[5]_i_9_n_0 ));
+    \FSM_sequential_I2SState[2]_i_7 
+       (.I0(BitCounter[11]),
+        .I1(BitCounter[10]),
+        .I2(BitCounter[9]),
+        .I3(BitCounter[8]),
+        .O(\FSM_sequential_I2SState[2]_i_7_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FSM_sequential_I2SState[2]_i_8 
+       (.I0(BitCounter[31]),
+        .I1(BitCounter[30]),
+        .I2(BitCounter[19]),
+        .I3(BitCounter[18]),
+        .O(\FSM_sequential_I2SState[2]_i_8_n_0 ));
+  LUT2 #(
+    .INIT(4'h1)) 
+    \FSM_sequential_I2SState[2]_i_9 
+       (.I0(BitCounter[26]),
+        .I1(BitCounter[27]),
+        .O(\FSM_sequential_I2SState[2]_i_9_n_0 ));
   LUT2 #(
     .INIT(4'h7)) 
     LRCLK_Int_i_1
-       (.I0(Locked),
-        .I1(Resetn_IBUF),
+       (.I0(Resetn_IBUF),
+        .I1(Locked),
         .O(SR));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_10
-       (.I0(BitCounter_Int_reg[23]),
-        .I1(BitCounter_Int_reg[22]),
+       (.I0(BitCounter[23]),
+        .I1(BitCounter[22]),
         .O(LRCLK_Int_i_10_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_11
-       (.I0(BitCounter_Int_reg[21]),
-        .I1(BitCounter_Int_reg[20]),
+       (.I0(BitCounter[21]),
+        .I1(BitCounter[20]),
         .O(LRCLK_Int_i_11_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_13
-       (.I0(BitCounter_Int_reg[19]),
-        .I1(BitCounter_Int_reg[18]),
+       (.I0(BitCounter[19]),
+        .I1(BitCounter[18]),
         .O(LRCLK_Int_i_13_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_14
-       (.I0(BitCounter_Int_reg[17]),
-        .I1(BitCounter_Int_reg[16]),
+       (.I0(BitCounter[17]),
+        .I1(BitCounter[16]),
         .O(LRCLK_Int_i_14_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_15
-       (.I0(BitCounter_Int_reg[15]),
-        .I1(BitCounter_Int_reg[14]),
+       (.I0(BitCounter[15]),
+        .I1(BitCounter[14]),
         .O(LRCLK_Int_i_15_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_16
-       (.I0(BitCounter_Int_reg[13]),
-        .I1(BitCounter_Int_reg[12]),
+       (.I0(BitCounter[13]),
+        .I1(BitCounter[12]),
         .O(LRCLK_Int_i_16_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_17
-       (.I0(BitCounter_Int_reg[4]),
-        .I1(BitCounter_Int_reg[5]),
+       (.I0(BitCounter[5]),
+        .I1(BitCounter[4]),
         .O(LRCLK_Int_i_17_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_18
-       (.I0(BitCounter_Int_reg[11]),
-        .I1(BitCounter_Int_reg[10]),
+       (.I0(BitCounter[11]),
+        .I1(BitCounter[10]),
         .O(LRCLK_Int_i_18_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_19
-       (.I0(BitCounter_Int_reg[9]),
-        .I1(BitCounter_Int_reg[8]),
+       (.I0(BitCounter[9]),
+        .I1(BitCounter[8]),
         .O(LRCLK_Int_i_19_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_20
-       (.I0(BitCounter_Int_reg[7]),
-        .I1(BitCounter_Int_reg[6]),
+       (.I0(BitCounter[7]),
+        .I1(BitCounter[6]),
         .O(LRCLK_Int_i_20_n_0));
   LUT2 #(
     .INIT(4'h2)) 
     LRCLK_Int_i_21
-       (.I0(BitCounter_Int_reg[4]),
-        .I1(BitCounter_Int_reg[5]),
+       (.I0(BitCounter[4]),
+        .I1(BitCounter[5]),
         .O(LRCLK_Int_i_21_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_5
-       (.I0(BitCounter_Int_reg[31]),
-        .I1(BitCounter_Int_reg[30]),
+       (.I0(BitCounter[31]),
+        .I1(BitCounter[30]),
         .O(LRCLK_Int_i_5_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_6
-       (.I0(BitCounter_Int_reg[29]),
-        .I1(BitCounter_Int_reg[28]),
+       (.I0(BitCounter[29]),
+        .I1(BitCounter[28]),
         .O(LRCLK_Int_i_6_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_8
-       (.I0(BitCounter_Int_reg[27]),
-        .I1(BitCounter_Int_reg[26]),
+       (.I0(BitCounter[26]),
+        .I1(BitCounter[27]),
         .O(LRCLK_Int_i_8_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     LRCLK_Int_i_9
-       (.I0(BitCounter_Int_reg[25]),
-        .I1(BitCounter_Int_reg[24]),
+       (.I0(BitCounter[25]),
+        .I1(BitCounter[24]),
         .O(LRCLK_Int_i_9_n_0));
   FDSE #(
     .INIT(1'b1)) 
@@ -7784,7 +7892,7 @@ module I2S_Transmitter
        (.CI(LRCLK_Int_reg_i_4_n_0),
         .CO({NLW_LRCLK_Int_reg_i_2_CO_UNCONNECTED[3:2],LRCLK_Int1,LRCLK_Int_reg_i_2_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,BitCounter_Int_reg[31],1'b0}),
+        .DI({1'b0,1'b0,BitCounter[31],1'b0}),
         .O({NLW_LRCLK_Int_reg_i_2_O_UNCONNECTED[3],LRCLK_Int_reg_i_2_n_5,NLW_LRCLK_Int_reg_i_2_O_UNCONNECTED[1:0]}),
         .S({1'b0,1'b1,LRCLK_Int_i_5_n_0,LRCLK_Int_i_6_n_0}));
   CARRY4 LRCLK_Int_reg_i_4
@@ -7809,263 +7917,259 @@ module I2S_Transmitter
         .D(p_1_in),
         .Q(SD_OBUF),
         .R(SR));
-  LUT6 #(
-    .INIT(64'h0000000000000002)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \ShiftReg[0]_i_1 
-       (.I0(\ShiftReg_reg[31]_0 [0]),
-        .I1(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I2(BitCounter_Int_reg[2]),
-        .I3(BitCounter_Int_reg[0]),
-        .I4(BitCounter_Int_reg[4]),
-        .I5(BitCounter_Int_reg[3]),
+       (.I0(Data[0]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
         .O(ShiftReg[0]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[10]_i_1 
        (.I0(data1[10]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [10]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[10]),
         .O(ShiftReg[10]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[11]_i_1 
        (.I0(data1[11]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [11]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[11]),
         .O(ShiftReg[11]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[12]_i_1 
        (.I0(data1[12]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [12]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[12]),
         .O(ShiftReg[12]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[13]_i_1 
        (.I0(data1[13]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [13]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[13]),
         .O(ShiftReg[13]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[14]_i_1 
        (.I0(data1[14]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [14]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[14]),
         .O(ShiftReg[14]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[15]_i_1 
        (.I0(data1[15]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [15]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[15]),
         .O(ShiftReg[15]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[16]_i_1 
        (.I0(data1[16]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [16]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[16]),
         .O(ShiftReg[16]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[17]_i_1 
        (.I0(data1[17]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [17]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[17]),
         .O(ShiftReg[17]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[18]_i_1 
        (.I0(data1[18]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [18]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[18]),
         .O(ShiftReg[18]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[19]_i_1 
        (.I0(data1[19]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [19]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[19]),
         .O(ShiftReg[19]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[1]_i_1 
        (.I0(data1[1]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [1]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[1]),
         .O(ShiftReg[1]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[20]_i_1 
        (.I0(data1[20]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [20]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[20]),
         .O(ShiftReg[20]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[21]_i_1 
        (.I0(data1[21]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [21]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[21]),
         .O(ShiftReg[21]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[22]_i_1 
        (.I0(data1[22]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [22]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[22]),
         .O(ShiftReg[22]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[23]_i_1 
        (.I0(data1[23]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [23]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[23]),
         .O(ShiftReg[23]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[24]_i_1 
        (.I0(data1[24]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [24]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[24]),
         .O(ShiftReg[24]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[25]_i_1 
        (.I0(data1[25]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [25]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[25]),
         .O(ShiftReg[25]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[26]_i_1 
        (.I0(data1[26]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [26]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[26]),
         .O(ShiftReg[26]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[27]_i_1 
        (.I0(data1[27]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [27]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[27]),
         .O(ShiftReg[27]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[28]_i_1 
        (.I0(data1[28]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [28]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[28]),
         .O(ShiftReg[28]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[29]_i_1 
        (.I0(data1[29]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [29]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[29]),
         .O(ShiftReg[29]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[2]_i_1 
        (.I0(data1[2]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [2]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[2]),
         .O(ShiftReg[2]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[30]_i_1 
        (.I0(data1[30]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [30]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[30]),
         .O(ShiftReg[30]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[31]_i_1 
        (.I0(data1[31]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [31]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[31]),
         .O(ShiftReg[31]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[3]_i_1 
        (.I0(data1[3]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [3]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[3]),
         .O(ShiftReg[3]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[4]_i_1 
        (.I0(data1[4]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [4]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[4]),
         .O(ShiftReg[4]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[5]_i_1 
        (.I0(data1[5]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [5]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[5]),
         .O(ShiftReg[5]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[6]_i_1 
        (.I0(data1[6]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [6]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[6]),
         .O(ShiftReg[6]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[7]_i_1 
        (.I0(data1[7]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [7]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[7]),
         .O(ShiftReg[7]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[8]_i_1 
        (.I0(data1[8]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [8]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[8]),
         .O(ShiftReg[8]));
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \ShiftReg[9]_i_1 
        (.I0(data1[9]),
-        .I1(\FSM_onehot_I2SState[5]_i_3_n_0 ),
-        .I2(\FSM_onehot_I2SState[5]_i_5_n_0 ),
-        .I3(\ShiftReg_reg[31]_0 [9]),
+        .I1(\FSM_sequential_I2SState[2]_i_2_n_0 ),
+        .I2(Data[9]),
         .O(ShiftReg[9]));
   FDRE #(
     .INIT(1'b0)) 
@@ -8377,13 +8481,6 @@ end
   OBUF Active_OBUF_inst
        (.I(Active_OBUF),
         .O(Active));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    Active_OBUF_inst_i_1
-       (.I0(Resetn_IBUF),
-        .I1(Locked),
-        .O(Active_OBUF));
   (* hw_handoff = "DataROM.hwdef" *) 
   DataROM AudioData
        (.ACLK(Clock_IBUF),
@@ -8399,16 +8496,17 @@ end
        (.I(Clock),
         .O(Clock_IBUF));
   I2S I2S_Transmitter
-       (.AudioClock_reg_0(I2S_Transmitter_n_2),
+       (.ARESETN(Active_OBUF),
+        .AudioClock_reg_0(I2S_Transmitter_n_2),
         .CLK(MCLK_OBUF_BUFG),
         .Clock(Clock_IBUF),
-        .D(TDATA),
         .LRCLK_OBUF(LRCLK_OBUF),
         .Locked(Locked),
         .Resetn_IBUF(Resetn_IBUF),
         .SCLK_OBUF(SCLK_OBUF),
         .SD_Int_reg(LRCLK_Int_reg_i_3_n_0),
         .SD_OBUF(SD_OBUF),
+        .TDATA(TDATA),
         .TREADY(TREADY),
         .TVALID(TVALID));
   (* hw_handoff = "ClockGeneration.hwdef" *) 
@@ -8428,7 +8526,6 @@ end
   BUFG MCLK_OBUF_BUFG_inst
        (.I(MCLK_OBUF),
         .O(MCLK_OBUF_BUFG));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h8)) 
     MCLK_OBUF_BUFG_inst_i_1
@@ -8447,564 +8544,6 @@ end
   OBUF SD_OBUF_inst
        (.I(SD_OBUF),
         .O(SD));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_generic_cstr
-   (douta,
-    clka,
-    addra);
-  output [15:0]douta;
-  input clka;
-  input [10:0]addra;
-
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_prim_width \ramloop[0].ram.r 
-       (.addra(addra),
-        .clka(clka),
-        .douta(douta));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_prim_width
-   (douta,
-    clka,
-    addra);
-  output [15:0]douta;
-  input clka;
-  input [10:0]addra;
-
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_prim_wrapper_init \prim_init.ram 
-       (.addra(addra),
-        .clka(clka),
-        .douta(douta));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_prim_wrapper_init
-   (douta,
-    clka,
-    addra);
-  output [15:0]douta;
-  input clka;
-  input [10:0]addra;
-
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_70 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_71 ;
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:16]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:2]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(0),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'hE78DE2A0DD4ED79FD197CB3CC495BDAAB67FAF1EA78D9FD597FC900A88098000),
-    .INIT_01(256'hF702F9BCFBFAFDBBFEFDFFBFFFFFFFBFFEFDFDBBFBFAF9BCF702F3D1F02AEC12),
-    .INIT_02(256'h97FC9FD5A78DAF1EB67FBDAAC495CB3CD197D79FDD4EE2A0E78DEC12F02AF3D1),
-    .INIT_03(256'h22B128602E6834C33B6A4255498050E15872602A68036FF577F680008809900A),
-    .INIT_04(256'h040502440102004000000040010202440405064308FD0C2E0FD513ED18721D5F),
-    .INIT_05(256'h587250E1498042553B6A34C32E68286022B11D5F187213ED0FD50C2E08FD0643),
-    .INIT_06(256'h00000000000000000000000000000000000000000000000077F66FF56803602A),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
-    .READ_WIDTH_A(18),
-    .READ_WIDTH_B(18),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(18),
-    .WRITE_WIDTH_B(18)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(clka),
-        .CLKBWRCLK(clka),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,1'b0}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:16],douta}),
-        .DOBDO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:0]),
-        .DOPADOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:2],\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_70 ,\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_71 }),
-        .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(1'b1),
-        .ENBWREN(1'b0),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
-        .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({1'b0,1'b0,1'b0,1'b0}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_top
-   (douta,
-    clka,
-    addra);
-  output [15:0]douta;
-  input clka;
-  input [10:0]addra;
-
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_generic_cstr \valid.cstr 
-       (.addra(addra),
-        .clka(clka),
-        .douta(douta));
-endmodule
-
-(* C_ADDRA_WIDTH = "11" *) (* C_ADDRB_WIDTH = "11" *) (* C_ALGORITHM = "1" *) 
-(* C_AXI_ID_WIDTH = "4" *) (* C_AXI_SLAVE_TYPE = "0" *) (* C_AXI_TYPE = "1" *) 
-(* C_BYTE_SIZE = "9" *) (* C_COMMON_CLK = "0" *) (* C_COUNT_18K_BRAM = "0" *) 
-(* C_COUNT_36K_BRAM = "1" *) (* C_CTRL_ECC_ALGO = "NONE" *) (* C_DEFAULT_DATA = "0" *) 
-(* C_DISABLE_WARN_BHV_COLL = "0" *) (* C_DISABLE_WARN_BHV_RANGE = "0" *) (* C_ELABORATION_DIR = "./" *) 
-(* C_ENABLE_32BIT_ADDRESS = "0" *) (* C_EN_DEEPSLEEP_PIN = "0" *) (* C_EN_ECC_PIPE = "0" *) 
-(* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
-(* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     2.43555 mW" *) 
-(* C_FAMILY = "zynq" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "0" *) 
-(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
-(* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
-(* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
-(* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
-(* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "NONE" *) 
-(* C_INIT_FILE_NAME = "ROM_blk_mem_gen_0_0.mif" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "1" *) 
-(* C_MEM_TYPE = "3" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
-(* C_READ_DEPTH_A = "2048" *) (* C_READ_DEPTH_B = "2048" *) (* C_READ_LATENCY_A = "1" *) 
-(* C_READ_LATENCY_B = "1" *) (* C_READ_WIDTH_A = "16" *) (* C_READ_WIDTH_B = "16" *) 
-(* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) (* C_RST_PRIORITY_A = "CE" *) 
-(* C_RST_PRIORITY_B = "CE" *) (* C_SIM_COLLISION_CHECK = "ALL" *) (* C_USE_BRAM_BLOCK = "0" *) 
-(* C_USE_BYTE_WEA = "0" *) (* C_USE_BYTE_WEB = "0" *) (* C_USE_DEFAULT_DATA = "0" *) 
-(* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) (* C_USE_URAM = "0" *) 
-(* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) (* C_WRITE_DEPTH_A = "2048" *) 
-(* C_WRITE_DEPTH_B = "2048" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
-(* C_WRITE_WIDTH_A = "16" *) (* C_WRITE_WIDTH_B = "16" *) (* C_XDEVICEFAMILY = "zynq" *) 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_v8_4_2
-   (clka,
-    rsta,
-    ena,
-    regcea,
-    wea,
-    addra,
-    dina,
-    douta,
-    clkb,
-    rstb,
-    enb,
-    regceb,
-    web,
-    addrb,
-    dinb,
-    doutb,
-    injectsbiterr,
-    injectdbiterr,
-    eccpipece,
-    sbiterr,
-    dbiterr,
-    rdaddrecc,
-    sleep,
-    deepsleep,
-    shutdown,
-    rsta_busy,
-    rstb_busy,
-    s_aclk,
-    s_aresetn,
-    s_axi_awid,
-    s_axi_awaddr,
-    s_axi_awlen,
-    s_axi_awsize,
-    s_axi_awburst,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wlast,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bid,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_arid,
-    s_axi_araddr,
-    s_axi_arlen,
-    s_axi_arsize,
-    s_axi_arburst,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rid,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rlast,
-    s_axi_rvalid,
-    s_axi_rready,
-    s_axi_injectsbiterr,
-    s_axi_injectdbiterr,
-    s_axi_sbiterr,
-    s_axi_dbiterr,
-    s_axi_rdaddrecc);
-  input clka;
-  input rsta;
-  input ena;
-  input regcea;
-  input [0:0]wea;
-  input [10:0]addra;
-  input [15:0]dina;
-  output [15:0]douta;
-  input clkb;
-  input rstb;
-  input enb;
-  input regceb;
-  input [0:0]web;
-  input [10:0]addrb;
-  input [15:0]dinb;
-  output [15:0]doutb;
-  input injectsbiterr;
-  input injectdbiterr;
-  input eccpipece;
-  output sbiterr;
-  output dbiterr;
-  output [10:0]rdaddrecc;
-  input sleep;
-  input deepsleep;
-  input shutdown;
-  output rsta_busy;
-  output rstb_busy;
-  input s_aclk;
-  input s_aresetn;
-  input [3:0]s_axi_awid;
-  input [31:0]s_axi_awaddr;
-  input [7:0]s_axi_awlen;
-  input [2:0]s_axi_awsize;
-  input [1:0]s_axi_awburst;
-  input s_axi_awvalid;
-  output s_axi_awready;
-  input [15:0]s_axi_wdata;
-  input [0:0]s_axi_wstrb;
-  input s_axi_wlast;
-  input s_axi_wvalid;
-  output s_axi_wready;
-  output [3:0]s_axi_bid;
-  output [1:0]s_axi_bresp;
-  output s_axi_bvalid;
-  input s_axi_bready;
-  input [3:0]s_axi_arid;
-  input [31:0]s_axi_araddr;
-  input [7:0]s_axi_arlen;
-  input [2:0]s_axi_arsize;
-  input [1:0]s_axi_arburst;
-  input s_axi_arvalid;
-  output s_axi_arready;
-  output [3:0]s_axi_rid;
-  output [15:0]s_axi_rdata;
-  output [1:0]s_axi_rresp;
-  output s_axi_rlast;
-  output s_axi_rvalid;
-  input s_axi_rready;
-  input s_axi_injectsbiterr;
-  input s_axi_injectdbiterr;
-  output s_axi_sbiterr;
-  output s_axi_dbiterr;
-  output [10:0]s_axi_rdaddrecc;
-
-  wire \<const0> ;
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-
-  assign dbiterr = \<const0> ;
-  assign doutb[15] = \<const0> ;
-  assign doutb[14] = \<const0> ;
-  assign doutb[13] = \<const0> ;
-  assign doutb[12] = \<const0> ;
-  assign doutb[11] = \<const0> ;
-  assign doutb[10] = \<const0> ;
-  assign doutb[9] = \<const0> ;
-  assign doutb[8] = \<const0> ;
-  assign doutb[7] = \<const0> ;
-  assign doutb[6] = \<const0> ;
-  assign doutb[5] = \<const0> ;
-  assign doutb[4] = \<const0> ;
-  assign doutb[3] = \<const0> ;
-  assign doutb[2] = \<const0> ;
-  assign doutb[1] = \<const0> ;
-  assign doutb[0] = \<const0> ;
-  assign rdaddrecc[10] = \<const0> ;
-  assign rdaddrecc[9] = \<const0> ;
-  assign rdaddrecc[8] = \<const0> ;
-  assign rdaddrecc[7] = \<const0> ;
-  assign rdaddrecc[6] = \<const0> ;
-  assign rdaddrecc[5] = \<const0> ;
-  assign rdaddrecc[4] = \<const0> ;
-  assign rdaddrecc[3] = \<const0> ;
-  assign rdaddrecc[2] = \<const0> ;
-  assign rdaddrecc[1] = \<const0> ;
-  assign rdaddrecc[0] = \<const0> ;
-  assign rsta_busy = \<const0> ;
-  assign rstb_busy = \<const0> ;
-  assign s_axi_arready = \<const0> ;
-  assign s_axi_awready = \<const0> ;
-  assign s_axi_bid[3] = \<const0> ;
-  assign s_axi_bid[2] = \<const0> ;
-  assign s_axi_bid[1] = \<const0> ;
-  assign s_axi_bid[0] = \<const0> ;
-  assign s_axi_bresp[1] = \<const0> ;
-  assign s_axi_bresp[0] = \<const0> ;
-  assign s_axi_bvalid = \<const0> ;
-  assign s_axi_dbiterr = \<const0> ;
-  assign s_axi_rdaddrecc[10] = \<const0> ;
-  assign s_axi_rdaddrecc[9] = \<const0> ;
-  assign s_axi_rdaddrecc[8] = \<const0> ;
-  assign s_axi_rdaddrecc[7] = \<const0> ;
-  assign s_axi_rdaddrecc[6] = \<const0> ;
-  assign s_axi_rdaddrecc[5] = \<const0> ;
-  assign s_axi_rdaddrecc[4] = \<const0> ;
-  assign s_axi_rdaddrecc[3] = \<const0> ;
-  assign s_axi_rdaddrecc[2] = \<const0> ;
-  assign s_axi_rdaddrecc[1] = \<const0> ;
-  assign s_axi_rdaddrecc[0] = \<const0> ;
-  assign s_axi_rdata[15] = \<const0> ;
-  assign s_axi_rdata[14] = \<const0> ;
-  assign s_axi_rdata[13] = \<const0> ;
-  assign s_axi_rdata[12] = \<const0> ;
-  assign s_axi_rdata[11] = \<const0> ;
-  assign s_axi_rdata[10] = \<const0> ;
-  assign s_axi_rdata[9] = \<const0> ;
-  assign s_axi_rdata[8] = \<const0> ;
-  assign s_axi_rdata[7] = \<const0> ;
-  assign s_axi_rdata[6] = \<const0> ;
-  assign s_axi_rdata[5] = \<const0> ;
-  assign s_axi_rdata[4] = \<const0> ;
-  assign s_axi_rdata[3] = \<const0> ;
-  assign s_axi_rdata[2] = \<const0> ;
-  assign s_axi_rdata[1] = \<const0> ;
-  assign s_axi_rdata[0] = \<const0> ;
-  assign s_axi_rid[3] = \<const0> ;
-  assign s_axi_rid[2] = \<const0> ;
-  assign s_axi_rid[1] = \<const0> ;
-  assign s_axi_rid[0] = \<const0> ;
-  assign s_axi_rlast = \<const0> ;
-  assign s_axi_rresp[1] = \<const0> ;
-  assign s_axi_rresp[0] = \<const0> ;
-  assign s_axi_rvalid = \<const0> ;
-  assign s_axi_sbiterr = \<const0> ;
-  assign s_axi_wready = \<const0> ;
-  assign sbiterr = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_v8_4_2_synth inst_blk_mem_gen
-       (.addra(addra),
-        .clka(clka),
-        .douta(douta));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2_synth" *) 
-module DataROM_AXI4S_ROM_0_1__blk_mem_gen_v8_4_2_synth
-   (douta,
-    clka,
-    addra);
-  output [15:0]douta;
-  input clka;
-  input [10:0]addra;
-
-  wire [10:0]addra;
-  wire clka;
-  wire [15:0]douta;
-
-  DataROM_AXI4S_ROM_0_1__blk_mem_gen_top \gnbram.gnativebmg.native_blk_mem_gen 
-       (.addra(addra),
-        .clka(clka),
-        .douta(douta));
 endmodule
 `ifndef GLBL
 `define GLBL

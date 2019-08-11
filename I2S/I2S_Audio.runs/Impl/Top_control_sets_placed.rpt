@@ -1,0 +1,80 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Fri Aug  9 20:52:25 2019
+| Host         : PC running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
+| Design       : Top
+| Device       : xc7z010
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    15 |
+| Unused register locations in slices containing registers |    23 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            2 |
+|    16+ |           13 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              17 |            9 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              98 |           24 |
+| Yes          | No                    | No                     |              33 |            9 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             245 |           61 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------+-------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|      Clock Signal      |               Enable Signal               |                    Set/Reset Signal                   | Slice Load Count | Bel Load Count |
++------------------------+-------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|  Clock_IBUF_BUFG       | AudioData/SineROM/U0/Address_0            |                                                       |                1 |              1 |
+|  MCLK_OBUF_BUFG        |                                           |                                                       |                1 |              1 |
+|  Clock_IBUF_BUFG       |                                           |                                                       |                8 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/AudioData[31]_i_2_n_0     | I2S_Transmitter/AudioData[31]_i_1_n_0                 |                5 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/FIFO_0[0][31]_i_1_n_0     | I2S_Transmitter/FIFO_0[3][31]_i_1_n_0                 |                5 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/FIFO_0[1]_3               | I2S_Transmitter/FIFO_0[3][31]_i_1_n_0                 |                4 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/FIFO_0[2]_2               | I2S_Transmitter/FIFO_0[3][31]_i_1_n_0                 |                4 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/FIFO_0[3]_1               | I2S_Transmitter/FIFO_0[3][31]_i_1_n_0                 |                8 |             16 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/BytesInFIFO_0[31]_i_2_n_0 | I2S_Transmitter/BytesInFIFO_0[31]_i_1_n_0             |                9 |             32 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/ReadCounter[0]_i_1_n_0    |                                                       |                8 |             32 |
+|  MCLK_OBUF_BUFG        |                                           | I2S_Transmitter/Transmitter/SR[0]                     |                9 |             32 |
+|  LRCLK_Int_reg_i_3_n_0 |                                           | I2S_Transmitter/Transmitter/BitCounter_Int[0]_i_1_n_0 |                8 |             32 |
+|  LRCLK_Int_reg_i_3_n_0 |                                           | I2S_Transmitter/Transmitter/SR[0]                     |                7 |             34 |
+|  Clock_IBUF_BUFG       | AudioData/SineROM/U0/Address_0            | AudioData/SineROM/U0/Address[31]_i_1_n_0              |                8 |             37 |
+|  Clock_IBUF_BUFG       | I2S_Transmitter/BytesInFIFO_1[31]_i_2_n_0 | I2S_Transmitter/BytesInFIFO_1[31]_i_1_n_0             |               18 |             96 |
++------------------------+-------------------------------------------+-------------------------------------------------------+------------------+----------------+
+
+

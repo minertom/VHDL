@@ -1,0 +1,6 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/Dropbox/Git/VHDL/I2S/I2S_Audio.sim/sim_2/impl/timing/xsim/Testbench_time_impl.v,1565372410,verilog,,,,ClockGeneration;ClockGeneration_clk_wiz_0_0;ClockGeneration_clk_wiz_0_0_ClockGeneration_clk_wiz_0_0_clk_wiz;DataROM;DataROM_AXI4S_ROM_0_1;DataROM_AXI4S_ROM_0_1__AXI4S_ROM;DataROM_AXI4S_ROM_0_1__ROM;I2S;I2S_Transmitter;Top;glbl,,axi4stream_vip_v1_1_4;xilinx_vip,../../../../../I2S_Audio.srcs/sources_1/bd/ClockGeneration/ipshared/85a3;../../../../../I2S_Audio.srcs/sources_1/bd/StreamWriter/ipshared/8713/hdl;D:/Xilinx/Vivado/2018.3/data/xilinx_vip/include,,,,,
+D:/Dropbox/Git/VHDL/I2S/I2S_Audio.srcs/sim_2/new/Testbench.vhd,1565357916,vhdl,,,,testbench,,,,,,,,

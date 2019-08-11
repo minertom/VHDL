@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"DataROM": {
+			"proto_instances": {
+			}
+		}
+	}
+}

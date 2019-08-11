@@ -131,23 +131,23 @@ begin
                     AudioData <= (others => '0');
                     BytesInFIFO_1 <= 0;
                     FIFO_1_Full <= '0';
-                    
+
                     if      ARESETN = '1' then I2SState <= WaitForFIFO;
                     elsif   ARESETN = '0' then I2SState <= Reset;
                     end if;
-                    
+
                 when WaitForFIFO =>
                     if      FIFO_0_Full = '1' then  FIFO_1 <= FIFO_0;
                                                     FIFO_1_Full <= '1';
                                                     I2SState <= WaitForSync;
                                                     BytesInFIFO_1 <= BytesInFIFO_0;
                     end if;
-                
+
                 when WaitForSync =>
                     if      (BitCounter = ((2 * WIDTH) - 3)) then   I2SState <= LoadData;
                     else    I2SState <= WaitForSync;
                     end if;
-                    
+
                 when LoadData =>
                     AudioData <= FIFO_1(ReadCounter);
                     
@@ -155,7 +155,7 @@ begin
                     else    ReadCounter <= 0;
                             FIFO_1_Full <= '0';
                     end if;
-                    
+
                     I2SState <= StartTransmission;
 
                 when StartTransmission =>
@@ -178,39 +178,43 @@ begin
                     TREADY_Int <= '0';
                     FIFO_0_Full <= '0';
                     BytesInFIFO_0 <= 0;
-                    
+
                     if      ARESETN = '1' then FIFOState <= WaitForValid;
                     elsif   ARESETN = '0' then FIFOState <= Reset;
                     end if;
 
                 when WaitForValid =>
+                    FIFO_0_Full <= '0';
                     if      TVALID = '1' then FIFOState <= ACKData;
                                               TREADY_Int <= '1';
                     elsif   TVALID = '0' then FIFOState <= WaitForValid;
                                               TREADY_Int <= '0';
                     end if;       
-                
+
                 when ACKData =>
                     TREADY_Int <= '0';
                     FIFO_0(BytesInFIFO_0) <= TDATA;
 
-                    if      BytesInFIFO_0 < (FIFO_WIDTH - 1) then  BytesInFIFO_0 <= BytesInFIFO_0 + 1;
-                    end if;
-                    
-                    if      BytesInFIFO_0 = (FIFO_WIDTH - 1) then   FIFOState <= Full_FIFO_0;
-                                                                    FIFO_0_Full <= '1';
-                    else    FIFOState <= WaitForValid;
+                    if      BytesInFIFO_0 < (FIFO_WIDTH - 1) then   BytesInFIFO_0 <= BytesInFIFO_0 + 1;
+                                                                    FIFOState <= WaitForValid;
+                    else    FIFO_0_Full <= '1';
+                            
+                            if      FIFO_1_Full = '0' then  FIFOState <= Full_FIFO_0;
+                            else    FIFOState <= Full_FIFO_1;
+                            end if;
                     end if;
 
                 when Full_FIFO_0 =>
-                    -- Wait and stop all messages until FIFO 1 becomes empty
-                    if      FIFO_1_Full = '1' then  FIFOState <= Full_FIFO_0;
-                    else    FIFOState <= WaitForValid;
-                            FIFO_0_Full <= '0';
-                            BytesInFIFO_0 <= 0;
+                    if      FIFO_1_Full = '1' then  FIFOState <= WaitForValid;
+                                                    BytesInFIFO_0 <= 0;
+                    else    FIFOState <= Full_FIFO_0;
                     end if;
-                    
+
                 when Full_FIFO_1 =>
+                    if      FIFO_1_Full = '1' then  FIFOState <= Full_FIFO_1;
+                    elsif   FIFO_0_Full = '1' then  FIFOState <= Full_FIFO_0;
+                    end if;
+
             end case;
         end if;
     end process;

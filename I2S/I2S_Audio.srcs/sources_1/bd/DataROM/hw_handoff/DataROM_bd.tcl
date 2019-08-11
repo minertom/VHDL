@@ -169,7 +169,7 @@ proc create_root_design { parentCell } {
   set TVALID [ create_bd_port -dir O TVALID ]
 
   # Create instance: SineROM, and set properties
-  set SineROM [ create_bd_cell -type ip -vlnv www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0 SineROM ]
+  set SineROM [ create_bd_cell -type ip -vlnv www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:2.0 SineROM ]
 
   # Create port connections
   connect_bd_net -net ACLK_1 [get_bd_ports ACLK] [get_bd_pins SineROM/ACLK]

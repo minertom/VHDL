@@ -1,0 +1,7 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/Dropbox/Git/VHDL/I2S/I2S_Audio.sim/sim_2/impl/func/xsim/Testbench_func_impl.vhd,1565361372,vhdl,,,,\DataROM_AXI4S_ROM_0_1__AXI4S_ROM\;\DataROM_AXI4S_ROM_0_1__ROM\;clockgeneration;clockgeneration_clk_wiz_0_0;clockgeneration_clk_wiz_0_0_clockgeneration_clk_wiz_0_0_clk_wiz;datarom;datarom_axi4s_rom_0_1;i2s;i2s_transmitter;top,,,,,,,,
+D:/Dropbox/Git/VHDL/I2S/I2S_Audio.sim/sim_2/impl/func/xsim/glbl.v,1564754441,verilog,,,,glbl,,axi4stream_vip_v1_1_4;xilinx_vip,,,,,,
+D:/Dropbox/Git/VHDL/I2S/I2S_Audio.srcs/sim_2/new/Testbench.vhd,1565357916,vhdl,,,,testbench,,,,,,,,

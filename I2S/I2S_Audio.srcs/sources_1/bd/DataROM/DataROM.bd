@@ -73,7 +73,7 @@
     },
     "components": {
       "SineROM": {
-        "vlnv": "www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:1.0",
+        "vlnv": "www.kampis-elektroecke.de:Kampis-Elektroecke:AXI4S_ROM:2.0",
         "xci_name": "DataROM_AXI4S_ROM_0_1"
       }
     },
