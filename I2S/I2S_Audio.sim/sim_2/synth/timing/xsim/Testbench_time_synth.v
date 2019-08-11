@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Fri Aug  9 19:31:30 2019
+// Date        : Sat Aug 10 15:11:58 2019
 // Host        : PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               D:/Dropbox/Git/VHDL/I2S/I2S_Audio.sim/sim_2/synth/timing/xsim/Testbench_time_synth.v
@@ -8439,7 +8439,8 @@ module Top
     MCLK,
     LRCLK,
     SCLK,
-    SD);
+    SD,
+    A);
   input Clock;
   input Resetn;
   output Active;
@@ -8448,7 +8449,9 @@ module Top
   output LRCLK;
   output SCLK;
   output SD;
+  output [31:0]A;
 
+  wire [31:0]A;
   wire Active;
   wire Active_OBUF;
   wire Clock;
@@ -8478,6 +8481,134 @@ module Top
 initial begin
  $sdf_annotate("Testbench_time_synth.sdf",,,,"tool_control");
 end
+  OBUFT \A_OBUF[0]_inst 
+       (.I(1'b0),
+        .O(A[0]),
+        .T(1'b1));
+  OBUFT \A_OBUF[10]_inst 
+       (.I(1'b0),
+        .O(A[10]),
+        .T(1'b1));
+  OBUFT \A_OBUF[11]_inst 
+       (.I(1'b0),
+        .O(A[11]),
+        .T(1'b1));
+  OBUFT \A_OBUF[12]_inst 
+       (.I(1'b0),
+        .O(A[12]),
+        .T(1'b1));
+  OBUFT \A_OBUF[13]_inst 
+       (.I(1'b0),
+        .O(A[13]),
+        .T(1'b1));
+  OBUFT \A_OBUF[14]_inst 
+       (.I(1'b0),
+        .O(A[14]),
+        .T(1'b1));
+  OBUFT \A_OBUF[15]_inst 
+       (.I(1'b0),
+        .O(A[15]),
+        .T(1'b1));
+  OBUFT \A_OBUF[16]_inst 
+       (.I(1'b0),
+        .O(A[16]),
+        .T(1'b1));
+  OBUFT \A_OBUF[17]_inst 
+       (.I(1'b0),
+        .O(A[17]),
+        .T(1'b1));
+  OBUFT \A_OBUF[18]_inst 
+       (.I(1'b0),
+        .O(A[18]),
+        .T(1'b1));
+  OBUFT \A_OBUF[19]_inst 
+       (.I(1'b0),
+        .O(A[19]),
+        .T(1'b1));
+  OBUFT \A_OBUF[1]_inst 
+       (.I(1'b0),
+        .O(A[1]),
+        .T(1'b1));
+  OBUFT \A_OBUF[20]_inst 
+       (.I(1'b0),
+        .O(A[20]),
+        .T(1'b1));
+  OBUFT \A_OBUF[21]_inst 
+       (.I(1'b0),
+        .O(A[21]),
+        .T(1'b1));
+  OBUFT \A_OBUF[22]_inst 
+       (.I(1'b0),
+        .O(A[22]),
+        .T(1'b1));
+  OBUFT \A_OBUF[23]_inst 
+       (.I(1'b0),
+        .O(A[23]),
+        .T(1'b1));
+  OBUFT \A_OBUF[24]_inst 
+       (.I(1'b0),
+        .O(A[24]),
+        .T(1'b1));
+  OBUFT \A_OBUF[25]_inst 
+       (.I(1'b0),
+        .O(A[25]),
+        .T(1'b1));
+  OBUFT \A_OBUF[26]_inst 
+       (.I(1'b0),
+        .O(A[26]),
+        .T(1'b1));
+  OBUFT \A_OBUF[27]_inst 
+       (.I(1'b0),
+        .O(A[27]),
+        .T(1'b1));
+  OBUFT \A_OBUF[28]_inst 
+       (.I(1'b0),
+        .O(A[28]),
+        .T(1'b1));
+  OBUFT \A_OBUF[29]_inst 
+       (.I(1'b0),
+        .O(A[29]),
+        .T(1'b1));
+  OBUFT \A_OBUF[2]_inst 
+       (.I(1'b0),
+        .O(A[2]),
+        .T(1'b1));
+  OBUFT \A_OBUF[30]_inst 
+       (.I(1'b0),
+        .O(A[30]),
+        .T(1'b1));
+  OBUFT \A_OBUF[31]_inst 
+       (.I(1'b0),
+        .O(A[31]),
+        .T(1'b1));
+  OBUFT \A_OBUF[3]_inst 
+       (.I(1'b0),
+        .O(A[3]),
+        .T(1'b1));
+  OBUFT \A_OBUF[4]_inst 
+       (.I(1'b0),
+        .O(A[4]),
+        .T(1'b1));
+  OBUFT \A_OBUF[5]_inst 
+       (.I(1'b0),
+        .O(A[5]),
+        .T(1'b1));
+  OBUFT \A_OBUF[6]_inst 
+       (.I(1'b0),
+        .O(A[6]),
+        .T(1'b1));
+  OBUFT \A_OBUF[7]_inst 
+       (.I(1'b0),
+        .O(A[7]),
+        .T(1'b1));
+  OBUFT \A_OBUF[8]_inst 
+       (.I(1'b0),
+        .O(A[8]),
+        .T(1'b1));
+  OBUFT \A_OBUF[9]_inst 
+       (.I(1'b0),
+        .O(A[9]),
+        .T(1'b1));
   OBUF Active_OBUF_inst
        (.I(Active_OBUF),
         .O(Active));

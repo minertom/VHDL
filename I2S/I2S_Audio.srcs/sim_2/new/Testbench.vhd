@@ -46,7 +46,7 @@ architecture Testbench_Arch of Testbench is
     signal LRCLK            : STD_LOGIC := '0';
     signal SCLK             : STD_LOGIC := '0';
     signal SD               : STD_LOGIC := '0';
-    
+
     component Top is
         Port (  Clock    : in STD_LOGIC;
                 Resetn   : in STD_LOGIC;

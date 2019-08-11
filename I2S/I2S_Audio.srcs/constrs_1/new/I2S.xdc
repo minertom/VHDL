@@ -17,7 +17,7 @@ set_property PACKAGE_PIN W16 [get_ports LRCLK]
 set_property PACKAGE_PIN J15 [get_ports SCLK]
 set_property PACKAGE_PIN H15 [get_ports SD]
 
-# LED 
+# LED
 set_property IOSTANDARD LVCMOS33 [get_ports Last]
 set_property IOSTANDARD LVCMOS33 [get_ports Active]
 

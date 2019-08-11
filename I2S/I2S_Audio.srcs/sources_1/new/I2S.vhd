@@ -133,7 +133,6 @@ begin
                     FIFO_1_Full <= '0';
 
                     if      ARESETN = '1' then I2SState <= WaitForFIFO;
-                    elsif   ARESETN = '0' then I2SState <= Reset;
                     end if;
 
                 when WaitForFIFO =>
@@ -144,8 +143,7 @@ begin
                     end if;
 
                 when WaitForSync =>
-                    if      (BitCounter = ((2 * WIDTH) - 3)) then   I2SState <= LoadData;
-                    else    I2SState <= WaitForSync;
+                    if      (BitCounter >= ((2 * WIDTH) - 3)) then   I2SState <= LoadData;
                     end if;
 
                 when LoadData =>
@@ -180,7 +178,6 @@ begin
                     BytesInFIFO_0 <= 0;
 
                     if      ARESETN = '1' then FIFOState <= WaitForValid;
-                    elsif   ARESETN = '0' then FIFOState <= Reset;
                     end if;
 
                 when WaitForValid =>
@@ -207,7 +204,6 @@ begin
                 when Full_FIFO_0 =>
                     if      FIFO_1_Full = '1' then  FIFOState <= WaitForValid;
                                                     BytesInFIFO_0 <= 0;
-                    else    FIFOState <= Full_FIFO_0;
                     end if;
 
                 when Full_FIFO_1 =>
